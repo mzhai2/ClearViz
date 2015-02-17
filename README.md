@@ -27,7 +27,7 @@ ClearCloudNLP
 ·      Run ClearNLP on EC2 and sell as a service
 
 Tools (indicate interest with name, we can have more than person working on a thing):
-Django
+Spring Framework
 ClearNLP (Mike)
 jQuery (Mike)
 Bootstrap
