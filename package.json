@@ -1,0 +1,28 @@
+{
+  "name": "ClearNLP-demo-website",
+  "version": "1.0.0",
+  "description": "Demonstrates ClearNLP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CS370-soft-eng-practicum/ClearNLP-demo-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CS370-soft-eng-practicum/ClearNLP-demo-website/issues"
+  },
+  "homepage": "https://github.com/CS370-soft-eng-practicum/ClearNLP-demo-website",
+  "dependencies": {
+    "angular": "^1.3.13",
+    "express": "^4.11.2",
+    "mongodb": "^1.4.31",
+    "n": "^1.2.13"
+  },
+  "devDependencies": {
+    "qunitjs": "^1.17.1"
+  }
+}
