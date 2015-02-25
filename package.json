@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/CS370-soft-eng-practicum/ClearNLP-demo-website/issues"
   },
-  "homepage": "https://github.com/CS370-soft-eng-practicum/ClearNLP-demo-website",
+  "homepage": "https://52.1.147.106",
   "dependencies": {
     "angular": "^1.3.13",
     "express": "^4.11.2",
