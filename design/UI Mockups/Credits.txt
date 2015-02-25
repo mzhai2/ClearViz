@@ -1,0 +1,6 @@
+Wireframes were created using NinjaMock (ninjamock.com) and Microsoft Paint.
+
+They were then pasted on top of MacBook Pro and Safari images found at 
+ -http://solomon.io/wp-content/uploads/2014/09/wiry-mackbook.jpg?373ef6
+ -http://solomon.io/wp-content/uploads/2014/09/Wiry-Download-Browser.jpg?373ef6
+
