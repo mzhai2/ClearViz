@@ -40,6 +40,9 @@ Using software from
 Use cases:
 Linguistics
 
+Tutorial Followed:
+https://www.youtube.com/watch?v=AEE7DY2AYvI
+
 Online Presentation:
 https://docs.google.com/presentation/d/1MypSuPZunaaxAwMscj3LS1YqIIETY3oNhz8wynE3GCs/edit?usp=sharing
 
