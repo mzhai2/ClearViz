@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pricing Tables - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+    .pricing {
+    text-align: center;
+}
+    </style>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
+            else $('head > link').filter(':first').replaceWith(defaultCSS); 
+        }
+        $( document ).ready(function() {
+          var iframe_height = parseInt($('html').height()); 
+          window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
+        });
+    </script>
+</head>
+<body>
+  <div class="container">
+          <div class="row pricing">
+          <div class="col-md-3">
+            <div class="well">
+              <h3><b>Plan 1</b></h3>
+              <hr>
+              <p>1 GB Datatransfer</p>
+              <hr>
+              <p>1 GB Storage</p>
+              <hr>
+              <p><b>€ 2,99 /PM</b></p>
+              <hr>
+              <a href="#" class="btn btn-default btn-block">Sign Up</a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="well">
+              <h3><b>Plan 2</b></h3>
+              <hr>
+              <p>2 GB Datatransfer</p>
+              <hr>
+              <p>2 GB Storage</p>
+              <hr>
+              <p><b>€ 3,99 /PM</b></p>
+              <hr>
+              <a href="#" class="btn btn-primary btn-block">Sign Up</a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="well">
+              <h3><b>Plan 3</b></h3>
+              <hr>
+              <p>3 GB Datatransfer</p>
+              <hr>
+              <p>3 GB Storage</p>
+              <hr>
+              <p><b>€ 4,99 /PM</b></p>
+              <hr>
+              <a href="#" class="btn btn-info btn-block">Sign Up</a>
+            </div>
+          </div>
+</div>
+  <script type="text/javascript">
+  
+  </script>
+</body>
+</html>
