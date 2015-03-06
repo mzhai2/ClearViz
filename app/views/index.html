@@ -2,22 +2,38 @@
 <html lang="en">
 
 <head>
+    <script src="modal.js"></script>
+    <script src="angular-modal-service.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <style>
+    body {
+      padding-top: 50px;
+    }
+    .starter-template {
+      padding: 40px 15px;
+      text-align: center;
+    }
+    .sample {
+      padding: 40px 15px;
+    }
+    </style>
+
     <title>ClearViz</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../../public/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom Google Web Font -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Add custom CSS here -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="../../public/css/landing-page.css" rel="stylesheet">
 
 </head>
 
@@ -32,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://startbootstrap.com">ClearViz</a>
+                <a class="navbar-brand" href="index.html">ClearViz</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,6 +80,9 @@
                         <ul class="list-inline intro-social-buttons">
                             <li><a href="signin.html" class="btn btn-default btn-lg"><i class="fa fa-sign-in fa-fw"></i> <span class="network-name">Sign In</span></a>
                             </li>
+
+
+
 
                             <li><a ng-click="launch('custom')" class="btn btn-default btn-lg"><i class="fa fa-flash fa-fw"></i> <span class="network-name">Sign Up</span></a>
                             </li>
@@ -98,7 +117,7 @@
 
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img src="img/screen.png" alt="">
+                    <img src="../../public/img/screen.png" alt="">
                 </div>
             </div>
 
@@ -120,7 +139,7 @@
                     <p class="lead">ClearViz offers many features all at the click of a button. From tokenization and segmentation to dependency parsing and part-of-speech tagging, ClearViz is a powerful resource that can meet all your needs fast and efficiently. Create a personalized account to experience a <i>clear</i> and reenvisioned way to analyze text.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/speed.png" alt="">
+                    <img class="img-responsive" src="../../public/img/speed.png" alt="">
                 </div>
             </div>
 
