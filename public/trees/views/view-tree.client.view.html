@@ -1,4 +1,9 @@
 <section data-ng-controller="TreesController" data-ng-init="findOne()">
+
+
+    <script src="../../public/js/clearnlp-demo.js"></script>
+
+
     <h1 data-ng-bind="tree.title"></h1>
     <div data-ng-show="authentication.user._id == tree.creator._id">
         <a href="/#!/trees/{{tree._id}}/edit">edit</a>
