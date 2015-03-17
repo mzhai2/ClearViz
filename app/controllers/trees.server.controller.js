@@ -13,27 +13,31 @@ if (err.errors) {
 };
 
 exports.create = function(req, res) {
-    var tree = new Tree(req.body);
-    Tree.creator = req.user;
-    tree.save(function(err) {
-        if (err) {
-            return res.status(400).send({
-                message: getErrorMessage(err)
-            });
-        } else {
-            var request = require('request');
-            request.post(
-                'http://127.0.0.1:4567/deptree',
-                { form: { key: tree.content } },
-                function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        tree.data = body;
+    var request = require('request');
+    request.post('http://52.1.147.106:4567/deptree', { form: {key:req.body.content} },
+        function(error, response, body) {
+            console.log(body);
+            if (!error && response.statusCode == 200) {
+                var tree = new Tree(req.body);
+                tree.creator = req.user;
+                // console.log(body);
+                tree.data = body;
+                console.log(tree);
+                tree.save(function(err) {
+                    if (err) {
+                        return res.status(400).send({
+                            message: getErrorMessage(err)
+                        });
+                    } else {
+                        res.json(tree);
                     }
-                }
-            );
-            res.json(tree);
+                });
+            }
+            else {
+                console.log('fail');
+            }
         }
-    });
+    );
 };
 
 exports.list = function(req, res) {

@@ -1,5 +1,5 @@
 <section data-ng-controller="TreesController" data-ng-init="find()">
-    <h1>Articles</h1>
+    <h1>Trees</h1>
     <ul>
         <li data-ng-repeat="tree in trees">
             <a data-ng-href="#!/trees/{{tree._id}}" data-ng-bind="tree.title"></a>
@@ -7,7 +7,6 @@
             <small data-ng-bind="tree.created | date:'medium'"></small> <small>/</small>
             <small data-ng-bind="tree.creator.fullName"></small>
             <p data-ng-bind="tree.content"></p>
-            <p data-ng-bind="tree.data"></p>
         </li>
     </ul>
     <div data-ng-hide="!trees || trees.length">
