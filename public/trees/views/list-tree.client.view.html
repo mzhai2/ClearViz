@@ -1,0 +1,16 @@
+<section data-ng-controller="TreesController" data-ng-init="find()">
+    <h1>Articles</h1>
+    <ul>
+        <li data-ng-repeat="tree in trees">
+            <a data-ng-href="#!/trees/{{tree._id}}" data-ng-
+            bind="tree.title"></a>
+            <br>
+            <small data-ng-bind="tree.created | date:'medium'"></small> <small>/</small>
+            <small data-ng-bind="tree.creator.fullName"></small>
+            <p data-ng-bind="tree.content"></p>
+        </li>
+    </ul>
+    <div data-ng-hide="!trees || trees.length">
+       No trees yet, why don't you <a href="/#!/trees/create">create one</a>?
+    </div>
+</section>

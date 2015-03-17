@@ -1,0 +1,13 @@
+<section data-ng-controller="TreesController" data-ng-init="findOne()">
+    <h1 data-ng-bind="tree.title"></h1>
+    <div data-ng-show="authentication.user._id == tree.creator._id">
+        <a href="/#!/trees/{{tree._id}}/edit">edit</a>
+        <a href="#" data-ng-click="delete();">delete</a>
+    </div>
+    <small>
+        <em>Posted on</em>
+        <em data-ng-bind="tree.created | date:'mediumDate'"></em> <em>by</em>
+        <em data-ng-bind="tree.creator.fullName"></em>
+    </small>
+    <p data-ng-bind="tree.content"></p>
+</section>
