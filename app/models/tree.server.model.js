@@ -14,8 +14,12 @@ title: {
 content: {
   type: String,
   default: '',
-  trim: true
-}, creator: {
+},
+data: {
+  type: String,
+  default: '',
+},
+creator: {
 type: Schema.ObjectId,
 ref: 'User' }
 });

@@ -4,12 +4,28 @@ angular.module('trees').controller('TreesController', ['$scope', '$routeParams',
 
 $scope.create = function() {
 
-    var $http = angular.injector(['ng']).get('$http');
-    $http.post('http://127.0.0.1:4567/deptree', {msg:this.content})
-    .success(function(data, status, headers, config) {
+  //   var $http = angular.injector(['ng']).get('$http');
+  //   $http.post('http://127.0.0.1:4567/deptree', {msg:this.content})
+  //   .success(function(data, status, headers, config) {
+  //   var tree = new Trees({
+  //       title: this.title,
+  //       content: data
+  //   });
+
+  //   tree.$save(function(response) {
+  //       $location.path('trees/' + response._id);
+  //   },function(errorResponse) {
+  //       $scope.error = errorResponse.data.message;
+  //   });
+  // }).
+  // error(function(data, status, headers, config) {
+  //   // called asynchronously if an error occurs
+  //   // or server returns response with an error status.
+  // });
+
     var tree = new Trees({
         title: this.title,
-        content: data
+        content: this.content
     });
 
     tree.$save(function(response) {
@@ -17,22 +33,6 @@ $scope.create = function() {
     },function(errorResponse) {
         $scope.error = errorResponse.data.message;
     });
-  }).
-  error(function(data, status, headers, config) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-  });
-
-    // var tree = new Trees({
-    //     title: this.title,
-    //     content: this.content
-    // });
-
-    // tree.$save(function(response) {
-    //     $location.path('trees/' + response._id);
-    // },function(errorResponse) {
-    //     $scope.error = errorResponse.data.message;
-    // });
 };
 
 $scope.find = function() {
