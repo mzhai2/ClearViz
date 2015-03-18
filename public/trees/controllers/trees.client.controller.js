@@ -12,8 +12,6 @@ $scope.create = function() {
         console.log('hello');
 
     tree.$save(function(response) {
-        // tree.data = response.data;
-        // console.log(tree);
         $location.path('trees/' + response._id);
     },function(errorResponse) {
         $scope.error = errorResponse.data.message;
