@@ -49,3 +49,5 @@ https://docs.google.com/presentation/d/1MypSuPZunaaxAwMscj3LS1YqIIETY3oNhz8wynE3
 http://requestmaker.com
 52.1.147.106:4567/deptree
 http://mathcs.emory.edu/~choi/clearnlp/demo/demo.html
+
+*Progress was originally tracked on PivatolTracker; however, due to the expiration of a trial version, progress is transferred and now being tracked on Trello.
