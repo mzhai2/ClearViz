@@ -1,11 +1,10 @@
 <section data-ng-controller="TreesController" data-ng-init="findOne()">
 
-<<<<<<< Updated upstream
+
 <script type="text/javascript" src="clearnlp_demo.js"></script>
 <link href="clearnlp_demo.css" rel="stylesheet" media="screen"/>
 
-=======
->>>>>>> Stashed changes
+
     <h1 data-ng-bind="tree.title"></h1>
     <div data-ng-show="authentication.user._id == tree.creator._id">
         <a href="/#!/trees/{{tree._id}}/edit">edit</a>
@@ -18,6 +17,13 @@
     </small>
     <p data-ng-bind="tree.content"></p>
     <p data-ng-bind="tree.data"></p>
+
+
+    <script src="../../public/js/clearnlp-demo.js">
+
+    angular.element(document.querySelector('[ng-controller="add"]')).scope().create
+
+    </script>
 
     <!-- <p>{{tree.data}}</p> -->
 </section>
