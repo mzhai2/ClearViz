@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<!--
 const FONT_ID     = "10px Arial";
 const FONT_FORM   = "13px Arial";
 const FONT_LEMMA  = "13px Arial";
@@ -129,7 +128,7 @@ function DEPNode(fields)
     this.deprel = fields[6];
 
     this.childIds   = [];
-	this.sArguments = [];
+    this.sArguments = [];
     this.sHeads = (fields.length > 7) ? fields[7] : BLANK;
 }
 
@@ -148,8 +147,8 @@ DEPNode.prototype._initFeats = function(field)
 
         if (feat.startsWith("pb="))
         {
-        	this.rolesetId = feat.slice(3);
-        	break;
+            this.rolesetId = feat.slice(3);
+            break;
         }
     }
 };
@@ -510,7 +509,7 @@ function _drawLexca(ctx, tree, y)
 
     ctx.beginPath();
     ctx.font = FONT_POS;
-    ctx.fillStyle = "#009900";		// green
+    ctx.fillStyle = "#009900";      // green
     y += 20;
 
     for (i=0; i<size; i++)
@@ -542,11 +541,11 @@ function _drawLexca(ctx, tree, y)
             ctx.font = FONT_DEPREL;
             ctx.fillStyle = "#0000FF";    // red
 
-			args = node.getArguments();
-			len = args.length;
+            args = node.getArguments();
+            len = args.length;
 
-			for (j=0; j<len; j++)
-			    ctx.fillText(args[j], rect.getFormX(), y+(j+1)*20);
+            for (j=0; j<len; j++)
+                ctx.fillText(args[j], rect.getFormX(), y+(j+1)*20);
 
             ctx.closePath();
         }
@@ -693,8 +692,8 @@ function initDEPTrees()
 
         if (fields.length < 7)
         {
-        	addDEPTree(d_trees, tree);
-			tree = new DEPTree();
+            addDEPTree(d_trees, tree);
+            tree = new DEPTree();
         }
         else
             tree.addNode(new DEPNode(fields));
@@ -723,13 +722,13 @@ function initDEPTrees()
 
 function addDEPTree(d_trees, tree)
 {
-	if (tree.size() > 1)
-	{
+    if (tree.size() > 1)
+    {
 
-		initChildIDs(tree);
-		initSRL(tree);
-		d_trees.push(tree);
-	}
+        initChildIDs(tree);
+        initSRL(tree);
+        d_trees.push(tree);
+    }
 }
 
 function initChildIDs(tree)
@@ -781,7 +780,7 @@ function drawDEPTree(id)
     tree.initGeometries(ctx);
     tree.setCanvas(ctx, zoom);
     ctx.scale(zoom, zoom);
-	ctx.fillStyle="#FFFFFF";
+    ctx.fillStyle="#FFFFFF";
     ctx.fillRect(0, 0, ctx.canvas.width*zoom, ctx.canvas.height*zoom);
     drawTree(ctx, tree);
     window.scrollTo(0, 0);
@@ -793,7 +792,7 @@ function clickPrevious()
 
     if (ids.options.length > 0 && ids.selectedIndex > 0)
     {
-    	ids.selectedIndex--;
+        ids.selectedIndex--;
         drawDEPTree(ids.selectedIndex);
     }
 }
@@ -804,7 +803,7 @@ function clickNext()
 
     if (ids.options.length > 0 && ids.selectedIndex+1 < ids.length)
     {
-    	ids.selectedIndex++;
+        ids.selectedIndex++;
         drawDEPTree(ids.selectedIndex);
     }
 }
@@ -815,7 +814,7 @@ function clickForward()
 
     if (ids.options.length > 0)
     {
-    	ids.selectedIndex = ids.length - 1;
+        ids.selectedIndex = ids.length - 1;
         drawDEPTree(ids.selectedIndex);
     }
 }
@@ -826,7 +825,7 @@ function clickBackward()
 
     if (ids.options.length > 0)
     {
-    	ids.selectedIndex = 0;
+        ids.selectedIndex = 0;
         drawDEPTree(ids.selectedIndex);
     }
 }
@@ -880,4 +879,3 @@ function loadScript(url, callback)
     // Fire the loading
     head.appendChild(script);
 }
--->
