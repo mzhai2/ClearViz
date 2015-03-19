@@ -23,16 +23,19 @@ var UserSchema = new Schema({
     	},'Password should be at least 5 characters long'
 		]
 	},
-    organization: String,
+    organization: {
+    type: String,
+        unique: true,
+        required: 'Organization is required',
+        trim: true
+    },
 	salt: {
   		type: String
 	},
 	provider: {
   	type: String,
-  		required: 'Provider is required'
+  	    default: 'local'
 	},
-	providerId: String,
-	providerData: {},
 	created: {
 	type: Date,
     	default: Date.now

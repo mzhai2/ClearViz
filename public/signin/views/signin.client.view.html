@@ -1,0 +1,67 @@
+<section ng-controller="SigninController">
+  <div class="container">
+    {{message}}
+      <h1>Login</h1><br>
+      <form ng-submit="signin()">
+        <p>
+          <label class="control-label">Username</label>
+          <input type="text" placeholder="Username" ng-model="user.username" />
+        </p>
+        <p>
+          <label class="control-label">Password</label>
+          <input type="password" placeholder="Password" ng-model="user.password" /><br/>
+        </p>
+        <p>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </p>
+      </form>
+
+      <p class="text-left">
+        <button class="btn btn-default" data-toggle="modal" data-target="#loginModal">Sign Up</button>
+      </p>
+
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+            <form ng-submit="signup()" id="loginForm" method="post" class="form-horizontal">
+               <p>
+                <label class="control-label">First Name</label>
+                <input type="text" placeholder="First Name" ng-model="user.firstName" />
+              </p>
+              <p>
+                <label class="control-label">Last Name</label>
+                <input type="text" placeholder="Last Name" ng-model="user.lastName" /><br/>
+              </p>
+              <p>
+                <label class="control-label">Organization</label>
+                <input type="text" placeholder="Organization" ng-model="user.organization" />
+              </p>
+              <p>
+                <label class="control-label">Email</label>
+                <input type="text" placeholder="Email" ng-model="user.email" /><br/>
+              </p>
+              <p>
+                <label class="control-label">Username</label>
+                <input type="text" placeholder="Username" ng-model="user.username" />
+              </p>
+              <p>
+                <label class="control-label">Password</label>
+                <input type="password" placeholder="Password" ng-model="user.password" /><br/>
+              </p>
+
+              <div class="form-group">
+                <div class="col-xs-5 col-xs-offset-3">
+                  <button type="submit" class="btn btn-default">Sign Up</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

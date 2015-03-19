@@ -3,16 +3,20 @@ passport = require('passport');
 
 module.exports = function(app) {
   app.route('/signup')
-  .get(users.renderSignup)
   .post(users.signup);
   
-  app.route('/signin')
-  .get(users.renderSignin)
-  .post(passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/signin',
-      failureFlash: true
-  }));
-  
-  app.get('/signout', users.signout);
+ app.post('/signin', passport.authenticate('local'), function(req, res) {
+  res.send(req.user);
+});
+
+app.get('/loggedin', function(req, res) {
+  res.send(req.isAuthenticated() ? req.user : '0');
+});
+
+// route to log out
+app.post('/signout', function(req, res){
+  req.logOut();
+  res.send(200);
+});
+
 };

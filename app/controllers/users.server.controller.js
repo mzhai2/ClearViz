@@ -20,46 +20,28 @@ var getErrorMessage = function(err) {
 	}
 	return message;
 };
-exports.renderSignin = function(req, res, next) {
-	if (!req.user) {
-		res.render('signin', {
-			title: 'Sign-in Form',
-			messages: req.flash('error') || req.flash('info')
-		});
-	} else {
-		return res.redirect('/');
-	}
-};
-exports.renderSignup = function(req, res, next) {
-	if (!req.user) {
-		res.render('signup', {
-			title: 'Sign-up Form',
-			messages: req.flash('error')
-		});
-	} else {
-		return res.redirect('/');
-	}
-};
 exports.signup = function(req, res, next) {
 	if (!req.user) {
+		// console.log(req.body);
 		var user = new User(req.body);
 		var message = null;
 		user.provider = 'local';
 		user.save(function(err) {
 			if (err) {
 				var message = getErrorMessage(err);
-				req.flash('error', message);
+				console.log(req);
 				return res.redirect('/signup');
 			}
 		req.login(user, function(err) {
 			if (err) return next(err);
-				return res.redirect('/');
+				return res.redirect('/tree');
 		});
 	});
 	} else {
 		return res.redirect('/');
 	}
 };
+
 exports.signout = function(req, res) {
 	req.logout();
 	res.redirect('/');
