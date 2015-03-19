@@ -15,9 +15,9 @@ module.exports = function(config)
         'public/*[!lib]*/tests/unit/*.js'
     ],
 
-  reporters: ['progress'],
-  browsers: ['PhantomJS','Chrome','Safari'],
-  captureTimeout: 60000,
-  singleRun: true
-});
+    reporters: ['progress'],
+    browsers: ['Chrome','Safari'],
+    captureTimeout: 60000,
+    singleRun: true
+    });
 };
