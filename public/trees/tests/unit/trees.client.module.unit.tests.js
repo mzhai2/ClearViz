@@ -1,4 +1,4 @@
-describe('Testing MEAN Main Module', function() { var mainModule;
+describe('Testing Trees Module', function() { var mainModule;
 
     beforeEach(function() {
     mainModule = angular.module('trees');

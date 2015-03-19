@@ -1,4 +1,4 @@
-describe('Testing Articles Controller', function() { var _scope, ArticlesController;
+describe('Testing Trees Controller', function() { var _scope, ArticlesController;
 
     beforeEach(function() {
         module('trees');
