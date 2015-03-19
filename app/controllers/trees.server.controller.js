@@ -14,16 +14,13 @@ if (err.errors) {
 
 exports.create = function(req, res) {
     var request = require('request');
-    console.log(req.body.content);
     request.post('http://52.1.147.106:4567/deptree', { form: req.body.content},
         function(error, response, body) {
             console.log(body);
             if (!error && response.statusCode == 200) {
                 var tree = new Tree(req.body);
                 tree.creator = req.user;
-                // console.log(body);
                 tree.data = body;
-                console.log(tree);
                 tree.save(function(err) {
                     if (err) {
                         return res.status(400).send({
