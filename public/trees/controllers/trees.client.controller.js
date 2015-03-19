@@ -21,10 +21,14 @@ angular.module('trees').controller('TreesController', ['$scope', '$routeParams',
         };
 
         $scope.findOne = function() {
-            $scope.tree = Trees.get({
+            var tree = Trees.get({
                 treeId: $routeParams.treeId
             });
-        };
+            $scope.tree = tree;
+            tree.$promise.then(function(realtree) {
+                initDEPTrees(realtree.data);
+            });
+        }
 
         $scope.update = function() {
             $scope.tree.$update(
@@ -36,6 +40,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$routeParams',
                 }
             );
         };
+
         $scope.delete = function(tree) {
             if (tree) {
                 tree.$remove(function() {

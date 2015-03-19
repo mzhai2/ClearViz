@@ -677,10 +677,11 @@ if (typeof String.prototype.startsWith != 'function')
 
 // ----------------------------------- Interface to HMTL5 -----------------------------------
 
-function initDEPTrees()
+function initDEPTrees(rawinput)
 {
     // initialize dependency trees
-    var input = document.getElementById("ta_input").value.trim();
+    // var input = document.getElementById("ta_input").value.trim();
+    var input = rawinput.trim();
     var fields, lines = input.split(DELIM_NODE);
     var i, size = lines.length;
     var tree = new DEPTree();
