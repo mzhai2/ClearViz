@@ -9,8 +9,6 @@ $scope.create = function() {
         content: this.content,
         data: null
     });
-        console.log('hello');
-
     tree.$save(function(response) {
         $location.path('trees/' + response._id);
     },function(errorResponse) {
@@ -38,7 +36,6 @@ $scope.update = function() {
         }
     );
 };
-
 $scope.delete = function(tree) {
     if (tree) {
         tree.$remove(function() {
@@ -49,8 +46,8 @@ $scope.delete = function(tree) {
             } 
         });
     } else {
-        $scope.article.$remove(function() {
-            $location.path('articles');
+        $scope.tree.$remove(function() {
+            $location.path('trees');
         });
     }
 };
