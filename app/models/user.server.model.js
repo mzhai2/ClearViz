@@ -23,7 +23,6 @@ var UserSchema = new Schema({
     	},'Password should be at least 5 characters long'
 		]
 	},
-    organization: String,
 	salt: {
   		type: String
 	},
