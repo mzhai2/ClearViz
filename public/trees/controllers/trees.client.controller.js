@@ -1,4 +1,4 @@
-angular.module('trees').controller('TreesController', ['$scope', '$routeParams', '$location', 'Authentication', 'Trees', 
+angular.module('trees').controller('TreesController', ['$scope', '$routeParams', '$location', 'Authentication', 'Trees',
     function($scope, $routeParams, $location, Authentication, Trees) {
         $scope.authentication = Authentication;
 
@@ -48,7 +48,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$routeParams',
                         if ($scope.trees[i] === tree) {
                             $scope.trees.splice(i, 1);
                         }
-                    } 
+                    }
                 });
             } else {
                 $scope.tree.$remove(function() {
