@@ -4,7 +4,8 @@ describe('Testing Trees Module', function() { var mainModule;
     mainModule = angular.module('trees');
     });
 
-    it('Should be registered', function() { expect(mainModule).toBeDefined();
+    it('Should be registered', function() {
+        expect(mainModule).toBeDefined();
     });
 
 });
