@@ -28,7 +28,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$routeParams',
             tree.$promise.then(function(realtree) {
                 initDEPTrees(realtree.data);
             });
-        }
+        };
 
         $scope.update = function() {
             $scope.tree.$update(
