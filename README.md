@@ -34,9 +34,6 @@ Twitter Bootstrap
 BRAT rapid annotation tool http://brat.nlplab.org to visualize annotations (Mike)
 vis.js http://visjs.org to visualize metadata
  
-Model:
-Using software from
- 
 Use cases:
 Linguistics
 
@@ -51,3 +48,20 @@ http://requestmaker.com
 http://mathcs.emory.edu/~choi/clearnlp/demo/demo.html
 
 *Progress was originally tracked on PivotalTracker; however, due to the expiration of a trial version, progress is transferred and now being tracked on Trello.
+
+Test instruction:
+Deployed at http://52.1.147.106:3000
+Signin using an existing account or Signup for a new account.
+
+List all trees to view all existing trees in database.
+Click on title to view the tree visualization.
+
+Create a new tree by entering title and each sentence separated by new line.
+
+Remove tree in tree view.
+
+Edit tree not yet implemented.
+
+Return to menu using back.
+
+
