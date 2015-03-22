@@ -4,11 +4,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/#!">Home</a>
+                    <li><a href="#!/">Home</a>
                     </li>
-                    <li><a href="/#!/trees">Trees</a>
+                    <li><a href="#!/trees">Trees</a>
                     </li>
-                    <li ng-show="signedin"><a href="/#!" ng-click="signout()">Sign Out</a></li>
+                    <li ng-show="loggedIn"><a href="#!/" ng-click="signout()">Sign Out</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -24,7 +24,7 @@
 
             <div class="container">
                 <div data-ng-hide="trees">
-                    <a href="/#!/trees/create">Create Tree</a>
+                    <a href="/trees/create">Create Tree</a>
                 </div>
                 <ol>
                     <li data-ng-repeat="tree in trees">

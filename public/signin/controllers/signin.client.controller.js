@@ -1,9 +1,8 @@
-angular.module('signin').controller('SigninController', function($scope, $rootScope, $http, $location) {
+angular.module('signin').controller('SigninController', function($scope, $rootScope, $http, $location, $cookieStore) {
     // This object will be filled by the form
     $scope.user = {};
     $rootScope.message = '';
-    console.log($rootScope.signedin);
-
+    $rootScope.loggedIn = $cookieStore.get('loggedin');
     // Register the signin() function
     $scope.signin = function() {
         $http.post('/signin', {
@@ -12,8 +11,7 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
         })
         .success(function(user) {
             $scope.user = user;
-            $rootScope.signedin = true;
-            console.log($rootScope.signedin);
+            $cookieStore.put('loggedin', true);
             $location.path('/trees');
             // $("#signinModal").modal({show:false});
 
@@ -41,10 +39,10 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
         })
         .success(function(user) {
             $scope.user = user;
-            $rootScope.signedin = true;
+            $cookieStore.put('loggedin', true);
             // No error: signup OK
             $location.path('/trees');
-            $("#signupModal").modal({show:false});
+            // $("#signupModal").modal({show:false});
 
         })
         .error(function(data, status, headers, config) {
@@ -52,17 +50,18 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
             $rootScope.message = data;
             $location.path('/');
             $rootScope.user.$setPristine;
-            $("#signupModal").modal({show:false});
+            // $("#signupModal").modal({show:false});
 
         });
-        $("#signupModal").modal({show:false});
+        $("#signupModal").modal({show:true});
         $('.modal-backdrop').removeClass("modal-backdrop")
     };
 
     $rootScope.signout = function() {
         $rootScope.message = 'Logged out.';
         $http.post('/signout');
-        $rootScope.signedin = false;
+        $cookieStore.put('loggedin', false);
+        $rootScope.loggedIn = false;
         console.log($rootScope.signedin);
         $location.path('/');
     };
