@@ -2,29 +2,7 @@ var mainApplicationModule = angular.module('mean', ['ngResource', 'ngRoute', 'us
 
 mainApplicationModule.config(function($locationProvider, $httpProvider) {
         $locationProvider.hashPrefix('!');
-        // check if user is connected
-        var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
-          // Initialize a new promise
-          var deferred = $q.defer();
 
-          // Make an AJAX call to check if the user is logged in
-          $http.get('/loggedin').success(function(user){
-            // Authenticated
-            if (user !== '0')
-              /*$timeout(deferred.resolve, 0);*/
-              deferred.resolve();
-              
-            // Not Authenticated
-            else {
-              $rootScope.message = 'You need to log in.';
-              //$timeout(function(){deferred.reject();}, 0);
-              deferred.reject();
-              $location.url('/signin');
-            }
-          });
-
-          return deferred.promise;
-        };
 
         $httpProvider.interceptors.push(function($q, $location) {
             return {
@@ -39,21 +17,8 @@ mainApplicationModule.config(function($locationProvider, $httpProvider) {
                 }
             }
         });
-
-
-
-
     }
-).run(function($rootScope, $http, $location){
-    $rootScope.message = '';
-
-    // Logout function is available in any pages
-    $rootScope.signout = function(){
-      $rootScope.message = 'Logged out.';
-      $http.post('/signout');
-      $location.path('/#!');
-    };
-  });
+);
 
 
 if (window.location.hash === '#_=_') window.location.hash = '#!';

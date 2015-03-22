@@ -19,7 +19,7 @@ var UserSchema = new Schema({
   		type: String,
   		validate: [
   		function(password) {
-	    	return password && password.length > 5;
+	    	return password && password.length > 4;
     	},'Password should be at least 5 characters long'
 		]
 	},

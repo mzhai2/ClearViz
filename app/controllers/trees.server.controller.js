@@ -32,14 +32,14 @@ exports.create = function(req, res) {
                 });
             }
             else {
-                console.log('fail');
+                console.log('Fail to retrieve deptree');
             }
         }
     );
 };
 
 exports.list = function(req, res) {
-Tree.find().sort('-created').populate('creator', 'firstName lastName fullName').exec(
+Tree.find({ creator: req.user._id }).populate('creator', 'firstName lastName fullName').exec(
     function(err, tree) {
         if (err) {
             return res.status(400).send({
