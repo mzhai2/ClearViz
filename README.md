@@ -62,12 +62,6 @@ Remove tree in tree view.
 
 Edit tree not yet implemented.
 
-<<<<<<< HEAD
-Site navigation not yet implemented.
-
-Return to menu by navigating to http://52.1.147.106:3000
-=======
 Return to menu using back.
->>>>>>> dev
 
 
