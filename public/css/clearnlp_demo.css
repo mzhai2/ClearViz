@@ -26,6 +26,7 @@
     bottom:   0;
 }
 
-.row {
+.row
+{  
       position: relative;
 }
