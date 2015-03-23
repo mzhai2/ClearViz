@@ -12,30 +12,36 @@
             </div>
         </div>
     </nav>
-        <div class="intro-header">
+    <div class="list-header">
         <div class="container">
             <h1>Edit Tree</h1>
-            <form data-ng-submit="update()" novalidate>
-                <div>
-                    <label for="title">Title</label>
+        </div>
+    </div>
+    <div class="content-section-b">
+        <div class="intro-header">
+            <div class="container">
+                <form data-ng-submit="update()" novalidate>
                     <div>
-                        <input type="text" data-ng-model="tree.title" id="title" placeholder="Title" required>
+                        <label for="title">Title</label>
+                        <div>
+                            <input type="text" data-ng-model="tree.title" id="title" placeholder="Title" required>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="content">Content</label>
                     <div>
-                        <textarea data-ng-model="tree.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                        <label for="content">Content</label>
+                        <div>
+                            <textarea data-ng-model="tree.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <input type="submit" value="Update">
-                </div>
+                    <div>
+                        <input type="submit" value="Update">
+                    </div>
 
-                <div data-ng-show="error">
-                    <strong data-ng-bind="error"></strong>
-                </div>
-            </form>
+                    <div data-ng-show="error">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>

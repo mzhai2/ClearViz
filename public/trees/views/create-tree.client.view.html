@@ -12,27 +12,33 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <h1>Create A New Tree</h1>
-        <form data-ng-submit="create()" novalidate>
-            <div>
-                <label for="title">Title</label>
+    <div class="list-header">
+        <div class="container">
+            <h1>Create Tree</h1>
+        </div>
+    </div>
+    <div class="content-section-b">
+        <div class="container">
+            <form data-ng-submit="create()" novalidate>
                 <div>
-                    <input type="text" data-ng-model="title" id="title" placeholder="Title" required>
-                </div><br></br>
-            </div>
-            <div>
-                <label for="content">Content</label>
-                <div>
-                    <textarea data-ng-model="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                    <label for="title">Title</label>
+                    <div>
+                        <input type="text" data-ng-model="title" id="title" placeholder="Title" required>
+                    </div><br></br>
                 </div>
-            </div>
-            <div>
-                <input type="submit">
-            </div>
-            <div data-ng-show="error">
-                <strong data-ng-bind="error"></strong>
-            </div>
-        </form>
+                <div>
+                    <label for="content">Content</label>
+                    <div>
+                        <textarea data-ng-model="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit">
+                </div>
+                <div data-ng-show="error">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </form>
+        </div>
     </div>
 </section>

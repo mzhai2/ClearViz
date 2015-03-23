@@ -8,7 +8,7 @@ angular.module('trees').controller('TreesController', function($scope, $rootScop
         });
         tree.$save(function(response) {
             $location.path('trees/' + response._id);
-        },function(errorResponse) {
+        }, function(errorResponse) {
             $scope.error = errorResponse.data.message;
         });
     };
@@ -18,12 +18,12 @@ angular.module('trees').controller('TreesController', function($scope, $rootScop
     };
 
     $scope.findOne = function() {
-        var tree = Trees.get({
+        Trees.get({
             treeId: $routeParams.treeId
-        });
-        $scope.tree = tree;
-        tree.$promise.then(function(realtree) {
-            initDEPTrees(realtree.data);
+        })
+        .$promise.then(function(tree) {
+            initDEPTrees(tree.data);
+            $scope.tree = tree;
         });
     }
 

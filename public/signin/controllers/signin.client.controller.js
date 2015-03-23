@@ -62,7 +62,6 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
         $http.post('/signout');
         $cookieStore.put('loggedin', false);
         $rootScope.loggedIn = false;
-        console.log($rootScope.signedin);
         $location.path('/');
     };
 });
