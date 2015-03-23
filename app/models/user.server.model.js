@@ -19,19 +19,26 @@ var UserSchema = new Schema({
   		type: String,
   		validate: [
   		function(password) {
-	    	return password && password.length > 5;
+	    	return password && password.length > 4;
     	},'Password should be at least 5 characters long'
 		]
 	},
+<<<<<<< HEAD
+=======
+    organization: {
+    type: String,
+        unique: true,
+        required: 'Organization is required',
+        trim: true
+    },
+>>>>>>> dev
 	salt: {
   		type: String
 	},
 	provider: {
   	type: String,
-  		required: 'Provider is required'
+  	    default: 'local'
 	},
-	providerId: String,
-	providerData: {},
 	created: {
 	type: Date,
     	default: Date.now

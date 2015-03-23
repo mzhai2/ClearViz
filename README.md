@@ -17,12 +17,12 @@ AlchemyAPI NLP
  
 Product idea:
 Demonstrate:
-	Dependency parsing
-	Tokenization and segmentation
-	Part-of-speech tagging
-	Morphological analysis
-	Semantic role labeling
-	ClearCloud: Run ClearNLP on EC2 and sell as a service
+    Dependency parsing
+    Tokenization and segmentation
+    Part-of-speech tagging
+    Morphological analysis
+    Semantic role labeling
+    ClearCloud: Run ClearNLP on EC2 and sell as a service
 
 Tools (indicate interest with name, we can have more than person working on a thing):
 MEAN.js
@@ -62,8 +62,12 @@ Remove tree in tree view.
 
 Edit tree not yet implemented.
 
+<<<<<<< HEAD
 Site navigation not yet implemented.
 
 Return to menu by navigating to http://52.1.147.106:3000
+=======
+Return to menu using back.
+>>>>>>> dev
 
 

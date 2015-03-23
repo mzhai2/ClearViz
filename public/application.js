@@ -1,15 +1,27 @@
-var mainApplicationModuleName = 'mean';
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute', 'users', 'example', 'trees']);
+var mainApplicationModule = angular.module('mean', ['ngResource', 'ngRoute', 'ngCookies', 'users', 'signin', 'trees']);
 
-
-mainApplicationModule.config(['$locationProvider',
-    function($locationProvider) {
+mainApplicationModule.config(function($locationProvider, $httpProvider) {
         $locationProvider.hashPrefix('!');
-    }
-]);
 
-if (window.location.hash === '#_=_') window.location.hash = '#!';
+        $httpProvider.interceptors.push(function($q, $location) {
+            return {
+                response: function(response) {
+                    return response;
+                },
+                responseError: function(response) {
+                    if (response.status === 401) {
+                        $location.url('/signin');
+                    }
+                    return $q.reject(response);
+                }
+            }
+        });
+    }
+);
+
+
+// if (window.location.hash === '#_=_') window.location.hash = '#!';
 
 angular.element(document).ready(function() {
-    angular.bootstrap(document, [mainApplicationModuleName]);
+    angular.bootstrap(document, ['mean']);
 });

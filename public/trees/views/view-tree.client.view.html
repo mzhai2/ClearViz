@@ -1,150 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>ClearViz: View Tree</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom Google Web Font -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Add custom CSS here -->
-    <link href="css/landing-page.css" rel="stylesheet">
-
-</head>
-
-<body>
-
+<section data-ng-controller="TreesController" data-ng-init="findOne()">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://startbootstrap.com">ClearViz</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#about">About</a>
+                    <li><a href="#!/">Home</a>
                     </li>
-                    <li><a href="#services">Services</a>
+                    <li><a href="#!/trees">Trees</a>
                     </li>
-                    <li><a href="#contact">Contact</a>
-                    </li>
+                    <li ng-show="loggedIn"><a href="#!/" ng-click="signout()">Sign Out</a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav><br><br><br><br>
-
-
-    <div class="container">
-
-
-<section data-ng-controller="TreesController" data-ng-init="findOne()">
-  <h1 data-ng-bind="tree.title"></h1>
-  <div data-ng-show="authentication.user._id == tree.creator._id">
-    <a href="/#!/trees/{{tree._id}}/edit">edit</a>
-    <a href="#" data-ng-click="delete();">delete</a>
-</div>
-<small>
-    <em>Posted on</em>
-    <em data-ng-bind="tree.created | date:'mediumDate'"></em> <em>by</em>
-    <em data-ng-bind="tree.creator.fullName"></em>
-</small>
-<p data-ng-bind="tree.content"></p>
-<div id="css_deptree_canvas">
-    <canvas id="cv_deptree" height="500"></canvas>
-</div>
-<br>
-<div align="center">
-    <button onclick="clickBackward()" style="width:55px;height:48px" type="button"><img src="../../img/backward.png" width="40" height="40"/></button>
-    <button onclick="clickPrevious()" style="width:55px;height:48px" type="button"><img src="../../img/previous.png" width="40" height="40"/></button>
-    <button onclick="clickNext()"     style="width:55px;height:48px" type="button"><img src="../../img/next.png"     width="40" height="40"/></button>
-    <button onclick="clickForward()"  style="width:55px;height:48px" type="button"><img src="../../img/forward.png" width="40" height="40"/></button>
-</div>
-<br>
-<div id="css_input" align="center">
-<table>
-  <tr>
-      <td style="vertical-align:top;">
-          <button type="button" onclick="exportCanvas()" style="width:110px;height:30px;font-family:times;font-size:14px;">Export</button><br><br>
-          <select id="st_treeId" multiple="multiple" style="width:110px;height:497px;" onchange="selectTreeID();"></select>
-      </td>
-      <td style="vertical-align:top;text-align:center;">
-          <h4>Control Panel</h4>
-          1 &#8672; Zoom &#8674; 4<br>
-          <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)"><br>
-      </td>
-  </tr>
-</table>
-</div>
+    </nav>
+    <div class="content-section-b">
+        <div class="container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1 data-ng-bind="tree.title"></h1>
+                        <a href="/#!/trees/{{tree._id}}/edit">edit</a>
+                        <a href="#" data-ng-click="delete();">delete</a></br>
+                        <small>
+                            <em>Posted on</em>
+                            <em data-ng-bind="tree.created | date:'mediumDate'"></em> <em>by</em>
+                            <em data-ng-bind="tree.creator.fullName"></em>
+                        </small>
+                    </div>
+                    </br></br></br>
+                    <div class="col-md-4 text-right">
+                        <div id="buttons">
+                            <button onclick="clickBackward()" style="width:55px;height:48px" type="button"><img src="../../img/backward.png" width="40" height="40"/></button>
+                            <button onclick="clickPrevious()" style="width:55px;height:48px" type="button"><img src="../../img/previous.png" width="40" height="40"/></button>
+                            <button onclick="clickNext()"     style="width:55px;height:48px" type="button"><img src="../../img/next.png"     width="40" height="40"/></button>
+                            <button onclick="clickForward()"  style="width:55px;height:48px" type="button"><img src="../../img/forward.png" width="40" height="40"/></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p data-ng-bind="tree.content"></p>
+            <div id="css_deptree_canvas">
+                <canvas id="cv_deptree" height="500"></canvas>
+            </div>
+            <br>
+            <div id="css_input" align="right">
+                <table>
+                    <tr>
+                        <td style="vertical-align:top;">
+                            <button type="button" onclick="exportCanvas()" style="width:110px;height:30px;font-family:times;font-size:14px;">Export</button><br><br>
+                            <select id="st_treeId" multiple="multiple" style="width:110px;height:497px;" onchange="selectTreeID();"></select>
+                        </td>
+                        <td style="vertical-align:top;text-align:center;">
+                            <h4>Control Panel</h4>
+                            1 &#8672; Zoom &#8674; 4<br>
+                            <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)"><br>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>
-
-
-</div><br>
-</div>
-
-    <div class="intro-header">
-
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                </div>
-            </div>
-
-
-    </div>
-        <!-- /.container -->
-
-
-    </div>
-    <!-- /.banner -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li><a href="#home">Home</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#about">About</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#services">Services</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; ClearViz 2015. All Rights Reserved</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-
-</body>
-
-</html>
