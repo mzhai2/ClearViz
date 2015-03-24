@@ -1,6 +1,6 @@
 describe('Testing Trees Controller', function() {
 
-    var _scope, ArticlesController;
+    var _scope, TreesController;
 
     beforeEach(function() {
         module('trees');
@@ -8,14 +8,14 @@ describe('Testing Trees Controller', function() {
     inject(function($rootScope, $controller) {
         _scope = $rootScope.$new();
 
-    ArticlesController = $controller('TreesController', {
+    TreesController = $controller('TreesController', {
             $scope: _scope
             });
         });
 
      });
 
-    it('Should be registered', function() { expect(ArticlesController).toBeDefined();
+    it('Should be registered', function() { expect(TreesController).toBeDefined();
     });
 
     it('Should include CRUD methods', function() {

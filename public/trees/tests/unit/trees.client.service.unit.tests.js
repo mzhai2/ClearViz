@@ -5,8 +5,8 @@ describe('Testing Trees Service', function() {
     beforeEach(function() {
         module('trees');
 
-    inject(function(Articles) {
-        _Trees = Articles;
+    inject(function(Trees) {
+        _Trees = Trees;
         });
     });
 
@@ -15,9 +15,9 @@ describe('Testing Trees Service', function() {
     });
 
     it('Should include $resource methods', function() {
-        //expect(_Trees.get).toBeDefined();
-        //expect(_Trees.query).toBeDefined();
-        //expect(_Trees.remove).toBeDefined();
+        expect(_Trees.get).toBeDefined();
+        expect(_Trees.query).toBeDefined();
+        expect(_Trees.remove).toBeDefined();
         expect(_Trees.update).toBeDefined();
     });
 
