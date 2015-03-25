@@ -6,7 +6,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#!/">Home</a>
                     </li>
-                    <li><a href="#!/trees">Trees</a>
+                    <li ng-show="loggedIn"><a href="#!/trees">Trees</a>
                     </li>
                     <li ng-show="loggedIn"><a href="#!/" ng-click="signout()">Sign Out</a></li>
                 </ul>
@@ -23,8 +23,8 @@
                         <h3>Text Analytics for Everyone</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
-                            <li><a data-target="#signinModal" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-sign-in fa-fw"></i><span class="network-name">Sign In</span></a></li>
-                            <li><a data-target="#signupModal" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-flash fa-fw"></i><span class="network-name">Sign Up</span></a></li>
+                            <li ng-show="!loggedIn"><a data-target="#signinModal" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-sign-in fa-fw"></i><span class="network-name">Sign In</span></a></li>
+                            <li ng-show="!loggedIn"><a data-target="#signupModal" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-flash fa-fw"></i><span class="network-name">Sign Up</span></a></li>
                         </ul>
                     </div>
                 </div>
