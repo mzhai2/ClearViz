@@ -52,31 +52,19 @@ http://mathcs.emory.edu/~choi/clearnlp/demo/demo.html
 Test instruction:
 Deployed at http://52.1.147.106:3000
 Signin using an existing account or Signup for a new account.
-
 List all trees to view all existing trees in database.
 Click on title to view the tree visualization.
-
 Create a new tree by entering title and each sentence separated by new line.
-
 Remove tree in tree view.
-
 Edit tree not yet implemented.
-
 Return to menu using back.
 
-
-
-
 AngularJS Unit Testing
-
 Unit test files directory path: ClearNLP-demo-website/public/trees/tests/unit
-
 The files in the directory test the module, controller, routes, and service components of the application
-
 Running the unit tests require the use of Karma's command line utility.
 First navigate to the application's root directory: /ClearNLP-demo-website/
 Input the command:  $ NODE_ENV=test karma start
-
 Those using windows should first input the command:  > set NODE_ENV=test
 Then input the command: > karma start
 
