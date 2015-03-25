@@ -16,7 +16,7 @@ module.exports = function(config)
     ],
 
     reporters: ['progress'],
-    browsers: ['Chrome','Safari'],
+    browsers: ['PhantomJS','Chrome','Safari'],
     captureTimeout: 60000,
     singleRun: true
     });

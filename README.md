@@ -1,20 +1,20 @@
 Background: Demonstrate ClearNLP's features and performance to potential users through an easy to use interface and increase market size.
- 
+
 Currently difficult to setup ClearNLP and test performance and scaling to cloud.
- 
+
 Similar products:
 http://www.conversational-technologies.com/nldemos/nlDemos.html
- 
+
 Market Need:
 Any college researching NLP, any company using NLP for commercial applications.
 Potential, become top NLP suite in the commercial and academic field.
 Apple, Google, Infosys
- 
+
 Competitors:
 Stanford CoreNLP
 Illinois NLP suite
 AlchemyAPI NLP
- 
+
 Product idea:
 Demonstrate:
     Dependency parsing
@@ -33,7 +33,7 @@ jQuery (Mike)
 Twitter Bootstrap
 BRAT rapid annotation tool http://brat.nlplab.org to visualize annotations (Mike)
 vis.js http://visjs.org to visualize metadata
- 
+
 Use cases:
 Linguistics
 
@@ -63,5 +63,28 @@ Remove tree in tree view.
 Edit tree not yet implemented.
 
 Return to menu using back.
+
+
+
+
+AngularJS Unit Testing
+
+Unit test files directory path: ClearNLP-demo-website/public/trees/tests/unit
+
+The files in the directory test the module, controller, routes, and service components of the application
+
+Running the unit tests require the use of Karma's command line utility.
+First navigate to the application's root directory: /ClearNLP-demo-website/
+Input the command:  $ NODE_ENV=test karma start
+
+Those using windows should first input the command:  > set NODE_ENV=test
+Then input the command: > karma start
+
+
+
+
+
+
+
 
 
