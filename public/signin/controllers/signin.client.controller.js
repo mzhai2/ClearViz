@@ -1,9 +1,8 @@
-angular.module('signin').controller('SigninController', function($scope, $rootScope, $http, $location, $cookieStore) {
-    // This object will be filled by the form
+angular.module('signin').controller('SigninController', ['$scope', '$rootScope', '$http', '$location', '$cookieStore',
+    function($scope, $rootScope, $http, $location, $cookieStore) {
     $scope.user = {};
     $rootScope.message = '';
     $rootScope.loggedIn = $cookieStore.get('loggedin');
-    // Register the signin() function
     $scope.signin = function() {
         $http.post('/signin', {
             username: $scope.user.username,
@@ -17,17 +16,14 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
 
         })
         .error(function() {
-        // Error: authentication failed
-        $rootScope.message = 'Authentication failed.';
-        $location.url('/');
-        // $("#signinModal").modal({show:false});
+            // Error: authentication failed
+            $rootScope.message = 'Authentication failed.';
+            $location.url('/');
+        });
 
-    });
-        $("#signinModal").modal({show:true});
+        $("#signinModal").modal({show:false});
         $('.modal-backdrop').removeClass("modal-backdrop");
     };
-
-    // Register the signup() function
     $scope.signup = function(){
         $http.post('/signup', {
             firstName: $scope.user.firstName,
@@ -42,7 +38,6 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
             $cookieStore.put('loggedin', true);
             // No error: signup OK
             $location.path('/trees');
-            // $("#signupModal").modal({show:false});
 
         })
         .error(function(data, status, headers, config) {
@@ -50,13 +45,10 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
             $rootScope.message = data;
             $location.path('/');
             $rootScope.user.$setPristine;
-            // $("#signupModal").modal({show:false});
-
         });
-        $("#signupModal").modal({show:true});
+        $("#signupModal").modal({show:false});
         $('.modal-backdrop').removeClass("modal-backdrop")
     };
-
     $rootScope.signout = function() {
         $rootScope.message = 'Logged out.';
         $http.post('/signout');
@@ -64,4 +56,4 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
         $rootScope.loggedIn = false;
         $location.path('/');
     };
-});
+}]);
