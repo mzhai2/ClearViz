@@ -68,6 +68,14 @@ Input the command:  $ NODE_ENV=test karma start
 Those using windows should first input the command:  > set NODE_ENV=test
 Then input the command: > karma start
 
+Express Testing
+Directory path: ClearViz/app/tests
+
+Navigate to the application's root directory: /ClearViz/
+Input the command: $ NODE_ENV=test mocha --reporter spec app/tests
+If you are using Windows, first run: > set NODE_ENV=test 
+Next, input the command: > mocha --reporter spec app/tests
+
 
 
 
