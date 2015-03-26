@@ -1,4 +1,5 @@
-angular.module('signin').controller('SigninController', function($scope, $rootScope, $http, $location, $cookieStore) {
+angular.module('signin').controller('SigninController', ['$scope', '$rootScope', '$http', '$location', '$cookieStore',
+    function($scope, $rootScope, $http, $location, $cookieStore) {
     $scope.user = {};
     $rootScope.message = '';
     $rootScope.loggedIn = $cookieStore.get('loggedin');
@@ -55,4 +56,4 @@ angular.module('signin').controller('SigninController', function($scope, $rootSc
         $rootScope.loggedIn = false;
         $location.path('/');
     };
-});
+}]);

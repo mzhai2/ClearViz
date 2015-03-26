@@ -10,9 +10,10 @@ module.exports = function(config)
         'public/components/angular-route/angular-route.js',
         'public/components/angular-mocks/angular-mocks.js',
         'public/application.js',
+        'public/js/jquery-1.11.2.min.js',
         'public/*[!lib]*/*.js',
         'public/*[!lib]*/*[!tests]*/*.js',
-        'public/*[!lib]*/tests/unit/*.js'
+        'public/*[!lib]*/tests/unit/*.js',
     ],
 
     reporters: ['progress'],
