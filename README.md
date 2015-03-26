@@ -1,3 +1,4 @@
+# ClearViz
 Background: Demonstrate ClearNLP's features and performance to potential users through an easy to use interface and increase market size.
 
 Currently difficult to setup ClearNLP and test performance and scaling to cloud.
@@ -59,22 +60,22 @@ Remove tree in tree view.
 Edit tree not yet implemented.
 Return to menu using back.
 
-AngularJS Unit Testing
-Unit test files directory path: ClearNLP-demo-website/public/trees/tests/unit
+### AngularJS Unit Testing
+Unit test files directory path: 'ClearNLP-demo-website/public/trees/tests/unit'
 The files in the directory test the module, controller, routes, and service components of the application
 Running the unit tests require the use of Karma's command line utility.
-First navigate to the application's root directory: /ClearNLP-demo-website/
-Input the command:  $ NODE_ENV=test karma start
-Those using windows should first input the command:  > set NODE_ENV=test
-Then input the command: > karma start
+First navigate to the application's root directory: '/ClearNLP-demo-website/'
+Input the command:  '$ NODE_ENV=test karma start'
+Those using windows should first input the command:  '> set NODE_ENV=test'
+Then input the command: '> karma start'
 
-Express Testing
-Directory path: ClearViz/app/tests
+### Express Testing
+Directory path: 'ClearViz/app/tests'
 
-Navigate to the application's root directory: /ClearViz/
-Input the command: $ NODE_ENV=test mocha --reporter spec app/tests
-If you are using Windows, first run: > set NODE_ENV=test 
-Next, input the command: > mocha --reporter spec app/tests
+Navigate to the application's root directory: '/ClearViz/'
+Input the command: '$ NODE_ENV=test mocha --reporter spec app/tests'
+If you are using Windows, first run: '> set NODE_ENV=test' 
+Next, input the command: '> mocha --reporter spec app/tests'
 
 
 
