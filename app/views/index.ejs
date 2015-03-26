@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org">
-<head>
-    <title><%= title %></title>
-    <meta name="fragment" content="!">
-
-    <link href="/css/bootstrap.css" rel="stylesheet">
-
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Add custom CSS here -->
-    <link href="/css/landing-page.css" rel="stylesheet">
-
-    <link href="/css/clearnlp_demo.css" rel="stylesheet" media="screen"/>
-    <script type="text/javascript" src="/js/clearnlp_demo.js"></script>
-
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="/components/angular/angular.js"></script>
-    <script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="/components/angular-resource/angular-resource.js"></script>
-    <script type="text/javascript" src="/components/angular-cookies/angular-cookies.js"></script>
-
-    <script type="text/javascript" src="/trees/trees.client.module.js"></script>
-    <script type="text/javascript" src="/trees/controllers/trees.client.controller.js"></script>
-    <script type="text/javascript" src="/trees/services/trees.client.service.js"></script>
-    <script type="text/javascript" src="/trees/config/trees.client.routes.js"></script>
-
-    <script type="text/javascript" src="/signin/signin.client.module.js"></script>
-    <script type="text/javascript" src="/signin/controllers/signin.client.controller.js"></script>
-    <script type="text/javascript" src="/signin/config/signin.client.routes.js"></script>
-
-    <script type="text/javascript" src="/users/users.client.module.js"></script>
-    <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
-    <script type="text/javascript" src="/application.js"></script> 
+<html xmlns:ng="http://angularjs.org"> <head>
+  <title><%= title %></title>
+  <meta name="fragment" content="!">
 </head>
 <body>
-    <section ng-view></section>
-    <script type="text/javascript">
-        window.user = <%- user || 'null' %>;
-    </script>
-</body>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="copyright text-muted small">Copyright &copy; ClearViz 2015. All Rights Reserved</p>
+  <section ng-view></section>
+  <script type="text/javascript">
+    window.user = <%- user || 'null' %>;
+</script>
+
+<link href="../../css/bootstrap.css" rel="stylesheet">
+
+<!-- Custom Google Web Font -->
+<link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+<!-- Add custom CSS here -->
+<link href="../../css/landing-page.css" rel="stylesheet">
+
+<link href="../../css/clearnlp_demo.css" rel="stylesheet" media="screen"/>
+<script type="text/javascript" src="../../js/clearnlp_demo.js"></script>
+
+<script src="../../js/jquery-1.11.2.min.js"></script>
+<script src="../../js/bootstrap.js"></script>
+
+<script type="text/javascript" src="/components/angular/angular.js"></script>
+<script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="/components/angular-cookies/angular-cookies.js"></script>
+
+<script type="text/javascript" src="/trees/trees.client.module.js"></script>
+<script type="text/javascript" src="/trees/controllers/trees.client.controller.js"></script>
+<script type="text/javascript" src="/trees/services/trees.client.service.js"></script>
+<script type="text/javascript" src="/trees/config/trees.client.routes.js"></script>
+
+<script type="text/javascript" src="/signin/signin.client.module.js"></script>
+<script type="text/javascript" src="/signin/controllers/signin.client.controller.js"></script>
+<script type="text/javascript" src="/signin/config/signin.client.routes.js"></script>
+
+<script type="text/javascript" src="/users/users.client.module.js"></script>
+<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+<script type="text/javascript" src="/application.js"></script> 
+    </body>
+        <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright text-muted small">Copyright &copy; ClearViz 2015. All Rights Reserved</p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </html>

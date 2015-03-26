@@ -26,11 +26,5 @@
     "karma-safari-launcher": "^0.1.1",
     "should": "~4.0.4",
     "supertest": "~0.13.0"
-  },
-  "scripts": {
-  "test": "npm run test-node && npm run test-browser && npm run test-express",
-  "test-node": "karma run",
-  "test-browser": "karma start --single-run",
-  "test-express": "mocha --reporter spec app/tests"
   }
 }
