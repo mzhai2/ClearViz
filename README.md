@@ -61,12 +61,15 @@ http://mathcs.emory.edu/~choi/clearnlp/demo/demo.html
 8. Return to menu using back.
 
 ### AngularJS Unit Testing
-Unit test files directory path: `ClearNLP-demo-website/public/trees/tests/unit`
-The files in the directory test the module, controller, routes, and service components of the application
+Unit test files directory path for trees model: `ClearNLP-demo-website/public/trees/tests/unit`
+Directory path for users model: `ClearNLP-demo-website/public/users/tests/unit`
+
+The files in the each directory test several components for each model in this application.
+
 Running the unit tests require the use of Karma's command line utility.
 First navigate to the application's root directory: `/ClearNLP-demo-website/`
 Input the command:  `$ NODE_ENV=test karma start`
-Those using windows should first input the command:  `> set NODE_ENV=test`
+Those using Windows should first input the command:  `> set NODE_ENV=test`
 Then input the command: `> karma start`
 
 ### Express Testing
