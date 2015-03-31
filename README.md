@@ -9,12 +9,12 @@ Demonstrate ClearNLP's features and performance to potential users through an ea
 
 ###Product idea:
 Demonstrate:
-    * Dependency parsing
-    * Tokenization and segmentation
-    * Part-of-speech tagging
-    * Morphological analysis
-    * Semantic role labeling
-    * ClearCloud: Run ClearNLP on EC2 and sell as a service
+* Dependency parsing
+* Tokenization and segmentation
+* Part-of-speech tagging
+* Morphological analysis
+* Semantic role labeling
+* ClearCloud: Run ClearNLP on EC2 and sell as a service
 
 Tools (indicate interest with name, we can have more than person working on a thing):
 MEAN.js (Andrew, Deh Jun)
@@ -29,9 +29,9 @@ vis.js http://visjs.org to visualize metadata
 **Progress was originally tracked on PivotalTracker; however, due to the expiration of a trial version, progress is transferred and now being tracked on Trello.
 
 ### Presentations:
-(02/26) https://drive.google.com/open?id=1MypSuPZunaaxAwMscj3LS1YqIIETY3oNhz8wynE3GCs&authuser=0
-(03/19) https://drive.google.com/open?id=1QJV0gwx8mF2OLMfk7UGWDD9yV086sGk5pImLfKNno54&authuser=0
-(04/02) Coming Soon
+* (02/26) https://drive.google.com/open?id=1MypSuPZunaaxAwMscj3LS1YqIIETY3oNhz8wynE3GCs&authuser=0
+* (03/19) https://drive.google.com/open?id=1QJV0gwx8mF2OLMfk7UGWDD9yV086sGk5pImLfKNno54&authuser=0
+* (04/02) Coming Soon
 
 ### Test instruction:
 1. Deployed at http://52.1.147.106:3000
@@ -54,25 +54,25 @@ Directory path for users model: `ClearViz/public/users/tests/unit`
 The files in the each directory test several components for each model in this application.
 
 Running the unit tests require the use of Karma's command line utility.
- First navigate to the application's root directory: `/ClearViz/`
- Input the command:  `$ NODE_ENV=test karma start`
- Those using Windows should first input the command:  `> set NODE_ENV=test`
- Then input the command: `> karma start`
+1. Navigate to the application's root directory: `/ClearViz/`
+2. Input the command:  `$ NODE_ENV=test karma start`
+3. Those using Windows should first input the command:  `> set NODE_ENV=test`
+4. Then input the command: `> karma start`
 
 ### AngularJS E2E Integration Testing
 Directory path: `ClearViz/public/trees/e2e`
- Navigate to the application's root directory: `/ClearViz/`
- Input the command: `$ NODE_ENV=test node server`
- If you are using Windows, first run: `> set NODE_ENV=test`
- Then, input the command: `node server`
- Finally, start protractor: `$ protractor`
+1. Navigate to the application's root directory: `/ClearViz/`
+2. Input the command: `$ NODE_ENV=test node server`
+3. If you are using Windows, first run: `> set NODE_ENV=test`
+4. Then, input the command: `node server`
+5. Finally, start protractor: `$ protractor`
 
 ### Express Testing
 Directory path: `ClearViz/app/tests`
- Navigate to the application's root directory: `/ClearViz/`
- Input the command: `$ NODE_ENV=test mocha --reporter spec app/tests`
- If you are using Windows, first run: `> set NODE_ENV=test`
- Next, input the command: `> mocha --reporter spec app/tests`
+1. Navigate to the application's root directory: `/ClearViz/`
+2. Input the command: `$ NODE_ENV=test mocha --reporter spec app/tests`
+3. If you are using Windows, first run: `> set NODE_ENV=test`
+4. Next, input the command: `> mocha --reporter spec app/tests`
 
 
 
