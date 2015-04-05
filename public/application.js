@@ -1,15 +1,11 @@
-var mainApplicationModule = angular.module('mean', ['mwAnnotator', 'ngResource', 'ngRoute', 'ngCookies', 'users', 'signin', 'trees']);
-
-mainApplicationModule.config(function($locationProvider, $httpProvider) {
-    $locationProvider.hashPrefix('!');
-    $httpProvider.interceptors.push(interceptor);
-});
+var mainApplicationModule = angular.module('mean', ['mwAnnotator', 'ngResource', 'ngRoute', 'ngCookies', 'signin', 'trees']);
 
 angular.element(document).ready(function() {
     angular.bootstrap(document, ['mean']);
 });
 
-mainApplicationModule.factory('interceptor', ['$rootScope', '$q', '$location', function($rootScope, $q, $location) {
+mainApplicationModule.factory('interceptor', ['$rootScope', '$q', '$location',
+    function($rootScope, $q, $location) {
     return {
         response: function(response) {
             return response;
@@ -22,4 +18,9 @@ mainApplicationModule.factory('interceptor', ['$rootScope', '$q', '$location', f
             return $q.reject(response);
         }
     }
-}];
+}]);
+
+mainApplicationModule.config(['$locationProvider', '$httpProvider', function($locationProvider, $httpProvider) {
+    $locationProvider.hashPrefix('!');
+    $httpProvider.interceptors.push('interceptor');
+}]);
