@@ -17,7 +17,7 @@ module.exports = function(app) {
   });
 
 app.post('/signout', function(req, res){
-    req.logOut();
+    users.signout(req, res);
     res.status(200).end();
 });
 
