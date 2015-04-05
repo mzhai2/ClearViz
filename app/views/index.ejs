@@ -11,20 +11,29 @@
 
     <!-- Add custom CSS here -->
     <link href="/css/landing-page.css" rel="stylesheet">
-
     <link href="/css/clearnlp_demo.css" rel="stylesheet" media="screen"/>
+    <link href="/css/annotator.min.css" rel="stylesheet">
+    <link href="/css/jquery-ui.css" rel="stylesheet">
+
     <script type="text/javascript" src="/js/clearnlp_demo.js"></script>
 
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/annotator-full.min.js"></script>
 
     <script type="text/javascript" src="/components/angular/angular.js"></script>
     <script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="/components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="/components/angular-cookies/angular-cookies.js"></script>
+    <script type="text/javascript" src="/components/angular-annotator/src/angular-annotator.js"></script>
+    <script type="text/javascript" src="/components/angular-annotator/src/NER-plugin.js"></script>
 
     <script type="text/javascript" src="/trees/trees.client.module.js"></script>
     <script type="text/javascript" src="/trees/controllers/trees.client.controller.js"></script>
+    <script type="text/javascript" src="/trees/controllers/trees.annotator.controller.js"></script>
+
     <script type="text/javascript" src="/trees/services/trees.client.service.js"></script>
     <script type="text/javascript" src="/trees/config/trees.client.routes.js"></script>
 
@@ -34,13 +43,11 @@
 
     <script type="text/javascript" src="/users/users.client.module.js"></script>
     <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+
     <script type="text/javascript" src="/application.js"></script> 
 </head>
 <body>
     <section ng-view></section>
-    <script type="text/javascript">
-        window.user = <%- user || 'null' %>;
-    </script>
 </body>
 <footer>
     <div class="container">

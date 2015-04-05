@@ -37,7 +37,13 @@
                     </div>
                 </div>
             </div>
-            <p data-ng-bind="tree.content"></p>
+            <p>Click on words to annotate</p>
+            <div ng-controller="AnnotatorController as annotator">
+                <div mw-annotator>
+                    {{tree.content}}
+                </div>
+            </div>
+            
             <div id="css_deptree_canvas">
                 <canvas id="cv_deptree" height="500"></canvas>
             </div>

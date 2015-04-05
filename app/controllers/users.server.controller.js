@@ -29,7 +29,6 @@ exports.signup = function(req, res, next) {
 				var message = getErrorMessage(err);
 				console.log(message);
 				return res.status(500).send(message);
-				// return res.redirect('/');
 			}
 			else {
 				req.login(user, function(err) {
@@ -54,6 +53,7 @@ exports.requiresLogin = function(req, res, next) {
 	if (!req.isAuthenticated()) {
 		return res.status(401).send({
 			message: 'User is not logged in'
+			req.logOut();
 		});
 	}
 	next();

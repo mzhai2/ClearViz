@@ -16,7 +16,6 @@ module.exports = function(app) {
       res.send(req.isAuthenticated() ? req.user : '0');
   });
 
-// route to log out
 app.post('/signout', function(req, res){
     req.logOut();
     res.status(200).end();

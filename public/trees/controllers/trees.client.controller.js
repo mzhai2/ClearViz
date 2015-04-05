@@ -1,5 +1,6 @@
-angular.module('trees').controller('TreesController', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
+
     $scope.create = function() {
         var tree = new Trees({
             title: this.title,
@@ -53,4 +54,4 @@ angular.module('trees').controller('TreesController', function($scope, $rootScop
             });
         }
     };
-});
+}]);
