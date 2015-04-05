@@ -7,7 +7,7 @@ Demonstrate ClearNLP's features and performance to potential users through an ea
 * Use cases: Linguistics
 * Tutorial Followed: https://www.youtube.com/watch?v=AEE7DY2AYvI, MEAN Development by Israr Soomro (Book)
 
-###Product idea:
+###Product idea
 Demonstrate:
 * Dependency parsing
 * Tokenization and segmentation
@@ -31,7 +31,7 @@ vis.js http://visjs.org to visualize metadata
 ### Presentations:
 * (02/26) https://drive.google.com/open?id=1MypSuPZunaaxAwMscj3LS1YqIIETY3oNhz8wynE3GCs&authuser=0
 * (03/19) https://drive.google.com/open?id=1QJV0gwx8mF2OLMfk7UGWDD9yV086sGk5pImLfKNno54&authuser=0
-* (04/02) Coming Soon
+* (04/02) https://drive.google.com/open?id=1s683_LtVla_PuuN0stuNRduo1oDPNkqeQ7efewzpO8Q&authuser=0
 
 ### Test instruction:
 1. Deployed at http://52.1.147.106:3000
@@ -53,22 +53,24 @@ Directory path for users model: `ClearViz/public/users/tests/unit`
 
 The files in the each directory test several components for each model in this application.
 
-Running the unit tests require the use of Karma's command line utility.
+Running the unit tests require the use of Karma's command line utility:
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command:  `$ NODE_ENV=test karma start`
 3. Those using Windows should first input the command:  `> set NODE_ENV=test`
 4. Then input the command: `> karma start`
 
-### AngularJS E2E Integration Testing
-Directory path: `ClearViz/public/trees/e2e`
+### AngularJS E2E Automated Testing
+Directory path: `ClearViz/public/trees/e2e`:
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command: `$ NODE_ENV=test node server`
 3. If you are using Windows, first run: `> set NODE_ENV=test`
 4. Then, input the command: `node server`
 5. Finally, start protractor: `$ protractor`
 
+**Login method was changed from AngularJS to Express Passport. Therefore, `protractor` cannot test login. The test fails as one should not be able to create a tree without logging in. 
+
 ### Express Testing
-Directory path: `ClearViz/app/tests`
+Directory path: `ClearViz/app/tests`:
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command: `$ NODE_ENV=test mocha --reporter spec app/tests`
 3. If you are using Windows, first run: `> set NODE_ENV=test`
