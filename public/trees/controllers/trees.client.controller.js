@@ -1,6 +1,6 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'Annotations',
+    function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, Annotations) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
-
     $scope.create = function() {
         var tree = new Trees({
             title: this.title,
@@ -36,7 +36,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             }
-            );
+        );
     };
 
     $scope.delete = function(tree) {
@@ -50,8 +50,18 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             });
         } else {
             $scope.tree.$remove(function() {
-                $location.path('trees');
+                $location.path('trees/');
             });
         }
+    };
+
+    $scope.annotate = function(annotation) {
+        var anno = new Annotations({
+            a: annotation
+        });
+        console.log(anno)
+        anno.$save(function(errorResponse) {
+            $scope.error = errorResponse.data.message;
+        });
     };
 }]);
