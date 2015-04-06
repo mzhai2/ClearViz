@@ -1,0 +1,1343 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"annotat",
+				"annotation"
+			],
+			[
+				"q",
+				"quote"
+			],
+			[
+				"annota",
+				"annotation〔argument〕"
+			],
+			[
+				"annot",
+				"annotation〔argument〕"
+			],
+			[
+				"s",
+				"signin"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"$",
+				"$location	AngularJS"
+			],
+			[
+				"de",
+				"delta"
+			],
+			[
+				"wr",
+				"write"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"pr",
+				"private"
+			],
+			[
+				"te",
+				"test-express"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"co",
+				"container"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"log",
+				"logged"
+			],
+			[
+				"c",
+				"console"
+			],
+			[
+				"crea",
+				"creator"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS"
+			],
+			[
+				"se",
+				"section	Tag"
+			],
+			[
+				"res",
+				"response〔variable〕"
+			],
+			[
+				"t",
+				"trees"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"f",
+				"for	Attr"
+			],
+			[
+				"T",
+				"Tree"
+			],
+			[
+				"ng-v",
+				"ng-view	AngularJS"
+			],
+			[
+				"m",
+				"module	AngularJS"
+			],
+			[
+				"ne",
+				"new"
+			],
+			[
+				"U",
+				"UserSchema"
+			],
+			[
+				"p",
+				"password"
+			],
+			[
+				"r",
+				"return"
+			],
+			[
+				"u",
+				"user"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"a",
+				"app"
+			],
+			[
+				"va",
+				"var"
+			],
+			[
+				"P",
+				"Post"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"S",
+				"String"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"User",
+				"UserSchema"
+			],
+			[
+				"input",
+				"inputString"
+			],
+			[
+				"quest",
+				"question_id"
+			],
+			[
+				"Temp",
+				"TEMPLATE_DIRS"
+			],
+			[
+				"wait",
+				"waitchild"
+			],
+			[
+				"LANG",
+				"LANGUAGE_CODE"
+			],
+			[
+				"Sty",
+				"STYLE_CHOICES"
+			],
+			[
+				"static",
+				"STATICFILES_DIRS"
+			],
+			[
+				"article",
+				"Article"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"k",
+				"k"
+			],
+			[
+				"print",
+				"printPrimes"
+			],
+			[
+				"zoom",
+				"zoom"
+			],
+			[
+				"new",
+				"newelem"
+			],
+			[
+				"value",
+				"valueAxes"
+			],
+			[
+				"est",
+				"estimated"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"extend",
+				"extend"
+			],
+			[
+				"w",
+				"w"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"b",
+				"border"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"repe",
+				"repeat-y"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"lists",
+				"list-style-type"
+			],
+			[
+				"list-st",
+				"list-style-type"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"preceden",
+				"precedenceLevel"
+			],
+			[
+				"precende",
+				"precedenceLevel"
+			],
+			[
+				"righ",
+				"rightChild"
+			],
+			[
+				"lef",
+				"leftChild"
+			],
+			[
+				"i",
+				"indexOf"
+			],
+			[
+				"getSt",
+				"getStopsSize"
+			],
+			[
+				"origin",
+				"originCity"
+			],
+			[
+				"ind",
+				"indexOfOriginCity"
+			],
+			[
+				"orig",
+				"originCity"
+			],
+			[
+				"ori",
+				"originName"
+			],
+			[
+				"left",
+				"leftSmall"
+			],
+			[
+				"get",
+				"getTotalCost"
+			],
+			[
+				"g",
+				"getCost"
+			],
+			[
+				"index",
+				"indexOfLastStop"
+			],
+			[
+				"con",
+				"connection"
+			],
+			[
+				"getS",
+				"getStops"
+			],
+			[
+				"dest",
+				"destination"
+			],
+			[
+				"is",
+				"isEmpty"
+			],
+			[
+				"getC",
+				"getCost"
+			],
+			[
+				"des",
+				"destinationLon"
+			],
+			[
+				"Arra",
+				"ArrayList"
+			],
+			[
+				"citie",
+				"citiesName"
+			],
+			[
+				"start",
+				"startConnections"
+			],
+			[
+				"conn",
+				"connection"
+			],
+			[
+				"connection",
+				"Connection"
+			],
+			[
+				"last",
+				"lastStop"
+			],
+			[
+				"Last",
+				"last"
+			],
+			[
+				"las",
+				"lastStop"
+			],
+			[
+				"num",
+				"numberOfStops"
+			],
+			[
+				"stop",
+				"stops"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"old",
+				"oldConnections"
+			],
+			[
+				"sta",
+				"startDestination"
+			],
+			[
+				"st",
+				"string"
+			],
+			[
+				"startC",
+				"startCost"
+			],
+			[
+				"the",
+				"theQueue"
+			],
+			[
+				"map",
+				"map"
+			],
+			[
+				"exten",
+				"extendConnection"
+			],
+			[
+				"cit",
+				"cities"
+			],
+			[
+				"city",
+				"city"
+			],
+			[
+				"long",
+				"long"
+			],
+			[
+				"routes",
+				"routes"
+			],
+			[
+				"presenta",
+				"Presentaion"
+			],
+			[
+				"Ac",
+				"ACCESS_TOKEN"
+			],
+			[
+				"length",
+				"length"
+			],
+			[
+				"pen",
+				"setPenRadius"
+			],
+			[
+				"y",
+				"y"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "angular.module('trees').factory('Trees', ['$resource',\n    function($resource) {\n        return $resource (\n            'api/trees/:treeId',\n            { treeId: '@_id'},\n            { update: {method: 'PUT'}}\n            );\n    }\n    ]);\n\nangular.module('trees').factory('Annotations', ['$resource',\n    function($resource) {\n        return $resource (\n            'api/trees/:treeId/annotate',\n            { treeId: '@_id'},\n            { annotate: {method: 'POST'}}\n            );\n    }\n]);",
+			"file": "public/trees/services/trees.client.service.js",
+			"file_size": 494,
+			"file_write_time": 130727131050000000,
+			"settings":
+			{
+				"buffer_size": 494,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/trees/trees.client.module.js",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<section data-ng-controller=\"TreesController\" data-ng-init=\"findOne()\">\n    <nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n        <div class=\"container\">\n            <div class=\"collapse navbar-collapse navbar-right navbar-ex1-collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li><a href=\"#!/\">Home</a>\n                    </li>\n                    <li ng-show=\"loggedIn\"><a href=\"#!/trees\">Trees</a>\n                    </li>\n                    <li ng-show=\"loggedIn\"><a href=\"#!/\" ng-click=\"signout()\">Sign Out</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <div class=\"content-section-b\">\n        <div class=\"container\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-md-8\">\n                        <h1 data-ng-bind=\"tree.title\"></h1>\n                        <a href=\"/#!/trees/{{tree._id}}/edit\">edit</a>\n                        <a href=\"#\" data-ng-click=\"delete();\">delete</a></br>\n                        <small>\n                            <em>Posted on</em>\n                            <em data-ng-bind=\"tree.created | date:'mediumDate'\"></em> <em>by</em>\n                            <em data-ng-bind=\"tree.creator.fullName\"></em>\n                        </small>\n                    </div>\n                    </br></br></br>\n                    <div class=\"col-md-4 text-right\">\n                        <div id=\"buttons\">\n                            <button onclick=\"clickBackward()\" style=\"width:55px;height:48px\" type=\"button\"><img src=\"../../img/backward.png\" width=\"40\" height=\"40\"/></button>\n                            <button onclick=\"clickPrevious()\" style=\"width:55px;height:48px\" type=\"button\"><img src=\"../../img/previous.png\" width=\"40\" height=\"40\"/></button>\n                            <button onclick=\"clickNext()\"     style=\"width:55px;height:48px\" type=\"button\"><img src=\"../../img/next.png\"     width=\"40\" height=\"40\"/></button>\n                            <button onclick=\"clickForward()\"  style=\"width:55px;height:48px\" type=\"button\"><img src=\"../../img/forward.png\" width=\"40\" height=\"40\"/></button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <p>Click on words to annotate</p>\n            <div mw-annotator>\n                {{tree.content}}\n            </div>\n            \n            <div id=\"css_deptree_canvas\">\n                <canvas id=\"cv_deptree\" height=\"500\"></canvas>\n            </div>\n            <br>\n            <div id=\"css_input\" align=\"right\">\n                <table>\n                    <tr>\n                        <td style=\"vertical-align:top;\">\n                            <button type=\"button\" onclick=\"exportCanvas()\" style=\"width:110px;height:30px;font-family:times;font-size:14px;\">Export</button><br><br>\n                            <select id=\"st_treeId\" multiple=\"multiple\" style=\"width:110px;height:497px;\" onchange=\"selectTreeID();\"></select>\n                        </td>\n                        <td style=\"vertical-align:top;text-align:center;\">\n                            <h4>Control Panel</h4>\n                            1 &#8672; Zoom &#8674; 4<br>\n                            <input id=\"rg_deptree\" type=\"range\" width=\"100\" min=\"1\" max=\"4\" step=\"0.2\" value=\"1\" onchange=\"selectTreeID()\" oninput=\"changeZoom(this.value)\"><br>\n                        </td>\n                    </tr>\n                </table>\n            </div>\n        </div>\n    </div>\n</section>",
+			"file": "public/trees/views/view-tree.client.view.html",
+			"file_size": 3544,
+			"file_write_time": 130727099040000000,
+			"settings":
+			{
+				"buffer_size": 3544,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n    \"cmd\": [\"node\", \"server\"        ]\n}",
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Unix",
+				"name": "{"
+			}
+		},
+		{
+			"file": "public/trees/config/trees.client.routes.js",
+			"settings":
+			{
+				"buffer_size": 595,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/trees/controllers/trees.client.controller.js",
+			"settings":
+			{
+				"buffer_size": 1978,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 93.0,
+		"last_filter": "orig",
+		"selected_items":
+		[
+			[
+				"orig",
+				"Package Control: Install Package"
+			],
+			[
+				"jav",
+				"Set Syntax: Java"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"angu",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"Package Controlinstall ",
+				"Package Control: Install Package"
+			],
+			[
+				"django",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"packa",
+				"Package Control: Add Channel"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"rai",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"rub",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"m6",
+				"Set Syntax: M68k-Assembly"
+			],
+			[
+				"m",
+				"Set Syntax: M68k-Assembly"
+			],
+			[
+				"8",
+				"Set Syntax: M68k-Assembly"
+			],
+			[
+				"m68",
+				"Set Syntax: M68k-Assembly"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 120.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/mike/Git/ClearNLP-demo-website",
+		"/Users/mike/Git/ClearNLP-demo-website/app",
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes",
+		"/Users/mike/Git/ClearNLP-demo-website/config",
+		"/Users/mike/Git/ClearNLP-demo-website/public",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-annotator",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-annotator/src",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/config",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/controllers",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/views",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views"
+	],
+	"file_history":
+	[
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-annotator/src/NER-plugin.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.client.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/signin.client.module.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-annotator/src/angular-annotator.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/controllers/signin.client.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config/trees.client.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services/trees.client.service.js",
+		"/Users/mike/Library/Application Support/Sublime Text 3/Packages/Origami/Default (OSX).sublime-keymap",
+		"/Users/mike/Library/Application Support/Sublime Text 3/Packages/Origami/Origami.sublime-settings",
+		"/Users/mike/Git/ClearNLP-demo-website/public/application.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/view-tree.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views/index.ejs",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.annotator.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes/users.server.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/users.server.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/views/signin.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/passport/lib/http/request.js",
+		"/Users/mike/Git/ClearNLP-demo-website/config/passport.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/bootstrap.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/css/annotator.css",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/annotator-full.min.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/annotator.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/css/jquery-ui.css",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-annotator/README.md",
+		"/Users/mike/Downloads/jquery-ui-1.11.4.custom/jquery-ui.min.css",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/trees.client.module.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/users/services/authentication.client.service.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/jquery_functions.js",
+		"/Users/mike/Downloads/annotator-full.1.2.7/annotator.min.css",
+		"/Users/mike/Git/clearnlp-sa/.git/COMMIT_EDITMSG",
+		"/Users/mike/scripts/motd.sh",
+		"/Users/mike/Desktop/k/ECC.java",
+		"/Users/mike/Downloads/BetterOffDead.java",
+		"/Users/mike/Desktop/k/FSMtoProg.java",
+		"/Users/mike/Downloads/Save.java",
+		"/Users/mike/Git/ClearNLP-demo-website/karma.conf.js",
+		"/Users/mike/Git/ClearNLP-demo-website/config/express.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/tests/trees.server.model.tests.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/tests/trees.server.controller.tests.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes/trees.server.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes/index.server.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/package.json",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-cookies/README.md",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-cookies/index.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/edit-tree.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/README.md",
+		"/Users/mike/Git/ClearNLP-demo-website/public/css/clearnlp_demo.css",
+		"/Users/mike/Git/ClearNLP-demo-website/public/font-awesome/css/font-awesome.min.css",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views/index.html",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/list-tree.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/tests/unit/trees.client.service.unit.tests.js",
+		"/Users/mike/Desktop/a.txt",
+		"/Users/mike/Git/ClearNLP-demo-website/app/models/tree.server.model.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/create-tree.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/app/models/user.server.model.js",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/karma/node_modules/log4js/test/gelfAppender-test.js.orig",
+		"/Users/mike/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/trees.server.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/tests/unit/trees.client.controller.unit.tests.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/config/signin.client.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/bower.json",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/clearnlp_demo.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/index.server.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/css/landing-page.css",
+		"/Users/mike/Git/ClearNLP-demo-website/public/signin/controllers/mymodal.client.controller.js",
+		"/Users/mike/.Trash/index.server.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular/angular.js",
+		"/Users/mike/.bash_profile",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views/signup.html",
+		"/Users/mike/Git/ClearNLP-demo-website/public/example/views/example.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/.git/COMMIT_EDITMSG",
+		"/Users/mike/Git/ClearNLP-demo-website/public/users/config/users.client.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/example/config/signin.client.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/example/views/signin.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/public/users/views/signin.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/connect-mongo/node_modules/mongodb/Readme.md",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/bootstrap/dist/css/bootstrap.css",
+		"/Users/mike/Git/ClearNLP-demo-website/.git/MERGE_MSG",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/bower/node_modules/bower-registry-client/node_modules/request/node_modules/hawk/test/browser.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views/signup.ejs",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/active-x-obfuscator/node_modules/zeparser/benchmark.html",
+		"/Users/mike/Git/ClearNLP-demo-website/public/ui bootstrap/uibootstrap.client.module.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views/signin.ejs",
+		"/Users/mike/Git/ClearNLP-demo-website/public/.bowerrc",
+		"/Users/mike/Git/ClearNLP-demo-website/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/css/bootstrap.css",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/clearnlp-demo.js",
+		"/Users/mike/Desktop/mean/app/controllers/trees.server.controller.js",
+		"/Users/mike/Desktop/mean/public/trees/views/edit-tree.client.view.html",
+		"/Users/mike/Desktop/mean/public/trees/views/list-tree.client.view.html",
+		"/Users/mike/Desktop/mean/public/trees/views/view-tree.client.view.html",
+		"/Users/mike/Desktop/mean/app/models/user.server.model.js",
+		"/Users/mike/Downloads/Introduction-to-the-Theory-of-Computation-Solutions-master/README.md",
+		"/Users/mike/Desktop/mean/server.js",
+		"/Users/mike/Desktop/mean/app/routes/trees.server.routes.js",
+		"/Users/mike/Desktop/mean/public/trees/config/trees.client.routes.js",
+		"/Users/mike/Desktop/mean/app/views/index.ejs",
+		"/Users/mike/Desktop/mean/node_modules/compression/node_modules/debug/node.js",
+		"/Users/mike/Desktop/mean/public/example/views/example.client.view.html",
+		"/Users/mike/Desktop/mean/public/example/controllers/example.client.controller.js",
+		"/Users/mike/Desktop/mean/app/models/trees.server.routes.js",
+		"/Users/mike/Desktop/mean/public/trees/services/trees.client.service.js",
+		"/Users/mike/Desktop/mean/app/controllers/index.server.controller.js",
+		"/Users/mike/Desktop/mean/public/application.js",
+		"/Users/mike/Desktop/mean/public/trees/trees.client.module.js",
+		"/Users/mike/Desktop/mean/app/routes/users.server.routes.js",
+		"/Users/mike/Desktop/mean/app/routes/index.server.routes.js",
+		"/Users/mike/Desktop/mean/app/controllers/users.server.controller.js",
+		"/Users/mike/Desktop/mean/app/controllers/tree.server.controller.js",
+		"/Users/mike/Desktop/mean/config/express.js",
+		"/Users/mike/Desktop/mean/bower.json",
+		"/Users/mike/Desktop/mean/public/trees/articles.client.module.js",
+		"/Users/mike/Desktop/mean/public/trees/services/articles.client.service.js",
+		"/Users/mike/Desktop/mean/public/trees/controllers/trees.client.controller.js",
+		"/Users/mike/Desktop/mean/public/trees/views/create-tree.client.view.html",
+		"/Users/mike/Desktop/mean/config/mongoose.js",
+		"/Users/mike/Desktop/mean/app/models/tree.server.model.js",
+		"/Users/mike/Desktop/mean/public/users/services/users.client.module.js",
+		"/Users/mike/Desktop/mean/public/example/example.client.module.js",
+		"/Users/mike/Desktop/mean/public/users/services/authentication.client.service.js",
+		"/Users/mike/Desktop/mean/public/example/config/example.client.routes.js",
+		"/Users/mike/Desktop/mean/app/views/index.html",
+		"/Users/mike/Desktop/mean/.bowerrc",
+		"/Users/mike/Desktop/mean/app/models/user.js",
+		"/Users/mike/Desktop/mean/config/passport.js",
+		"/Users/mike/Desktop/PacbioMAtlab/Completo2706loop2ndPart_cluster.m",
+		"/Users/mike/Desktop/mean/app/views/signup.ejs"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"/Users/mike/Git/ClearNLP-demo-website/public/trees",
+			"",
+			"/Users/mike/Git/ClearNLP-demo-website",
+			"/Users/mike/Git/ClearNLP-demo-website/public",
+			"/Users/mike/Git/ClearNLP-demo-website/",
+			"/Users/mike/Git/ClearNLP-demo-website/, -*/Users/mike/Git/ClearNLP-demo-website/node-modules/",
+			"/Users/mike/Git/ClearNLP-demo-website/, -*/Users/mike/Git/ClearNLP-demo-website/node-modules",
+			"/Users/mike/Git/ClearNLP-demo-website/,-*/Users/mike/Git/ClearNLP-demo-website/node-modules",
+			"/Users/mike/Git/ClearNLP-demo-website/,,-*/Users/mike/Git/ClearNLP-demo-website/node-modules",
+			"",
+			"/Users/mike/Git/ClearNLP-demo-website/",
+			"/Users/mike/Git/ClearNLP-demo-website/,/Users/mike/Git/ClearNLP-demo-website/public/users",
+			"/Users/mike/Git/ClearNLP-demo-website/",
+			"/Users/mike/Git/ClearNLP-demo-website/public/components",
+			"/Users/mike/Git/ClearNLP-demo-website",
+			"/Users/mike/Desktop/mean/",
+			"/Users/mike/Desktop/mean/public/img",
+			"",
+			"/Users/Mike/Desktop/Orders",
+			"/User/Mike/Desktop/Orders",
+			"",
+			".nav",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"$scope.",
+			"Trees",
+			"NERpl",
+			"$promise",
+			"$http",
+			"Trees",
+			"$http.post",
+			"$http",
+			"treeId",
+			"signout",
+			"isAuthenticated",
+			"signout",
+			"requiresLogin",
+			"isAuthenticated",
+			"logOut()",
+			"logOut",
+			"loggedIn",
+			"annotator-hl",
+			"index",
+			".ui-menu",
+			"autocom",
+			"results",
+			".jpg",
+			"annotator-plugins",
+			"annotatorTags",
+			"<a href",
+			"<a",
+			"href",
+			"filterOptions",
+			"mwAnnotator",
+			"Trees",
+			"$cookieStore",
+			"mw-annotator",
+			"angularcookies",
+			"angular-cookies",
+			"cookies",
+			"signin",
+			" window.user",
+			"\");",
+			"writer.write(",
+			"System.out.println(",
+			"karma.conf.js",
+			"../",
+			"proxyrequire",
+			"ngCookies",
+			"font-awesome",
+			"<li><a href=\"#!/trees\">Trees</a>",
+			"<<<<<",
+			">>>>>",
+			"<<<<<<< HEAD",
+			"HEAD",
+			">>>>>>> dev",
+			"head",
+			"#!",
+			"signin.client.v",
+			"promise",
+			"signout",
+			"create",
+			"checkLoggedin",
+			".when",
+			"when",
+			"checkLoggedin",
+			"signout",
+			"deptree",
+			"$q",
+			"/trees",
+			"trees",
+			"console",
+			"Password should be at least 5 characters long",
+			"signupModal",
+			"passport.deserializeUser",
+			"message",
+			"Username already exists",
+			"/trees",
+			"users",
+			"/app/routes/index.server.routes.js",
+			"ind",
+			"/trees",
+			"trees",
+			"conso",
+			"data-ng-repeat",
+			"create a new article",
+			"create new article",
+			"create new artcle",
+			"create new",
+			"logout",
+			"var auth",
+			"var auth = function(req, res, next){ if (!req",
+			"var auth = function(req, res, next){ if (!req.isAuthenticated()) res.send(401); else next(); }; - See more at: https://vickev.com/#!/article/authentication-in-single-page-applications-node-js-passportjs-angularjs",
+			"#loginForm",
+			"authentication",
+			"auth",
+			"authen",
+			"authent",
+			"example",
+			"passport.authenticate",
+			"passport.authenticate#sthash.0s69g2sC.dpuf",
+			"user",
+			"ng-include",
+			"section ng-\ninclude",
+			"oday!",
+			"Create an account",
+			"Already have an account",
+			"Already have",
+			"what would you like",
+			"Hello!",
+			"hello!",
+			"ng-scope",
+			"footer",
+			"footer class=",
+			"footer class=\"ng-scope",
+			"footer",
+			"firstName",
+			"email",
+			"ffd",
+			"tree.data",
+			"initDEPTrees()",
+			"zoom",
+			"control",
+			"control panel",
+			"edit",
+			"<link href=\"css/bootstrap.css\" ",
+			"<link href=\"css/bootstrap.css\" rel=\"stylesheet\" class=\"ng-scope\">",
+			"bootstrap",
+			"already have an account?",
+			"already have",
+			"ui-bootstrap",
+			"for(var"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"writer.write(",
+			"<li ng-show=\"loggedIn\"><a href=\"#!/trees\">Trees</a>",
+			"signin",
+			"tree",
+			"trees",
+			"tree",
+			"now",
+			"\\'",
+			"\"",
+			"Hédo",
+			".navbar",
+			".nav",
+			"\"",
+			"theS.add(0, ",
+			"theS.get(theS.size()-1)",
+			"get(0)",
+			"theQ",
+			"theS",
+			"getStopsSize",
+			"read",
+			"data",
+			"radius",
+			"region",
+			"GBA"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/trees/services/trees.client.service.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								494,
+								494
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/trees/trees.client.module.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "public/trees/views/view-tree.client.view.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3544,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								472,
+								472
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 41,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_name": "{",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "public/trees/config/trees.client.routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/trees/controllers/trees.client.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1570,
+								1570
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 539.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 433.0
+	},
+	"pinned_build_system": "",
+	"project": "clearviz.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"p",
+				"/private/var/folders/cd/18gvtyb10nl39yr_f59xz5jm0000gn/T/3516ed28-d5b4-47f4-b79c-18f0f561ef70/home/mzhai2/cs255/project4/pj4.s"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 786.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 270.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 1
+	}
+}
