@@ -19,16 +19,54 @@
     </div>
     <div class="content-section-b">
         <div class="container">
-            <a href="#!/trees/create">Create Tree</a>
-            <ol>
+            <ul class="list-inline intro-social-buttons">
+                <li><a href="#!/trees/create" class="btn btn-default btn-lg"><i class="fa fa-plus-circle fa-fw"></i><span class="network-name">Create Tree</span></a></li>
+
+                <li><a data-target="#help" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-question-circle fa-fw"></i><span class="network-name">Instructions</span></a></li>
+            </ul><br></br>
+
+
+            <h3>Current Trees:</h3><br>
+
+            <h4><ol>
                 <li data-ng-repeat="tree in trees">
-                    <a data-ng-href="#!/trees/{{tree._id}}" data-ng-bind="tree.title"></a>
-                    <br></br>
+                    <a data-ng-href="#!/trees/{{tree._id}}" data-ng-bind="tree.title"></a><br>
                     <small data-ng-bind="tree.created | date:'medium'"></small> <small>/</small>
                     <small data-ng-bind="tree.creator.fullName"></small>
-                    <p data-ng-bind="tree.content"></p>
+                    <h5><p data-ng-bind="tree.content"></p></h5>
                 </li>
-            </ol>
+            </ol></h4>
         </div>
     </div>
+    <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-question-circle fa-fw"></i>Help</h4>
+                        </div>
+                        <div class="modal-body">
+                        ClearViz simplifies the concept of natural language processing by providing an easy to use and modern interface. 
+                        <br></br>
+                        Creating a Tree. <br>
+                        <ol><li>Click link to create tree.</li>
+                        <li>Add title to tree. Content can be left blank if need be. (Content can be edited later) </li>
+                        <li>Click Submit. </li>
+                        <li>Analyzed tree should be shown. </li></ol>
+                        <br>
+                        Deleting a Tree. <br>
+                        <ol><li>Click tree that you wish to delete.</li>
+                        <li>Delete link is below the title.</li></ol>                    
+                        <br>
+                        Editing a Tree. <br>
+                        <i>In Progress</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </section>
