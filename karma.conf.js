@@ -3,7 +3,7 @@
 module.exports = function(config)
 {
   config.set({
-    frameworks: ['jasmine','requirejs'],
+    frameworks: ['jasmine'],
     files: [
         'public/components/angular/angular.js',
         'public/components/angular-resource/angular-resource.js',
