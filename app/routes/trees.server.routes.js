@@ -12,7 +12,7 @@ module.exports = function(app) {
     .delete(users.requiresLogin, trees.hasAuthorization, trees.delete);
 
     app.route('/api/ner')
-    .post(ner.send);
+    .post(users.requiresLogin, ner.create);
 
 app.param('treeId', trees.treeByID);
 };
