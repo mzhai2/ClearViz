@@ -14,7 +14,8 @@ angular.module('mwAnnotator').directive('mwAnnotator', function () {
             annotator.addPlugin('Unsupported');
             annotator.addPlugin('NER');
             annotator.addPlugin('Tags');
-
+            annotator.addPlugin('Store');
+            
             if(attrs.annotatorTags){
                 annotator.addPlugin('Tags');
             }
@@ -61,7 +62,7 @@ angular.module('mwAnnotator').directive('mwAnnotator', function () {
                         }
                         if(pluginName){
                             if(!pluginOptions){
-                                annotator.addPlugin(pluginName)
+                                annotator.addPlugin(pluginName);
                             }else{
                                 annotator.addPlugin(pluginName, pluginOptions);
                             }

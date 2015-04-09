@@ -26,7 +26,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             initDEPTrees(tree.data);
             $scope.tree = tree;
         });
-    }
+    };
 
     $scope.update = function() {
         $scope.tree.$update(
@@ -59,7 +59,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         var anno = new Annotations({
             a: annotation
         });
-        console.log(anno)
+        console.log(anno);
         anno.$save(function(errorResponse) {
             $scope.error = errorResponse.data.message;
         });

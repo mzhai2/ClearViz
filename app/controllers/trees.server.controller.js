@@ -109,5 +109,3 @@ exports.hasAuthorization = function(req, res, next) {
     }
     next();
 };
-
-
