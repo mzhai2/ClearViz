@@ -16,7 +16,6 @@
 package edu.emory.clir.clearnlp.clearviz;
 import static spark.Spark.post;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -46,7 +45,9 @@ public class SparkApi
 	private static AbstractTokenizer tokenizer;
 	private static AbstractComponent parser;
 	private static AbstractComponent tagger;
-	
+	private static AbstractNERecognizer ner;
+	private static PrefixTree<String,NERInfoList> dictionary;
+
 	
 	
 	public SparkApi(TLanguage language) throws Exception
@@ -57,15 +58,13 @@ public class SparkApi
 		parser = NLPUtils.getDEPParser(language, "general-en-dep.xz", new DEPConfiguration(rootLabel));
 		components = new AbstractComponent[]{tagger, morph, parser};
 		tokenizer  = NLPUtils.getTokenizer(language);
+		ner = new EnglishNERecognizer();
+		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
 	}
 	
 	public void namedEntityRecognition(InputStream in, PrintStream out)
 	{
-		AbstractTokenizer tokenizer = NLPUtils.getTokenizer(language);
-		AbstractNERecognizer ner = new EnglishNERecognizer();
-		PrefixTree<String,NERInfoList> dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
 		DEPTree tree;
-	
 		for (List<String> tokens : tokenizer.segmentize(in))
 		{
 			tree = new DEPTree(tokens);
