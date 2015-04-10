@@ -54,6 +54,7 @@ Directory path for users model: `ClearViz/public/users/tests/unit`
 The files in the each directory test several components for each model in this application.
 
 Running the unit tests require the use of Karma's command line utility:
+
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command:  `$ NODE_ENV=test karma start`
 3. Those using Windows should first input the command:  `> set NODE_ENV=test`
@@ -61,6 +62,7 @@ Running the unit tests require the use of Karma's command line utility:
 
 ### AngularJS E2E Automated Testing
 Directory path: `ClearViz/public/trees/e2e`:
+
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command: `$ NODE_ENV=test node server`
 3. If you are using Windows, first run: `> set NODE_ENV=test`
@@ -70,14 +72,18 @@ Directory path: `ClearViz/public/trees/e2e`:
 **Login method was changed from AngularJS to Express Passport. Therefore, `protractor` cannot test login. The test fails as one should not be able to create a tree without logging in. 
 
 ### Express Testing
-Directory path: `ClearViz/app/tests`:
+Directory path: `ClearViz/app/tests:
+
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command: `$ NODE_ENV=test mocha --reporter spec app/tests`
 3. If you are using Windows, first run: `> set NODE_ENV=test`
 4. Next, input the command: `> mocha --reporter spec app/tests`
 
+###Travis CI
 
+Continuous Integration is done using TravisCI and is run here: https://magnum.travis-ci.com/CS370-soft-eng-practicum/ClearViz
 
+We are still working hard on it as it currently fails. 
 
 
 

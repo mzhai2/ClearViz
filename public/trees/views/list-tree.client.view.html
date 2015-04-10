@@ -19,11 +19,12 @@
     </div>
     <div class="content-section-b">
         <div class="container">
+            
             <ul class="list-inline intro-social-buttons">
                 <li><a href="#!/trees/create" class="btn btn-default btn-lg"><i class="fa fa-plus-circle fa-fw"></i><span class="network-name">Create Tree</span></a></li>
 
                 <li><a data-target="#help" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-question-circle fa-fw"></i><span class="network-name">Instructions</span></a></li>
-            </ul><br></br>
+            </ul><br>
 
 
             <h3>Current Trees:</h3><br>
@@ -33,7 +34,7 @@
                     <a data-ng-href="#!/trees/{{tree._id}}" data-ng-bind="tree.title"></a><br>
                     <small data-ng-bind="tree.created | date:'medium'"></small> <small>/</small>
                     <small data-ng-bind="tree.creator.fullName"></small>
-                    <h5><p data-ng-bind="tree.content"></p></h5>
+                    <h5><p data-ng-bind="tree.content"></p></h5><br></br>
                 </li>
             </ol></h4>
         </div>
