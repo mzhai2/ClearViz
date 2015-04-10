@@ -14,51 +14,45 @@
     </nav>
     <div class="content-section-b">
         <div class="container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h1 data-ng-bind="tree.title"></h1>
-                        <a href="/#!/trees/{{tree._id}}/edit">edit</a>
-                        <a href="#" data-ng-click="delete();">delete</a></br>
-                        <small>
-                            <em>Posted on</em>
-                            <em data-ng-bind="tree.created | date:'mediumDate'"></em> <em>by</em>
-                            <em data-ng-bind="tree.creator.fullName"></em>
-                        </small>
-                    </div>
-                </br></br></br>
-                <div class="col-md-4 text-right">
-                    <div id="buttons">
-                        <button onclick="clickBackward()" style="width:55px;height:48px" type="button"><img src="../../img/backward.png" width="40" height="40"/></button>
-                        <button onclick="clickPrevious()" style="width:55px;height:48px" type="button"><img src="../../img/previous.png" width="40" height="40"/></button>
-                        <button onclick="clickNext()"     style="width:55px;height:48px" type="button"><img src="../../img/next.png"     width="40" height="40"/></button>
-                        <button onclick="clickForward()"  style="width:55px;height:48px" type="button"><img src="../../img/forward.png" width="40" height="40"/></button>
-                    </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 data-ng-bind="tree.title"></h1>
+                    <a href="/#!/trees/{{tree._id}}/edit">edit</a>
+                    <a href="#" data-ng-click="delete();">delete</a></br>
+                    <small>
+                        <em>Posted on</em>
+                        <em data-ng-bind="tree.created | date:'mediumDate'"></em> <em>by</em>
+                        <em data-ng-bind="tree.creator.fullName"></em>
+                    </small>
                 </div>
             </div>
         </div>
-        <p>Click on words to annotate</p>
-        <link href="/components/ckeditor/contents.css" rel="stylesheet">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="buttons">
+                    <h3>Highlighter</h3>
+                    <p>Make a selection in the document and use the buttons below to highlight and unhighlight.</p>
+                    <input type="button" style="background-color:red;" ontouchstart="highlightOrganization();" onclick="highlightOrganization();" value="Organization">
+                    <input type="button" style="background-color:blue;" ontouchstart="highlightPerson();" onclick="highlightPerson();" value="Person">
+                    <input type="button" style="background-color:yellow;" ontouchstart="highlightLocation();" onclick="highlightLocation();" value="Location">
+                    <input type="button" ontouchstart="removeHighlightFromSelectedText();" onclick="removeHighlightFromSelectedText();" value="Remove Annotation">
+                    <input type="button" ng-click="annotate();" value="Send">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="content" ng-bind="tree.content"></p>
+                </div>
+            </div>
+        </div>
 
-        <style>
-            .cke_textarea_inline
-            {
-                padding: 10px;
-                height: 100px;
-                /*overflow: auto;*/
-
-                border: 1px solid gray;
-                -webkit-appearance: textfield;
-            }
-        </style>
-        <div>
-            <form action="sample_posteddata.php" method="post">
-                <textarea name="article-body" style="height: 200px">
-                {{tree.content}}
-                </textarea>
-                <input type="submit" value="Submit">
-            </form>
-            
+        <div class="col-md-4">
+            <div id="buttons">
+                <button onclick="clickBackward()" style="width:55px;height:48px" type="button"><img src="../../img/backward.png" width="40" height="40"/></button>
+                <button onclick="clickPrevious()" style="width:55px;height:48px" type="button"><img src="../../img/previous.png" width="40" height="40"/></button>
+                <button onclick="clickNext()"     style="width:55px;height:48px" type="button"><img src="../../img/next.png"     width="40" height="40"/></button>
+                <button onclick="clickForward()"  style="width:55px;height:48px" type="button"><img src="../../img/forward.png" width="40" height="40"/></button>
+            </div>
         </div>
         <div id="css_deptree_canvas">
             <canvas id="cv_deptree" height="500"></canvas>

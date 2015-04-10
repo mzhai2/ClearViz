@@ -55,13 +55,15 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         }
     };
 
-    $scope.annotate = function(annotation) {
+    $scope.annotate = function() {
         var anno = new Annotations({
-            a: annotation
+            content: document.getElementById('content')
+            // a: $scope.annotation
         });
-        console.log(anno);
+        console.log(anno.content);
         anno.$save(function(errorResponse) {
             $scope.error = errorResponse.data.message;
         });
     };
+
 }]);
