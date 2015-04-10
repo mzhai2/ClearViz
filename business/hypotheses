@@ -16,9 +16,17 @@ Are the labelling and explanation of the parts of speech useful features for ana
 2.
 Would you purchase a premium membership to use these features?
 
-What is the maximum amount of money you would pay to be able to use ClearViz?
 
 3.
-Can you explain the concepts of Natural Language Processing and how and why it is used?
+Do you feel the need of a complete tutorial on how to use the dependency-based parse tree?
 
+<<<<<<< HEAD
 Do you feel the need for a complete tutorial on how to use/read the dependency-based parse tree?
+=======
+
+Conclusion/Observations:
+
+Based on the information that we have gathered, we can see that those who are associated with natural language processing overall think that the layout of ClearViz is mostly intuitive. Some ran into confusion as there was no help or guide on how to use the site. In addition, it was mentioned that the UI felt a bit clunky. However, everyone felt that the visualization of the dependency-based parsed tree was neat and easily understood.
+
+Interestingly, it was found that those associated with NLP were willing to buy a premium membership to use these features.
+>>>>>>> FETCH_HEAD
