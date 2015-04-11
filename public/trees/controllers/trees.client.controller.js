@@ -55,12 +55,13 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         }
     };
 
-    $scope.annotate = function() {
+    $scope.annotateNer = function() {
         var anno = new Annotations({
-            content: document.getElementById('content')
-            // a: $scope.annotation
+            annotation: document.getElementById('content'),
+            _id : this.tree._id
         });
-        console.log(anno.content);
+        console.log(anno.annotation);
+        // send it get a response of the entire tree and save
         anno.$save(function(errorResponse) {
             $scope.error = errorResponse.data.message;
         });

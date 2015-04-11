@@ -21,7 +21,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.emory.clir.clearnlp.collection.tree.PrefixTree;
 import edu.emory.clir.clearnlp.component.AbstractComponent;
@@ -31,6 +33,7 @@ import edu.emory.clir.clearnlp.component.mode.ner.EnglishNERecognizer;
 import edu.emory.clir.clearnlp.component.utils.NLPUtils;
 import edu.emory.clir.clearnlp.dependency.DEPTree;
 import edu.emory.clir.clearnlp.ner.NERInfoList;
+import edu.emory.clir.clearnlp.reader.TSVReader;
 import edu.emory.clir.clearnlp.tokenization.AbstractTokenizer;
 import edu.emory.clir.clearnlp.util.lang.TLanguage;
 
@@ -56,10 +59,10 @@ public class SparkApi
 		morph = NLPUtils.getMPAnalyzer(language);
 		tagger = NLPUtils.getPOSTagger(language, "general-en-pos.xz");
 		parser = NLPUtils.getDEPParser(language, "general-en-dep.xz", new DEPConfiguration(rootLabel));
-		components = new AbstractComponent[]{tagger, morph, parser};
-		tokenizer  = NLPUtils.getTokenizer(language);
 		ner = new EnglishNERecognizer();
 		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
+		components = new AbstractComponent[]{tagger, morph, parser};
+		tokenizer  = NLPUtils.getTokenizer(language);
 	}
 	
 	public void namedEntityRecognition(InputStream in, PrintStream out)
@@ -83,7 +86,9 @@ public class SparkApi
 			for (AbstractComponent component : components)
 				component.process(tree);
 
+			ner.processDictionary(tree, dictionary);
 			out.println(tree.toStringDEP()+"\n");
+
 		}
 		in.close();
 		out.close();
@@ -138,17 +143,18 @@ public class SparkApi
 			catch (Exception e) {e.printStackTrace();}
 			return baos.toString("UTF-8");
         });
-        post("/ner", (req, res) -> {
+        post("/annotatener", (req, res) -> {
         	String inputString = req.body();
         	try
 			{
-				baos = new ByteArrayOutputStream();
+//	        	Map<String, List<String>> tags = ParseHtml.parseNER(inputString, new HashMap<String, List<String>>());
+	        	baos = new ByteArrayOutputStream();
 				ps = new PrintStream(baos);
 				is = new ByteArrayInputStream(inputString.getBytes(StandardCharsets.UTF_8));
-				clear.namedEntityRecognition(is, ps);
+//				TSVReader t = new TSVReader(iID, iForm, iLemma, iPOSTag, iNamedEntityTag, iFeats, iHeadID, iDeprel, iXHeads, iSHeads)
 			}
 			catch (Exception e) {e.printStackTrace();}
 			return baos.toString("UTF-8");
-        });
+	    });
 	}
 }
