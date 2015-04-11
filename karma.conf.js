@@ -11,7 +11,6 @@ module.exports = function(config)
         'public/components/angular-mocks/angular-mocks.js',
         'public/application.js',
         'public/js/jquery-1.11.2.min.js',
-<<<<<<< Updated upstream
 
 
         'public/users/authentication.client.service.js',
@@ -26,11 +25,7 @@ module.exports = function(config)
         'public/trees/tests/unit/trees.client.module.unit.tests.js',
         'public/trees/tests/unit/trees.client.routes.unit.tests.js',
         'public/trees/tests/unit/trees.client.service.unit.tests.js'
-=======
-        'public/*[!lib]*/*.js',
-        'public/*[!lib]*/*[!tests]*/*.js',
-        'public/*[!lib]*/tests/unit/*.js',
->>>>>>> Stashed changes
+
 
     ],
     // preprocessors: {

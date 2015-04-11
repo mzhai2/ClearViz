@@ -14,16 +14,22 @@
     </nav>
     <div class="list-header">
         <div class="container">
-            <h1>Trees</h1>
+            <h1>ClearViz</h1>
+
+
         </div>
     </div>
     <div class="content-section-b">
         <div class="container">
             
             <ul class="list-inline intro-social-buttons">
-                <li><a href="#!/trees/create" class="btn btn-default btn-lg"><i class="fa fa-plus-circle fa-fw"></i><span class="network-name">Create Tree</span></a></li>
 
-                <li><a data-target="#help" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-question-circle fa-fw"></i><span class="network-name">Instructions</span></a></li>
+                <li><a data-target="#create" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-plus-circle fa-fw"></i><span class="network-name"> Create Tree</span></a></li>
+
+                <li><a data-target="#help" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-question-circle fa-fw"></i><span class="network-name"> Instructions</span></a></li>
+
+                <li><a data-target="#feedback" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-comments-o fa-fw"></i><span class="network-name"> Feedback</span></a></li>
+
             </ul><br>
 
 
@@ -39,12 +45,50 @@
             </ol></h4>
         </div>
     </div>
+        <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-plus-circle fa-fw"></i> Create Tree</h4>
+                        </div>
+                        <div class="modal-body">
+                        <form data-ng-submit="create()" novalidate>
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <div>
+                                    <input type="text" class="form-control" data-ng-model="title" id="title" placeholder="Title" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <div>
+                                    <textarea data-ng-model="content" id="content" class="form-control" rows="10" placeholder="Content" required></textarea>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                               <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+
+                            <div data-ng-show="error">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title"><i class="fa fa-question-circle fa-fw"></i>Help</h4>
+                            <h4 class="modal-title"><i class="fa fa-question-circle fa-fw"></i> Help</h4>
                         </div>
                         <div class="modal-body">
                         ClearViz simplifies the concept of natural language processing by providing an easy to use and modern interface. 
@@ -61,6 +105,31 @@
                         <br>
                         Editing a Tree. <br>
                         <i>In Progress</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-comments-o fa-fw"></i> Feedback</h4>
+                        </div>
+                        <div class="modal-body">
+
+                        We'd love to hear your feedback! 
+
+                        <br></br> 
+                        If you encounter any issues, feel free to report them on our GitHub page. In order for us to improve the user experience, please fill out the survey as well. Thank you for your time!
+
+                        <br></br> 
+                        <a  href="https://github.com/CS370-soft-eng-practicum/ClearViz/issues" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i><span class="network-name"> GitHub</span></a>&nbsp;&nbsp;&nbsp;
+
+                        <a  href="http://goo.gl/forms/DKIlYwi10x" class="btn btn-default btn-lg"><i class="fa fa-file-text-o fa-fw"></i><span class="network-name"> Survey</span></a>
+
                         </div>
                     </div>
                 </div>

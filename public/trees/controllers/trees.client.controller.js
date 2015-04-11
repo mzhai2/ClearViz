@@ -54,4 +54,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             });
         }
     };
+    $('#create').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
 }]);

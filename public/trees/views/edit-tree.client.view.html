@@ -18,29 +18,34 @@
         </div>
     </div>
     <div class="content-section-b">
-        <div class="intro-header">
+        <div class="container">
             <div class="container">
-                <form data-ng-submit="update()" novalidate>
-                    <div>
-                        <label for="title">Title</label>
+                <div class="row">
+                    <div class="col-md-8">
+                    <form data-ng-submit="update()" novalidate>
                         <div>
-                            <input type="text" data-ng-model="tree.title" id="title" placeholder="Title" required>
+                            <label for="title">Title</label>
+                            <div>
+                                <input type="text" data-ng-model="tree.title" id="title" placeholder="Title" required>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <label for="content">Content</label>
                         <div>
-                            <textarea data-ng-model="tree.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" value="Update">
-                    </div>
+                            <label for="content">Content</label>
+                            <div>
 
-                    <div data-ng-show="error">
-                        <strong data-ng-bind="error"></strong>
-                    </div>
-                </form>
+                            {{tree.content}}
+                                <textarea data-ng-model="tree.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Update">
+                        </div>
+
+                        <div data-ng-show="error">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
