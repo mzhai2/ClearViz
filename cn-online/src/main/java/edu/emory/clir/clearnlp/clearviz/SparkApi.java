@@ -31,6 +31,7 @@ import edu.emory.clir.clearnlp.component.mode.dep.DEPConfiguration;
 import edu.emory.clir.clearnlp.component.mode.ner.AbstractNERecognizer;
 import edu.emory.clir.clearnlp.component.mode.ner.EnglishNERecognizer;
 import edu.emory.clir.clearnlp.component.utils.NLPUtils;
+import edu.emory.clir.clearnlp.dependency.DEPNode;
 import edu.emory.clir.clearnlp.dependency.DEPTree;
 import edu.emory.clir.clearnlp.ner.NERInfoList;
 import edu.emory.clir.clearnlp.reader.TSVReader;
@@ -65,16 +66,16 @@ public class SparkApi
 		tokenizer  = NLPUtils.getTokenizer(language);
 	}
 	
-	public void namedEntityRecognition(InputStream in, PrintStream out)
-	{
-		DEPTree tree;
-		for (List<String> tokens : tokenizer.segmentize(in))
-		{
-			tree = new DEPTree(tokens);
-			ner.processDictionary(tree, dictionary);
-			out.println(tree.toString()+"\n");
-		}
-	}
+	// public void namedEntityRecognition(InputStream in, PrintStream out)
+	// {
+	// 	DEPTree tree;
+	// 	for (List<String> tokens : tokenizer.segmentize(in))
+	// 	{
+	// 		tree = new DEPTree(tokens);
+	// 		ner.processDictionary(tree, dictionary);
+	// 		out.println(tree.toString()+"\n");
+	// 	}
+	// }
 	
 	public void processRaw(InputStream in, PrintStream out) throws Exception
 	{
@@ -87,8 +88,7 @@ public class SparkApi
 				component.process(tree);
 
 			ner.processDictionary(tree, dictionary);
-			out.println(tree.toStringDEP()+"\n");
-
+			out.println(tree.toString(DEPNode::toStringNER)+"\n");
 		}
 		in.close();
 		out.close();
