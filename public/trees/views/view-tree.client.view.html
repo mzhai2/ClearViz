@@ -41,26 +41,39 @@
                         <a data-target="#help" data-toggle="modal" class="btn btn-default btn-lg"><i class="fa fa-question-circle fa-fw"></i></a><br></br>
 
                         <table>
-                                <td style="vertical-align:top;text-align:center;">
-                                    <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)"><br>
-                                </td>
+                            <td style="vertical-align:top;text-align:center;">
+                                <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)"><br>
+                            </td>
                         </table>
-
-
-                     
-                     </div>
-                 </div>
-                <p>Click on words to annotate</p>
-                <div ng-controller="AnnotatorController as annotator">
-                    <div mw-annotator>
-                        {{tree.content}}
-                    </div><br></br>
+                    </div>
                 </div>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" id="buttons">
+                            <h3>Highlighter</h3>
+                            <p>Make a selection in the document and use the buttons below to highlight and unhighlight.</p>
+                            <input type="button" style="background-color:red;" ontouchstart="highlightOrganization();" onclick="highlightOrganization();" value="Organization">
+                            <input type="button" style="background-color:green;" ontouchstart="highlightPerson();" onclick="highlightPerson();" value="Person">
+                            <input type="button" style="background-color:yellow;" ontouchstart="highlightLocation();" onclick="highlightLocation();" value="Location">
+                            <input type="button" ontouchstart="removeHighlightFromSelectedText();" onclick="removeHighlightFromSelectedText();" value="Remove Annotation">
+                            <input type="button" ng-click="annotateNer();" value="Send">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <annotation-display tree="{{tree}}" createHighlights="annotationFactory.createAnnotationHtml(tree)"></annotation-display>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>  
             <div id="css_deptree_canvas">
                 <canvas id="cv_deptree" height="500"></canvas>
             </div>
-        
+
 
 
             <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -72,19 +85,19 @@
                         </div>
                         <div class="modal-body">
 
-                        <i class="fa fa-trash-o fa-fw"></i>: Deletes Tree<br></br>
-                        <i class="fa fa-floppy-o fa-fw"></i>: Export diagram as picture<br></br>
-                        <i class="fa fa-step-backward fa-fw"></i>: Jumps to first sentence<br></br>
-                        <i class="fa fa-backward fa-fw"></i>: Jumps to previous sentence<br></br>
-                        <i class="fa fa-forward fa-fw"></i>: Jumps to next sentence<br></br>
-                        <i class="fa fa-step-forward fa-fw"></i>: Jumps to last sentence<br></br>
-                        <table>
+                            <i class="fa fa-trash-o fa-fw"></i>: Deletes Tree<br></br>
+                            <i class="fa fa-floppy-o fa-fw"></i>: Export diagram as picture<br></br>
+                            <i class="fa fa-step-backward fa-fw"></i>: Jumps to first sentence<br></br>
+                            <i class="fa fa-backward fa-fw"></i>: Jumps to previous sentence<br></br>
+                            <i class="fa fa-forward fa-fw"></i>: Jumps to next sentence<br></br>
+                            <i class="fa fa-step-forward fa-fw"></i>: Jumps to last sentence<br></br>
+                            <table>
                                 <td style="vertical-align:top;text-align:center;">
                                     <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)"><br>
                                 </td>
-                        </table>
-                        Zoom Bar: Enlarge diagram to desired size<br></br>
-                        Temporary annotations can be made by highlighting words/phrases in sentence
+                            </table>
+                            Zoom Bar: Enlarge diagram to desired size<br></br>
+                            Temporary annotations can be made by highlighting words/phrases in sentence
                         </div>
                     </div>
                 </div>
@@ -94,6 +107,25 @@
                 Sentence index: <select id="st_treeId" onchange="selectTreeID();"></select>
             </div>
 
+        </div>
+        <div id="css_deptree_canvas">
+            <canvas id="cv_deptree" height="500"></canvas>
+        </div>
+        <br>
+        <div id="css_input" align="right">
+            <table>
+                <tr>
+                    <td style="vertical-align:top;">
+                        <button type="button" onclick="exportCanvas()" style="width:110px;height:30px;font-family:times;font-size:14px;">Export</button><br><br>
+                        <select id="st_treeId" multiple="multiple" style="width:110px;height:497px;" onchange="selectTreeID();"></select>
+                    </td>
+                    <td style="vertical-align:top;text-align:center;">
+                        <h4>Control Panel</h4>
+                        1 &#8672; Zoom &#8674; 4<br>
+                        <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)"><br>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </section>

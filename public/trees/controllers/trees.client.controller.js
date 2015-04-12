@@ -1,6 +1,6 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'annotationFactory',
+    function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, annotationFactory) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
-
     $scope.create = function() {
         var tree = new Trees({
             title: this.title,
@@ -26,7 +26,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             initDEPTrees(tree.data);
             $scope.tree = tree;
         });
-    }
+    };
 
     $scope.update = function() {
         $scope.tree.$update(
@@ -36,7 +36,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             }
-            );
+        );
     };
 
     $scope.delete = function(tree) {
@@ -50,8 +50,20 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             });
         } else {
             $scope.tree.$remove(function() {
-                $location.path('trees');
+                $location.path('trees/');
             });
         }
+    };
+
+    $scope.annotateNer = function() {
+        var anno = new Annotations({
+            annotation: document.getElementById('content'),
+            _id : this.tree._id
+        });
+        console.log(anno.annotation);
+        // send it get a response of the entire tree and save
+        anno.$save(function(errorResponse) {
+            $scope.error = errorResponse.data.message;
+        });
     };
 }]);

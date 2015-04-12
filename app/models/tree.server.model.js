@@ -13,11 +13,11 @@ var TreeSchema = new Schema({
   },
   content: {
       type: String,
-      default: '',
+      default: ''
   },
   data: {
       type: String,
-      default: '',
+      default: ''
   },
   creator: {
     type: Schema.ObjectId,

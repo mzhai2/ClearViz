@@ -1,4 +1,4 @@
-var mainApplicationModule = angular.module('mean', ['mwAnnotator', 'ngResource', 'ngRoute', 'ngCookies', 'signin', 'trees']);
+var mainApplicationModule = angular.module('mean', ['ngResource', 'ngRoute', 'ngCookies', 'signin', 'trees']);
 
 angular.element(document).ready(function() {
     angular.bootstrap(document, ['mean']);
@@ -17,7 +17,7 @@ mainApplicationModule.factory('interceptor', ['$rootScope', '$q', '$location',
             }
             return $q.reject(response);
         }
-    }
+    };
 }]);
 
 mainApplicationModule.config(['$locationProvider', '$httpProvider', function($locationProvider, $httpProvider) {

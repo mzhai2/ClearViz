@@ -110,4 +110,35 @@ exports.hasAuthorization = function(req, res, next) {
     next();
 };
 
-
+exports.annotateNer = function(req, res) {
+    var request = require('request');
+    request(
+    {
+        method: 'POST',
+        uri: 'http://52.1.147.106:4567/annotatener',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: req.body.annnotation
+    },
+    function(error, response, body) {
+        console.log(body);
+        if (!error && response.statusCode == 200) {
+            var tree = new Tree(req.body);
+            tree.creator = req.user;
+            tree.data = body;
+            tree.save(function(err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: getErrorMessage(err)
+                    });
+                } else {
+                    res.json(tree);
+                }
+            });
+        }
+        else {
+            console.log('Fail to retrieve deptree');
+        }
+    });
+};
