@@ -27,9 +27,9 @@ window.onload = function() {
     }
 };
 
-function send() {
+// function send() {
 
-}
+// }
 
 function highlightPerson() {
     highlighter.highlightSelection("Person");

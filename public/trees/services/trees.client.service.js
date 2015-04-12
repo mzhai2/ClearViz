@@ -21,7 +21,6 @@ angular.module('trees').factory('Trees', ['$resource',
 
 // directive to render annotation
 angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$timeout', function(annotationFactory, $timeout) {
-// angular.module('trees').directive('annotationDisplay', function() {
 	return {
 		restrict: 'EA',
 		replace: true,

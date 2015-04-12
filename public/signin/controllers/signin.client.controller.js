@@ -12,7 +12,6 @@ angular.module('signin').controller('SigninController', ['$scope', '$rootScope',
             $scope.user = user;
             $cookieStore.put('loggedin', true);
             $location.path('/trees');
-            // $("#signinModal").modal({show:false});
 
         })
         .error(function() {
@@ -20,9 +19,6 @@ angular.module('signin').controller('SigninController', ['$scope', '$rootScope',
             $rootScope.message = 'Authentication failed.';
             $location.url('/');
         });
-
-        $("#signinModal").modal({show:false});
-        $('.modal-backdrop').removeClass("modal-backdrop");
     };
     $scope.signup = function(){
         $http.post('/signup', {
@@ -44,10 +40,8 @@ angular.module('signin').controller('SigninController', ['$scope', '$rootScope',
             // Error: authentication failed
             $rootScope.message = data;
             $location.path('/');
-            $rootScope.user.$setPristine;
+            $rootScope.user.$setPristine();
         });
-        $("#signupModal").modal({show:false});
-        $('.modal-backdrop').removeClass("modal-backdrop")
     };
     $rootScope.signout = function() {
         $rootScope.message = 'Logged out.';

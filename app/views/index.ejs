@@ -44,9 +44,15 @@
     <script type="text/javascript" src="/application.js"></script> 
 
     <script>
-    $('#create').modal('hide');
+    $('#create').modal({show:false});
     $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
+    $('.modal-backdrop').removeClass("modal-backdrop");
+
+    $("#signinModal").modal({show:false});
+    $('.modal-backdrop').removeClass("modal-backdrop");
+
+    $("#signupModal").modal({show:false});
+    $('.modal-backdrop').removeClass("modal-backdrop");
     </script>
 
 
