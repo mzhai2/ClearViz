@@ -46,7 +46,7 @@ exports.create = function(req, res) {
 };
 
 exports.list = function(req, res) {
-    Tree.find({ creator: req.user._id }).populate('creator', 'firstName lastName fullName').exec(function(err, tree) {
+    Tree.find({ creator: req.user._id }).sort('-created').populate('creator', 'firstName lastName fullName').exec(function(err, tree) {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
