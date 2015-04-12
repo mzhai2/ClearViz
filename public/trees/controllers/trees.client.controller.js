@@ -54,7 +54,6 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             });
         }
     };
-
     $scope.annotateNer = function() {
         var anno = new Annotations({
             annotation: document.getElementById('content'),
@@ -67,3 +66,4 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         });
     };
 }]);
+
