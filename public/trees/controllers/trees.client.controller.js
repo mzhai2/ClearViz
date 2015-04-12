@@ -55,15 +55,46 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         }
     };
     $scope.annotateNer = function() {
+        var div = document.getElementById('annotation');
+        console.log(div.childNodes[1].childNodes);
+        var childNodes = div.childNodes[1].childNodes;
+        // var tree = JSON.parse($scope.tree.data);
+        console.log($scope.tree);
+        console.log(tree);
+
+        // var treeData = new Array();
+
+
+        d3.tsv.parseRows(tree.data, function(data) {
+            treeData[treeData.length] = data;
+        });
+        console.log(treeData[0]);
+            for (var i=0; i < childNodes.length; i++)
+            {
+                console.log(data[7]);
+                var node = childNodes[i];
+                if (node.nodeType == 3) {
+                    for (word in node) {
+                        // assign _ 
+                    }
+                }
+                if (node.nodeType == 1) {
+                    for (word in node) { 
+                    // assign node.className
+                    }
+                }
+
+            }
+        
         var anno = new Annotations({
             annotation: document.getElementById('annotation'),
             _id : this.tree._id
         });
-        console.log(document.getElementById('annotation'));
+
         // send it get a response of the entire tree and save
-        anno.$save(function(errorResponse) {
-            $scope.error = errorResponse.data.message;
-        });
+        // anno.$save(function(errorResponse) {
+        //     $scope.error = errorResponse.data.message;
+        // });
     };
     $('#create').modal({show:false});
     $('body').removeClass('modal-open');

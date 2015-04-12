@@ -1,10 +1,10 @@
-var mainApplicationModule = angular.module('mean', ['ngResource', 'ngRoute', 'ngCookies', 'signin', 'trees']);
+angular.module('mean', ['ngResource', 'ngRoute', 'ngCookies', 'signin', 'trees']);
 
 angular.element(document).ready(function() {
     angular.bootstrap(document, ['mean']);
 });
 
-mainApplicationModule.factory('interceptor', ['$q', '$location',
+angular.module('mean').factory('interceptor', ['$q', '$location',
     function($q, $location) {
     return {
         response: function(response) {
@@ -19,7 +19,7 @@ mainApplicationModule.factory('interceptor', ['$q', '$location',
     };
 }]);
 
-mainApplicationModule.config(['$locationProvider', '$httpProvider', function($locationProvider, $httpProvider) {
+angular.module('mean').config(['$locationProvider', '$httpProvider', function($locationProvider, $httpProvider) {
     $locationProvider.hashPrefix('!');
     $httpProvider.interceptors.push('interceptor');
 }]);

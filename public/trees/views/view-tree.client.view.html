@@ -47,7 +47,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" id="buttons">
-                    <h3>Highlighter</h3>
+                    <a href="https://github.com/clir/clearnlp-guidelines/blob/master/md/dependency/dependency_guidelines.md">Dependency Guidelines</a>
+                    <h3>NER Annotator</h3>
                     <p>Make a selection in the document and use the buttons below to highlight and unhighlight.</p>
                     <input type="button" style="background-color:red;" ontouchstart="highlightOrganization();" onclick="highlightOrganization();" value="Organization">
                     <input type="button" style="background-color:green;" ontouchstart="highlightPerson();" onclick="highlightPerson();" value="Person">
@@ -92,7 +93,7 @@
                     <i class="fa fa-step-forward fa-fw"></i>: Jumps to last sentence<br><br>
                     <table>
                         <td style="vertical-align:top;text-align:center;">
-                            <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1" onchange="selectTreeID()" oninput="changeZoom(this.value)">
+                            <input id="rg_deptree" type="range" width="100" min="1" max="4" step="0.2" value="1">
                         </td>
                         <td style="vertical-align:top;text-align:center;">: Zoom Bar: Enlarge diagram to desired size<br><br>
                         </td>
@@ -129,7 +130,6 @@
                             <button type="submit" class="btn btn-default">Apply Update</button>
                             <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
-
                         <div data-ng-show="error">
                             <strong data-ng-bind="error"></strong>
                         </div>
