@@ -4,8 +4,8 @@ angular.element(document).ready(function() {
     angular.bootstrap(document, ['mean']);
 });
 
-mainApplicationModule.factory('interceptor', ['$rootScope', '$q', '$location',
-    function($rootScope, $q, $location) {
+mainApplicationModule.factory('interceptor', ['$q', '$location',
+    function($q, $location) {
     return {
         response: function(response) {
             return response;
@@ -13,7 +13,6 @@ mainApplicationModule.factory('interceptor', ['$rootScope', '$q', '$location',
         responseError: function(response) {
             if (response.status === 401) {
                 $location.url('/');
-                $rootScope.signout();
             }
             return $q.reject(response);
         }

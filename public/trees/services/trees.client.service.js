@@ -17,17 +17,25 @@ angular.module('trees').factory('Annotations', ['$resource', function($resource)
 angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$timeout', function(annotationFactory, $timeout) {
 	return {
 		restrict: 'EA',
-		replace: true,
 		scope: {
 			isolatedTree: '@tree',
-			createHighlights: '&'
 		},
 		transclude: true,
-		link: function($scope, $element) {
-			$scope.$watch('isolatedTree', function(isolatedTree) {
+		link: function(scope, element) {
+			// var currentElement = element;
+   //          scope.$watch('isolatedTree', function (newValue, oldValue) {
+   //              if (newValue && newValue != oldValue) {
+			// 		var html = annotationFactory.createAnnotationHtml(newValue);
+   //                  var replacementElement = angular.element(html);
+   //                  currentElement.replaceWith(replacementElement);
+   //                  currentElement = replacementElement;
+   //              }
+   //          }, true);
+
+			scope.$watch('isolatedTree', function(isolatedTree) {
 				if (isolatedTree) {
 					var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);
-					$element.replaceWith(htmlText);
+					element.replaceWith(htmlText);
 				}
 			}, true);
 
@@ -67,6 +75,14 @@ angular.module('trees').factory('annotationFactory', function() {
 	return factory;
 });
 
+function removeTag() {
+    var range = window.getSelection().getRangeAt(0);
+    var node = $(range.commonAncestorContainer);
+    console.log(node.parent());
+        if (node.parent().is("span")) {
+        node.unwrap();
+    }
+}
 // angular.module('trees').factory('createAnnotationTSV', function(data){
 //     var out;
 //     var html = $.parseHTML(data);

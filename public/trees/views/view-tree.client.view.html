@@ -52,13 +52,13 @@
                     <input type="button" style="background-color:red;" ontouchstart="highlightOrganization();" onclick="highlightOrganization();" value="Organization">
                     <input type="button" style="background-color:green;" ontouchstart="highlightPerson();" onclick="highlightPerson();" value="Person">
                     <input type="button" style="background-color:yellow;" ontouchstart="highlightLocation();" onclick="highlightLocation();" value="Location">
-                    <input type="button" ontouchstart="removeHighlightFromSelectedText();" onclick="removeHighlightFromSelectedText();" value="Remove Annotation">
+                    <input type="button" ontouchstart="removeTag();" onclick="removeTag();" value="Remove Annotation">
                     <input type="button" ng-click="annotateNer();" value="Send">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div annotation-display tree="{{tree}}" createHighlights="annotationFactory.createAnnotationHtml(tree)" id="annotation"></div>
+                <div class="col-md-12" id="annotation">
+                    <div annotation-display tree="{{tree}}" contenteditable="true" createHighlights="annotationFactory.createAnnotationHtml(tree)"></div>
                 </div>
             </div>
             <div class="row">

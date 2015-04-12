@@ -59,7 +59,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             annotation: document.getElementById('annotation'),
             _id : this.tree._id
         });
-        console.log(anno.annotation);
+        console.log(document.getElementById('annotation'));
         // send it get a response of the entire tree and save
         anno.$save(function(errorResponse) {
             $scope.error = errorResponse.data.message;
@@ -69,4 +69,3 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
     $('body').removeClass('modal-open');
     $('.modal-backdrop').removeClass("modal-backdrop");
 }]);
-
