@@ -1,5 +1,5 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'annotationFactory',
-    function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, annotationFactory) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'Annotations', 'annotationFactory',
+    function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, Annotations, annotationFactory) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
     $scope.create = function() {
         var tree = new Trees({
@@ -56,7 +56,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
     };
     $scope.annotateNer = function() {
         var anno = new Annotations({
-            annotation: document.getElementById('content'),
+            annotation: document.getElementById('annotation'),
             _id : this.tree._id
         });
         console.log(anno.annotation);

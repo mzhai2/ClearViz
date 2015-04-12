@@ -8,15 +8,15 @@ angular.module('trees').factory('Trees', ['$resource',
 	}
 	]);
 
-// angular.module('trees').factory('sendAnnotation', ['$resource',
-//     function($resource) {
-//         return $resource (
-//             'api/trees/:treeId/annotatener',
-//             { treeId: '@_id'},
-//             { annotate: {method: 'POST'}}
-//             );
-//     }
-// ]);
+angular.module('trees').factory('Annotations', ['$resource',
+    function($resource) {
+        return $resource (
+            'api/trees/:treeId/annotatener',
+            { treeId: '@_id'},
+            { annotate: {method: 'POST'}}
+            );
+    }
+]);
 
 
 // directive to render annotation
@@ -34,7 +34,6 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 				if (isolatedTree) {
 					var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);
 					$element.replaceWith(htmlText);
-					console.log(htmlText);
 				}
 			}, true);
 
@@ -48,8 +47,6 @@ angular.module('trees').factory('annotationFactory', function() {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
 		var previousNERTag = "";
-		console.log(tree.data);
-
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[7]) {
 				var NERtag = "O";
@@ -76,7 +73,7 @@ angular.module('trees').factory('annotationFactory', function() {
 	return factory;
 });
 
-// angular.module('trees').factory('createAnnotationTSV', ['', function(data){
+// angular.module('trees').factory('createAnnotationTSV', function(data){
 //     var out;
 //     var html = $.parseHTML(data);
 //     var nodeNames = [];
