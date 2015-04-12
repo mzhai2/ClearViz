@@ -65,5 +65,8 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             $scope.error = errorResponse.data.message;
         });
     };
+    $('#create').modal({show:false});
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').removeClass("modal-backdrop");
 }]);
 

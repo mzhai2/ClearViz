@@ -46,26 +46,24 @@ exports.create = function(req, res) {
 };
 
 exports.list = function(req, res) {
-    Tree.find({ creator: req.user._id }).populate('creator', 'firstName lastName fullName').exec(
-        function(err, tree) {
-            if (err) {
-                return res.status(400).send({
-                    message: getErrorMessage(err)
-                });
-            } else {
-                res.json(tree);
-            }
-        }); 
+    Tree.find({ creator: req.user._id }).populate('creator', 'firstName lastName fullName').exec(function(err, tree) {
+        if (err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.json(tree);
+        }
+    }); 
 };
 
 exports.treeByID = function(req, res, next, id) {
-    Tree.findById(id).populate('creator', 'firstName lastName fullName').exec(
-        function(err, tree) {
-            if (err) return next(err);
-            if (!tree) return next(new Error('Failed to load tree ' + id));
-            req.tree = tree;
-            next();
-        });
+    Tree.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, tree) {
+        if (err) return next(err);
+        if (!tree) return next(new Error('Failed to load tree ' + id));
+        req.tree = tree;
+        next();
+    });
 };
 
 exports.read = function(req, res) {
