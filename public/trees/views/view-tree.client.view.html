@@ -33,7 +33,7 @@
                     <h3>Highlighter</h3>
                     <p>Make a selection in the document and use the buttons below to highlight and unhighlight.</p>
                     <input type="button" style="background-color:red;" ontouchstart="highlightOrganization();" onclick="highlightOrganization();" value="Organization">
-                    <input type="button" style="background-color:blue;" ontouchstart="highlightPerson();" onclick="highlightPerson();" value="Person">
+                    <input type="button" style="background-color:green;" ontouchstart="highlightPerson();" onclick="highlightPerson();" value="Person">
                     <input type="button" style="background-color:yellow;" ontouchstart="highlightLocation();" onclick="highlightLocation();" value="Location">
                     <input type="button" ontouchstart="removeHighlightFromSelectedText();" onclick="removeHighlightFromSelectedText();" value="Remove Annotation">
                     <input type="button" ng-click="annotateNer();" value="Send">
@@ -41,8 +41,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <!-- <p id="content" ng-bind="tree.content"></p> -->
-                    <div Annotation></div>
+                    <annotation-display tree="{{tree}}" createHighlights="annotationFactory.createAnnotationHtml(tree)"></annotation-display>
                 </div>
             </div>
         </div>

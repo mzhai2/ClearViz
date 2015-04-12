@@ -11,7 +11,7 @@ module.exports = function(app) {
     .delete(users.requiresLogin, trees.hasAuthorization, trees.delete);
 
     app.route('/api/trees/:treeId/annotatener')
-    .post(users.requiresLogin, trees.hasAuthorization, trees.annotateNer);
+    .post(users.requiresLogin, trees.annotateNer);
 
 app.param('treeId', trees.treeByID);
 };

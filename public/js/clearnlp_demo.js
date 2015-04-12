@@ -727,7 +727,7 @@ function addDEPTree(d_trees, tree)
     {
 
         initChildIDs(tree);
-        initSRL(tree);
+        // initSRL(tree);
         d_trees.push(tree);
     }
 }

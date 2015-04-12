@@ -1,5 +1,5 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'Annotations',
-    function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, Annotations) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'annotationFactory',
+    function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, annotationFactory) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
     $scope.create = function() {
         var tree = new Trees({
@@ -66,5 +66,4 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             $scope.error = errorResponse.data.message;
         });
     };
-
 }]);
