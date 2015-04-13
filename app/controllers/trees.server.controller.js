@@ -109,7 +109,7 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.annotateNer = function(req, res) {
-    console.log(req);
+    console.log(req.body.annotation);
     var request = require('request');
     request(
     {
@@ -118,10 +118,14 @@ exports.annotateNer = function(req, res) {
         headers: {
             'content-type': 'application/json'
         },
-        body: req.body.annnotation
+        body: req.body.annotation
     },
     function(error, response, body) {
-        console.log(body);
+        console.log(error);
+
+        // console.log(response);
+
+        // console.log(body);
         if (!error && response.statusCode == 200) {
             var tree = new Tree(req.body);
             tree.creator = req.user;
