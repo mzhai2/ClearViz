@@ -16,14 +16,26 @@
 package edu.emory.clir.clearnlp.clearviz;
 import static spark.Spark.post;
 
+
+
+
+
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+
+
 
 import edu.emory.clir.clearnlp.collection.tree.PrefixTree;
 import edu.emory.clir.clearnlp.component.AbstractComponent;
@@ -40,7 +52,7 @@ import edu.emory.clir.clearnlp.util.lang.TLanguage;
 
 public class SparkApi
 {
-	final TLanguage language = TLanguage.ENGLISH;
+	final static TLanguage language = TLanguage.Chinese;
 	private static ByteArrayOutputStream baos;
 	private static PrintStream ps;
 	private static InputStream is;
@@ -129,7 +141,7 @@ public class SparkApi
 
 	public static void main(String[] args) throws Exception
 	{
-		SparkApi clear = new SparkApi(TLanguage.ENGLISH);
+		SparkApi clear = new SparkApi(language);
 		System.out.println("Ready");
         post("/deptree", (req, res) -> {
         	String inputString = req.body();
@@ -147,11 +159,15 @@ public class SparkApi
         	String inputString = req.body();
         	try
 			{
-//	        	Map<String, List<String>> tags = ParseHtml.parseNER(inputString, new HashMap<String, List<String>>());
 	        	baos = new ByteArrayOutputStream();
 				ps = new PrintStream(baos);
 				is = new ByteArrayInputStream(inputString.getBytes(StandardCharsets.UTF_8));
-//				TSVReader t = new TSVReader(iID, iForm, iLemma, iPOSTag, iNamedEntityTag, iFeats, iHeadID, iDeprel, iXHeads, iSHeads)
+//				TSVReader t = new TSVReader(iID, iForm, iLemma, iPOSTag, iFeats, iHeadID, iDeprel, iXHeads, iSHeads, iNamedEntityTag);
+				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
+        			out.println(inputString);
+        		} catch (IOException e) {
+        			System.out.println("error");
+        		}
 			}
 			catch (Exception e) {e.printStackTrace();}
 			return baos.toString("UTF-8");
