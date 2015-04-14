@@ -52,7 +52,7 @@ import edu.emory.clir.clearnlp.util.lang.TLanguage;
 
 public class SparkApi
 {
-	final static TLanguage language = TLanguage.Chinese;
+	final static TLanguage language = TLanguage.CHINESE;
 	private static ByteArrayOutputStream baos;
 	private static PrintStream ps;
 	private static InputStream is;
