@@ -46,7 +46,7 @@ angular.module('trees').factory('annotationFactory', function() {
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
-		console.log(tree.data)
+		// console.log(tree.data)
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[7]) {
 				var NERtag = data[7];
@@ -78,7 +78,6 @@ angular.module('trees').directive('keypressEvents', function($document, $rootSco
     return {
         restrict: 'A',
         link: function () {
-            console.log('linked');
             $document.bind('keypress', function (e) {
                 $rootScope.$broadcast('keypress', e, String.fromCharCode(e.which));
             });

@@ -58,17 +58,27 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         var div = document.getElementById('annotation');
         var childNodes = div.childNodes[1].childNodes;
         var treeData = new Array();
-        d3.tsv.parseRows($scope.tree.data, function(data) {
-            treeData[treeData.length] = data;
+        var data = $scope.tree.data;
+        d3.tsv.parseRows(data, function(data) {
+            if(data[1])
+                treeData[treeData.length] = data;
+            else {
+                // treeData[treeData.length] = ["NEWSENTENCE"]; // adds spacer
+            }
         });
+        console.log(treeData)
         var i,j=0,k;
         var words, word;
         for (i=0; i < childNodes.length; i++) {
+            if (treeData[j][0] == "NEWSENTENCE")
+                j++;
             var node = childNodes[i];
+
             if (node.nodeType == 3) {
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
-                    treeData[j++][7] = "O";
+                    if (words[k])
+                        treeData[j++][7] = "O";
                 }
             }
             if (node.nodeType == 1) {
@@ -85,17 +95,24 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                 }
             }
         }
-        treeData.pop();
         var tsv = "";
         for (i=0;i<treeData.length;i++) 
-            tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
+            if (treeData[i][0] == "NEWSENTENCE")
+                tsv+="\n";
+            else {
+                tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
+            }
         var req = new Annotations($scope.tree);
         req.data=tsv;
+        console.log(tsv);
+        // console.log(data);
+
         req.$annotate(function(response) {
-            console.log(response);
+            $window.alert("saved");
         },
         function(errorResponse) {
             $scope.error = errorResponse.data.message;
+            $window.alert(errorResponse.data.message);
         });
     };
     $rootScope.$on('keypress', function (evt, obj, key) {
@@ -109,7 +126,6 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             removeTag();
         if (key == 'b') {
             $scope.annotateNer();
-            $window.alert("saved");
         }
     });
 
