@@ -15,8 +15,3 @@ module.exports = function(app) {
 
 app.param('treeId', trees.treeByID);
 };
-
-// app.post('/api/trees/annotatener',function(req,res){
-//     console.log(req.tree.data);
-//     res.end("yes");
-// });

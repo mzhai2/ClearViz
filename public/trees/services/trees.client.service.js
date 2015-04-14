@@ -51,21 +51,21 @@ angular.module('trees').factory('annotationFactory', function() {
 			if (data[7]) {
 				var NERtag = data[7];
 				if (NERtag === "_" || NERtag.charAt(0) === "I") 
-					out+=data[1] + " ";
+					out+=" " + data[1] + " ";
 				else if (NERtag === "U-PER")
-					out+='<span class="Person">' + data[1] + "</span>";
+					out+=' <span class="Person">' + data[1] + "</span>";
 				else if (NERtag === "U-ORG") 
-					out+='<span class="Organization">' + data[1] + "</span>";
+					out+=' <span class="Organization">' + data[1] + "</span>";
 				else if (NERtag === "U-LOC")
-					out+='<span class="Location">' + data[1] + "</span>";
+					out+=' <span class="Location">' + data[1] + "</span>";
 				else if (NERtag === "B-PER") 
-					out+='<span class="Person">' + data[1] + " ";
+					out+=' <span class="Person">' + data[1] + " ";
 				else if (NERtag === "B-ORG")
-					out+='<span class="Organization">' + data[1] + " ";
+					out+=' <span class="Organization">' + data[1] + " ";
 				else if (NERtag === "B-LOC")
-					out+='<span class="Location">' + data[1] + " ";
+					out+=' <span class="Location">' + data[1] + " ";
 				else if (NERtag.charAt(0) === "L")
-					out+=data[1] + "</span> ";
+					out+=data[1] + "</span>";
 			}
 		});
 		out+='</p>';
@@ -74,15 +74,16 @@ angular.module('trees').factory('annotationFactory', function() {
 	return factory;
 });
 
-angular.module('trees').factory('TSVfactory', function($q) {
-	var factory = {};
-	factory.sendTSV = function(req, tsv) {
-		// var defer = req.promise.defer();
-		// defer.resolve
-		req.data = tsv;
-        return req;
-	};
-	return factory;
+angular.module('trees').directive('keypressEvents', function($document, $rootScope) {
+    return {
+        restrict: 'A',
+        link: function () {
+            console.log('linked');
+            $document.bind('keypress', function (e) {
+                $rootScope.$broadcast('keypress', e, String.fromCharCode(e.which));
+            });
+        }
+    };
 });
 
 function removeTag() {

@@ -1,4 +1,4 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'Annotations', 'annotationFactory', 'TSVfactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, Annotations, annotationFactory, TSVfactory) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', '$window', 'Trees', 'Annotations', 'annotationFactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, $window, Trees, Annotations, annotationFactory) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
     $scope.create = function() {
         var tree = new Trees({
@@ -98,6 +98,20 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             $scope.error = errorResponse.data.message;
         });
     };
+    $rootScope.$on('keypress', function (evt, obj, key) {
+        if (key == 'z')
+            highlightOrganization();
+        if (key == 'x')
+            highlightLocation();
+        if (key == 'c')
+            highlightPerson();
+        if (key == 'v')
+            removeTag();
+        if (key == 'b') {
+            $scope.annotateNer();
+            $window.alert("saved");
+        }
+    });
 
 $('#create').modal({show:false});
 $('body').removeClass('modal-open');

@@ -139,10 +139,10 @@ exports.annotateNer = function(req, res) {
         body: req.body.data
     },
     function(error, response, body) {
-        console.log("end of req");
+        console.log("body"+body);
+        console.log("res"+res.body);
         console.log(error);
         if (!error && response.statusCode == 200) {
-
             var tree = req.tree;
             tree.save(function(err) {
                 if (err) {
