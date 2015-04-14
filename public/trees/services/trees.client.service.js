@@ -53,7 +53,7 @@ angular.module('trees').factory('annotationFactory', function() {
 					NERtag = data[7];
 				// if (previousNERTag != NERtag) {
 					// previousNERTag = NERtag;
-				if (NERtag === "_") 
+				if (NERtag === "_" || NERtag.charAt(0) === "I") 
 					out+=data[1] + " ";
 				else if (NERtag === "U-PER")
 					out+='<span class="Person">' + data[1] + "</span>";

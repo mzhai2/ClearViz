@@ -63,6 +63,7 @@ public class SparkApi
 	private static AbstractComponent tagger;
 	private static AbstractNERecognizer ner;
 	private static PrefixTree<String,NERInfoList> dictionary;
+	private static TSVReader reader;
 
 	
 	
@@ -76,18 +77,8 @@ public class SparkApi
 		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
 		components = new AbstractComponent[]{tagger, morph, parser};
 		tokenizer  = NLPUtils.getTokenizer(language);
+		reader = new TSVReader(0, 1, 2, 3, 4, 5, 6, -1, -1, 7);
 	}
-	
-	// public void namedEntityRecognition(InputStream in, PrintStream out)
-	// {
-	// 	DEPTree tree;
-	// 	for (List<String> tokens : tokenizer.segmentize(in))
-	// 	{
-	// 		tree = new DEPTree(tokens);
-	// 		ner.processDictionary(tree, dictionary);
-	// 		out.println(tree.toString()+"\n");
-	// 	}
-	// }
 	
 	public void processRaw(InputStream in, PrintStream out) throws Exception
 	{
@@ -162,7 +153,11 @@ public class SparkApi
 	        	baos = new ByteArrayOutputStream();
 				ps = new PrintStream(baos);
 				is = new ByteArrayInputStream(inputString.getBytes(StandardCharsets.UTF_8));
-//				TSVReader t = new TSVReader(iID, iForm, iLemma, iPOSTag, iFeats, iHeadID, iDeprel, iXHeads, iSHeads, iNamedEntityTag);
+				reader.open(new ByteArrayInputStream(inputString.getBytes()));
+				DEPTree tree;
+				while ((tree=reader.next())!= null) {
+					ner.learnDictionary(tree, dictionary);
+				}
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
         			out.println(inputString);
         		} catch (IOException e) {
