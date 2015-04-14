@@ -146,7 +146,7 @@ public class SparkApi
 					ner.learnDictionary(tree, dictionary);
 				}
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
-        			out.println(inputString);
+        			out.print(inputString);
         		} catch (IOException e) {
         			System.out.println("error");
         		}

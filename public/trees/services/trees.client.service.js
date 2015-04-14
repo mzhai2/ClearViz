@@ -48,12 +48,12 @@ angular.module('trees').factory('annotationFactory', function() {
 		var out = "<p>";
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[7]) {
-				var NERtag = "_";
+				var NERtag = "O";
 				if (data[7].length > 3)
 					NERtag = data[7];
 				// if (previousNERTag != NERtag) {
 					// previousNERTag = NERtag;
-				if (NERtag === "_" || NERtag.charAt(0) === "I") 
+				if (NERtag === "O" || NERtag.charAt(0) === "I") 
 					out+=data[1] + " ";
 				else if (NERtag === "U-PER")
 					out+='<span class="Person">' + data[1] + "</span>";
