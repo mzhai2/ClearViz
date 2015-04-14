@@ -127,7 +127,7 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.annotateNer = function(req, res) {
-    console.log(req.tree.data);
+    console.log(req.body.data);
     var request = require('request');
     request(
     {
@@ -136,9 +136,10 @@ exports.annotateNer = function(req, res) {
         headers: {
             'content-type': 'application/json'
         },
-        body: req.tree.data
+        body: req.body.data
     },
     function(error, response, body) {
+        console.log("end of req");
         console.log(error);
         if (!error && response.statusCode == 200) {
 

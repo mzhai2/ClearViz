@@ -46,14 +46,11 @@ angular.module('trees').factory('annotationFactory', function() {
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
+		console.log(tree.data)
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[7]) {
-				var NERtag = "O";
-				if (data[7].length > 3)
-					NERtag = data[7];
-				// if (previousNERTag != NERtag) {
-					// previousNERTag = NERtag;
-				if (NERtag === "O" || NERtag.charAt(0) === "I") 
+				var NERtag = data[7];
+				if (NERtag === "_" || NERtag.charAt(0) === "I") 
 					out+=data[1] + " ";
 				else if (NERtag === "U-PER")
 					out+='<span class="Person">' + data[1] + "</span>";
@@ -73,6 +70,17 @@ angular.module('trees').factory('annotationFactory', function() {
 		});
 		out+='</p>';
 		return out;
+	};
+	return factory;
+});
+
+angular.module('trees').factory('TSVfactory', function($q) {
+	var factory = {};
+	factory.sendTSV = function(req, tsv) {
+		// var defer = req.promise.defer();
+		// defer.resolve
+		req.data = tsv;
+        return req;
 	};
 	return factory;
 });

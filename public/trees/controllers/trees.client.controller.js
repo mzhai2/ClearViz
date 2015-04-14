@@ -1,4 +1,4 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'Annotations', 'annotationFactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, Annotations, annotationFactory) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', 'Trees', 'Annotations', 'annotationFactory', 'TSVfactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, Trees, Annotations, annotationFactory, TSVfactory) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
     $scope.create = function() {
         var tree = new Trees({
@@ -68,7 +68,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             if (node.nodeType == 3) {
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
-                    treeData[j++][7] = "_";
+                    treeData[j++][7] = "O";
                 }
             }
             if (node.nodeType == 1) {
@@ -85,19 +85,20 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                 }
             }
         }
-        // make last row equal nothing
         treeData.pop();
         var tsv = "";
-        for (i=0;i<treeData.length;i++) {
+        for (i=0;i<treeData.length;i++) 
             tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
-        }
-        var tree = new Annotations($scope.tree);
-        tree.data = tsv;
-        console.log(tree.data);
-        tree.$save(function(errorResponse) {
+        var req = new Annotations($scope.tree);
+        req.data=tsv;
+        req.$annotate(function(response) {
+            console.log(response);
+        },
+        function(errorResponse) {
             $scope.error = errorResponse.data.message;
         });
     };
+
 $('#create').modal({show:false});
 $('body').removeClass('modal-open');
 $('.modal-backdrop').removeClass("modal-backdrop");
