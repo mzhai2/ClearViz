@@ -9,16 +9,16 @@ window.onload = function() {
     highlighter = rangy.createHighlighter();
 
     highlighter.addClassApplier(rangy.createClassApplier("Person", {
-        ignoreWhiteSpace: false,
+        ignoreWhiteSpace: true,
         tagNames: ["span", "a"]
     }));
 
     highlighter.addClassApplier(rangy.createClassApplier("Location", {
-        ignoreWhiteSpace: false,
+        ignoreWhiteSpace: true,
         tagNames: ["span", "a"]
     }));
     highlighter.addClassApplier(rangy.createClassApplier("Organization", {
-        ignoreWhiteSpace: false,
+        ignoreWhiteSpace: true,
         tagNames: ["span", "a"]
     }));
 

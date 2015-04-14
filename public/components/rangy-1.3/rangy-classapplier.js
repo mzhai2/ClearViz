@@ -758,7 +758,7 @@
                 this.copyAttributesToElement(this.elementAttributes, el);
                 addClass(el, this.className);
                 if (this.onElementCreate) {
-                    this.onElementCreate(el, this);
+                    // this.onElementCreate(el, this);
                 }
                 return el;
             },

@@ -46,25 +46,29 @@ angular.module('trees').factory('annotationFactory', function() {
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
-		var previousNERTag = "";
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[7]) {
-				var NERtag = "O";
+				var NERtag = "_";
 				if (data[7].length > 3)
-					NERtag = data[7].substr(data[7].length-3);
-				if (previousNERTag != NERtag) {
-					previousNERTag = NERtag;
-					if (NERtag === "O")
-						out+="</span>";
-					if (NERtag === "PER") 
-						out+='<span class="Person">';
-					if (NERtag === "ORG")
-						out+='<span class="Organization">';
-					if (NERtag === "LOC")
-						out+='<span class="Location">';
-				}
-				out+=data[1] + " ";
-				
+					NERtag = data[7];
+				// if (previousNERTag != NERtag) {
+					// previousNERTag = NERtag;
+				if (NERtag === "_") 
+					out+=data[1] + " ";
+				else if (NERtag === "U-PER")
+					out+='<span class="Person">' + data[1] + "</span>";
+				else if (NERtag === "U-ORG") 
+					out+='<span class="Organization">' + data[1] + "</span>";
+				else if (NERtag === "U-LOC")
+					out+='<span class="Location">' + data[1] + "</span>";
+				else if (NERtag === "B-PER") 
+					out+='<span class="Person">' + data[1] + " ";
+				else if (NERtag === "B-ORG")
+					out+='<span class="Organization">' + data[1] + " ";
+				else if (NERtag === "B-LOC")
+					out+='<span class="Location">' + data[1] + " ";
+				else if (NERtag.charAt(0) === "L")
+					out+=data[1] + "</span> ";
 			}
 		});
 		out+='</p>';
