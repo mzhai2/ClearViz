@@ -71,16 +71,34 @@ exports.read = function(req, res) {
 };
 
 exports.update = function(req, res) {
-    var tree = req.tree;
-    tree.title = req.body.title;
-    tree.content = req.body.content;
-    tree.save(function(err) {
-        if (err) {
-            return res.status(400).send({
-                message: getErrorMessage(err)
+    var request = require('request');
+    request(
+    {
+        method: 'POST',
+        uri: 'http://52.1.147.106:4567/deptree',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: req.body.content
+    },
+    function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var tree = req.tree;
+            tree.title = req.body.title;
+            tree.content = req.body.content;
+            tree.data = body;
+            tree.save(function(err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: getErrorMessage(err)
+                    });
+                } else {
+                    res.json(tree);
+                }
             });
-        } else {
-            res.json(tree);
+        }
+        else {
+            console.log('Fail to retrieve deptree');
         }
     });
 };
@@ -109,7 +127,7 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.annotateNer = function(req, res) {
-    console.log(req.body.annotation);
+    console.log(req.tree);
     var request = require('request');
     request(
     {
@@ -118,20 +136,16 @@ exports.annotateNer = function(req, res) {
         headers: {
             'content-type': 'application/json'
         },
-        body: req.body.annotation
+        body: req.tree.data
     },
     function(error, response, body) {
         console.log(error);
-
-        // console.log(response);
-
-        // console.log(body);
         if (!error && response.statusCode == 200) {
-            var tree = new Tree(req.body);
-            tree.creator = req.user;
-            tree.data = body;
+
+            var tree = req.tree;
             tree.save(function(err) {
                 if (err) {
+                    console.log(getErrorMessage(err));
                     return res.status(400).send({
                         message: getErrorMessage(err)
                     });

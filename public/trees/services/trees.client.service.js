@@ -12,7 +12,6 @@ angular.module('trees').factory('Annotations', ['$resource', function($resource)
 		{ annotate: {method: 'POST'}});
 }]);
 
-
 // directive to render annotation
 angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$timeout', function(annotationFactory, $timeout) {
 	return {
@@ -21,6 +20,16 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 			isolatedTree: '@tree',
 		},
 		transclude: true,
+		controller: function($scope, $element) {
+			$scope.$watch('isolatedTree', function (newValue, oldValue) {
+                if (newValue && newValue != oldValue) {
+					var htmlText = annotationFactory.createAnnotationHtml(newValue);
+                    var replacementElement = angular.element(htmlText);
+                    $element.replaceWith(replacementElement);
+                    $element = replacementElement;
+                }
+            });
+		},
 		link: function(scope, element) {
 			scope.$watch('isolatedTree', function(isolatedTree) {
 				if (isolatedTree) {
@@ -28,7 +37,6 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 					element.replaceWith(htmlText);
 				}
 			}, true);
-
 		}
 	};
 }]);
@@ -72,31 +80,3 @@ function removeTag() {
         node.unwrap();
     }
 }
-// angular.module('trees').factory('createAnnotationTSV', function(data){
-    var out;
-
-//     $.each(html, function(i, el) {
-//         nodeNames[i] = el.nodeName;
-//     });
-//     for (node : nodeNames) {
-//         if (nodeName[node] === "#text") {
-//             // add  as o 
-//             nodeName[node].innerHTML
-//         }
-//         if (nodeName[node] === "span class=\"Person\"") {
-//             assignBILOU(nodeName[node].innerHTML, "PER")
-//         }
-//         if (nodeName[node] === "span class=\"Organization\"") {
-//         }
-
-//     }
-// }]);
-
-// function assignBILOU(html,type) {
-//     var tags = [];
-//     // html.split
-//     var 
-//     if size == 1
-//         var prefix = "U-";
-// 
-// }

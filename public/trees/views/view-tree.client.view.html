@@ -62,7 +62,7 @@
             </div><br>
             <div class="row">
                 <div class="col-md-12" id="annotation">
-                    <div annotation-display tree="{{tree}}" contenteditable="true" createHighlights="annotationFactory.createAnnotationHtml(tree)"></div>
+                    <div annotation-display tree="{{tree}}" contenteditable="true"></div>
                 </div>
             </div>
             <div class="row">
@@ -130,7 +130,7 @@
                             </div>
                         </div><br>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default">Apply Update</button>
+                            <button id="submitBut" type="submit" class="btn btn-default">Apply Update</button>
                             <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         <div data-ng-show="error">
