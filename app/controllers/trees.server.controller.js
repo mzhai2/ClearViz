@@ -127,7 +127,7 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.annotateNer = function(req, res) {
-    console.log(req.tree);
+    console.log(req.tree.data);
     var request = require('request');
     request(
     {

@@ -135,6 +135,7 @@ public class SparkApi
         });
         post("/annotatener", (req, res) -> {
         	String inputString = req.body();
+        	System.out.println(inputString);
         	try
 			{
 	        	baos = new ByteArrayOutputStream();

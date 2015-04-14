@@ -80,31 +80,29 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                     for (k=1; k<words.length-1; k++) {
                         treeData[j++][7] = "I-" + name;
                     }
-                        // word = words[words.length-2];
-                        treeData[j++][7] = "L-" + name;
-                    }
+                    treeData[j++][7] = "L-" + name;
                 }
             }
-            for (i=0;i<8;i++) {
-                treeData[j][i] = "";
-            }
-            var tsv = "";
-            for (i=0;i<treeData.length;i++) {
-                tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
-            }
-            console.log(tsv);
-            var tree = new Annotations($scope.tree);
-            tree.data = tsv;
-            tree.$save(function(errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-        };
+        }
+        // make last row equal nothing
+        treeData.pop();
+        var tsv = "";
+        for (i=0;i<treeData.length;i++) {
+            tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
+        }
+        var tree = new Annotations($scope.tree);
+        tree.data = tsv;
+        console.log(tree.data);
+        tree.$save(function(errorResponse) {
+            $scope.error = errorResponse.data.message;
+        });
+    };
 
 
-        $('#create').modal({show:false});
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').removeClass("modal-backdrop");
-    }]);
+    $('#create').modal({show:false});
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').removeClass("modal-backdrop");
+}]);
 
 Array.prototype.clean = function(deleteValue) {
     for (var i = 0; i < this.length; i++) {
