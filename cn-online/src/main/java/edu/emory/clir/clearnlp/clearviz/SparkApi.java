@@ -15,11 +15,6 @@
  */
 package edu.emory.clir.clearnlp.clearviz;
 import static spark.Spark.post;
-
-
-
-
-
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -29,14 +24,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-
-
-
-
 import edu.emory.clir.clearnlp.collection.tree.PrefixTree;
 import edu.emory.clir.clearnlp.component.AbstractComponent;
 import edu.emory.clir.clearnlp.component.mode.dep.DEPConfiguration;
@@ -63,8 +51,8 @@ public class SparkApi
 	private static AbstractComponent tagger;
 	private static AbstractNERecognizer ner;
 	private static PrefixTree<String,NERInfoList> dictionary;
+	private static TSVReader reader;
 
-	
 	
 	public SparkApi(TLanguage language) throws Exception
 	{
@@ -76,18 +64,8 @@ public class SparkApi
 		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
 		components = new AbstractComponent[]{tagger, morph, parser};
 		tokenizer  = NLPUtils.getTokenizer(language);
+		reader = new TSVReader(0, 1, 2, 3, 7, 4, 5, 6, -1, -1);
 	}
-	
-	// public void namedEntityRecognition(InputStream in, PrintStream out)
-	// {
-	// 	DEPTree tree;
-	// 	for (List<String> tokens : tokenizer.segmentize(in))
-	// 	{
-	// 		tree = new DEPTree(tokens);
-	// 		ner.processDictionary(tree, dictionary);
-	// 		out.println(tree.toString()+"\n");
-	// 	}
-	// }
 	
 	public void processRaw(InputStream in, PrintStream out) throws Exception
 	{
@@ -162,9 +140,13 @@ public class SparkApi
 	        	baos = new ByteArrayOutputStream();
 				ps = new PrintStream(baos);
 				is = new ByteArrayInputStream(inputString.getBytes(StandardCharsets.UTF_8));
-//				TSVReader t = new TSVReader(iID, iForm, iLemma, iPOSTag, iFeats, iHeadID, iDeprel, iXHeads, iSHeads, iNamedEntityTag);
+				reader.open(new ByteArrayInputStream(inputString.getBytes()));
+				DEPTree tree;
+				while ((tree=reader.next())!= null) {
+					ner.learnDictionary(tree, dictionary);
+				}
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
-        			out.println(inputString);
+        			out.print(inputString);
         		} catch (IOException e) {
         			System.out.println("error");
         		}

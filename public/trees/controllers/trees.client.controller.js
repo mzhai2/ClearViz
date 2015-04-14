@@ -58,7 +58,6 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         var div = document.getElementById('annotation');
         var childNodes = div.childNodes[1].childNodes;
         var treeData = new Array();
-
         d3.tsv.parseRows($scope.tree.data, function(data) {
             treeData[treeData.length] = data;
         });
@@ -69,7 +68,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             if (node.nodeType == 3) {
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
-                    treeData[j++][7] = "_";
+                    treeData[j++][7] = "O";
                 }
             }
             if (node.nodeType == 1) {
@@ -94,7 +93,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             for (i=0;i<treeData.length;i++) {
                 tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
             }
-
+            console.log(tsv);
             var tree = new Annotations($scope.tree);
             tree.data = tsv;
             tree.$save(function(errorResponse) {
