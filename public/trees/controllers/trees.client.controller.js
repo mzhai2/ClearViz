@@ -36,6 +36,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
+        $('#edit').modal('hide');
     };
 
     $scope.delete = function(tree) {
@@ -97,13 +98,10 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             $scope.error = errorResponse.data.message;
         });
     };
-
-
-    $('#create').modal({show:false});
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').removeClass("modal-backdrop");
 }]);
-
+$('#create').modal({show:false});
+$('body').removeClass('modal-open');
+$('.modal-backdrop').removeClass("modal-backdrop");
 Array.prototype.clean = function(deleteValue) {
     for (var i = 0; i < this.length; i++) {
         if (this[i] == deleteValue) {         
