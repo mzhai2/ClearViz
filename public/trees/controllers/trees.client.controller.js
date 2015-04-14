@@ -67,7 +67,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             if (node.nodeType == 3) {
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
-                    treeData[j++][7] = "_";
+                    treeData[j++][7] = "O";
                 }
             }
             if (node.nodeType == 1) {
