@@ -15,11 +15,6 @@
  */
 package edu.emory.clir.clearnlp.clearviz;
 import static spark.Spark.post;
-
-
-
-
-
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -29,14 +24,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-
-
-
-
 import edu.emory.clir.clearnlp.collection.tree.PrefixTree;
 import edu.emory.clir.clearnlp.component.AbstractComponent;
 import edu.emory.clir.clearnlp.component.mode.dep.DEPConfiguration;
@@ -66,7 +54,6 @@ public class SparkApi
 	private static TSVReader reader;
 
 	
-	
 	public SparkApi(TLanguage language) throws Exception
 	{
 		final String rootLabel = "root";	// root label for dependency parsing
@@ -77,7 +64,7 @@ public class SparkApi
 		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
 		components = new AbstractComponent[]{tagger, morph, parser};
 		tokenizer  = NLPUtils.getTokenizer(language);
-		reader = new TSVReader(0, 1, 2, 3, 4, 5, 6, -1, -1, 7);
+		reader = new TSVReader(0, 1, 2, 3, 7, 4, 5, 6, -1, -1);
 	}
 	
 	public void processRaw(InputStream in, PrintStream out) throws Exception
