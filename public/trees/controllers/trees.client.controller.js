@@ -1,4 +1,4 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', '$window', '$q', 'Trees', 'Annotations', 'annotationFactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, $window, $q, Trees, Annotations, annotationFactory) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', '$window', '$q', '$timeout', 'Trees', 'Annotations', 'annotationFactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, $window, $q, $timeout, Trees, Annotations, annotationFactory) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
     $scope.create = function() {
         var tree = new Trees({
@@ -31,9 +31,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         $scope.tree.$update(
             function() {
                 $location.path('trees/' + $scope.tree._id);
-                initDEPTrees($scope.tree.data);
-            },
-            function(errorResponse) {
+            }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
         $('#edit').modal('hide');
@@ -55,6 +53,12 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         }
     };
     $scope.annotateNer = function() {
+        function getNext(treeData) {
+            getNext.count = ++getNext.count || 0;
+            if (treeData[getNext.count][0] === "NEWSENTENCE")
+                getNext.count++;
+            return getNext.count;
+        }
         var div = document.getElementById('annotation');
         var childNodes = div.childNodes[1].childNodes;
         var treeData = [];
@@ -66,13 +70,6 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                 treeData[treeData.length] = ["NEWSENTENCE"]; // adds spacer
             }
         });
-
-        function getNext(treeData) {
-            getNext.count = ++getNext.count || 0;
-            if (treeData[getNext.count][0] === "NEWSENTENCE")
-                getNext.count++;
-            return getNext.count;
-        }
         var i,k;
         var words, word;
         for (i=0; i < childNodes.length; i++) {
@@ -110,7 +107,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         }
         var req = new Annotations($scope.tree);
         req.data=tsv;
-        
+
         req.$annotate(function(response) {
             $window.alert("saved");
         },
@@ -118,7 +115,10 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             $scope.error = errorResponse;
             $window.alert(errorResponse);
         });
-        
+        $scope.tree.data = tsv;
+        $timeout(function () {
+            $scope.update();
+        }, 1000);
     };
     $rootScope.$on('keypress', function (evt, obj, key) {
         if (key == 'z')

@@ -1,6 +1,6 @@
 angular.module('trees').factory('Trees', ['$resource', function($resource) {
 	return $resource (
-		'api/trees/:treeId',
+		'api/trees/:treeId/',
 		{ treeId: '@_id'},
 		{ update: {method: 'PUT'}});
 }]);
@@ -23,6 +23,8 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 		controller: function($scope, $element) {
 			$scope.$watch('isolatedTree', function (newValue, oldValue) {
                 if (newValue && newValue != oldValue) {
+                    console.log("old" + oldValue)
+                    console.log("new" + newValue)
 					var htmlText = annotationFactory.createAnnotationHtml(newValue);
                     var replacementElement = angular.element(htmlText);
                     $element.replaceWith(replacementElement);
@@ -31,12 +33,13 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
             });
 		},
 		link: function(scope, element) {
-			scope.$watch('isolatedTree', function(isolatedTree) {
-				if (isolatedTree) {
+			// scope.$watch('isolatedTree', function(isolatedTree) {
+				if (scope.isolatedTree) {
+                    // console.log(isolatedTree)
 					var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);
 					element.replaceWith(htmlText);
 				}
-			}, true);
+			// }, true);
 		}
 	};
 }]);
@@ -46,11 +49,11 @@ angular.module('trees').factory('annotationFactory', function() {
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
-		// console.log(tree.data)
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[7]) {
+                console.log(data);
 				var NERtag = data[7];
-				if (NERtag === "_" || NERtag.charAt(0) === "I") 
+				if (NERtag === "O" || NERtag.charAt(0) === "I") 
 					out+=" " + data[1] + " ";
 				else if (NERtag === "U-PER")
 					out+=' <span class="Person">' + data[1] + "</span>";
