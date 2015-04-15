@@ -500,16 +500,40 @@
 	"command_palette":
 	{
 		"height": 375.0,
-		"last_filter": "",
+		"last_filter": "pu",
 		"selected_items":
 		[
 			[
-				"inst",
-				"Package Control: Install Package"
+				"pu",
+				"Git: Push"
+			],
+			[
+				"comm",
+				"Git: Quick Commit"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"git",
+				"Git: Quick Commit"
 			],
 			[
 				"push",
 				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Quick Commit"
+			],
+			[
+				"git co",
+				"Git: Quick Commit"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
 			],
 			[
 				"commit",
@@ -608,7 +632,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 516.0
+		"width": 579.0
 	},
 	"console":
 	{
@@ -638,45 +662,57 @@
 		"/Users/mike/Git/ClearNLP-demo-website/app/tests",
 		"/Users/mike/Git/ClearNLP-demo-website/app/views",
 		"/Users/mike/Git/ClearNLP-demo-website/cn-online",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory/clir",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory/clir/clearnlp",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory/clir/clearnlp/clearviz",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/resources",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/resources/samples",
 		"/Users/mike/Git/ClearNLP-demo-website/public",
-		"/Users/mike/Git/ClearNLP-demo-website/public/components",
-		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-http-auth",
-		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-http-auth/src",
-		"/Users/mike/Git/ClearNLP-demo-website/public/css",
 		"/Users/mike/Git/ClearNLP-demo-website/public/js",
-		"/Users/mike/Git/ClearNLP-demo-website/public/signin",
-		"/Users/mike/Git/ClearNLP-demo-website/public/signin/controllers",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/test",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views"
 	],
 	"file_history":
 	[
-		"/Users/mike/Git/ClearNLP-demo-website/app/views/index.ejs",
-		"/Users/mike/Git/ClearNLP-demo-website/public/application.js",
-		"/Users/mike/Git/ClearNLP-demo-website/app/routes/trees.server.routes.js",
-		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/trees.server.controller.js",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.client.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory/clir/clearnlp/clearviz/SparkApi.java",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services/trees.client.service.js",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/list-tree.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.client.controller.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/view-tree.client.view.html",
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/trees.server.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes/trees.server.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/server.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config/trees.client.routes.js",
+		"/Users/mike/Git/ClearNLP-demo-website/.git/COMMIT_EDITMSG",
+		"/Users/mike/Git/ClearNLP-demo-website/app/tests/trees.server.model.tests.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/rangyConfig.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/rangy-1.3/rangy-classapplier.js",
+		"/Users/mike/Git/ClearNLP-demo-website/.git/MERGE_MSG",
+		"/Users/mike/Git/ClearNLP-demo-website/package.json",
+		"/Users/mike/Git/ClearNLP-demo-website/.gitignore",
+		"/Users/mike/Git/ClearNLP-demo-website/public/application.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views/index.ejs",
+		"/Users/mike/Git/ClearNLP-demo-website/public/dependency_guidelines.md",
+		"/Users/mike/Git/ClearNLP-demo-website/bower.json",
+		"/Users/mike/Git/ClearNLP-demo-website/public/components/rangy-1.3/uncompressed/rangy-highlighter.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/models/tree.server.model.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/list-tree.client.view.html",
 		"/Users/mike/Git/ClearNLP-demo-website/public/js/clearnlp_demo.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/css/landing-page.css",
-		"/Users/mike/Git/ClearNLP-demo-website/public/js/rangyConfig.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/css/rangy.css",
 		"/Users/mike/Git/ClearNLP-demo-website/public/signin/controllers/signin.client.controller.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/misc/directives.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/trees.client.module.js",
-		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory/clir/clearnlp/clearviz/SparkApi.java",
-		"/Users/mike/Git/ClearNLP-demo-website/app/tests/trees.server.model.tests.js",
 		"/Users/mike/Git/ClearNLP-demo-website/app/tests/trees.server.controller.tests.js",
 		"/Users/mike/Downloads/d3/d3.min.js",
 		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/ner.server.controller.js",
-		"/Users/mike/Git/ClearNLP-demo-website/app/models/tree.server.model.js",
-		"/Users/mike/Git/ClearNLP-demo-website/public/components/rangy-1.3/uncompressed/rangy-highlighter.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/rangy-1.3/uncompressed/rangy-cssclassapplier.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/rangy-1.3/uncompressed/rangy-core.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/quill/README.md",
@@ -686,10 +722,8 @@
 		"/Users/mike/Git/ClearNLP-demo-website/node_modules/body-parser/README.md",
 		"/Users/mike/.zshrc",
 		"/Users/mike/.vimrc",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config/trees.client.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/clearviz.sublime-project",
 		"/Users/mike/Git/ClearNLP-demo-website/node_modules/bower/node_modules/fstream-ignore/ignore.js",
-		"/Users/mike/Git/ClearNLP-demo-website/.gitignore",
 		"/Users/mike/Git/ClearNLP-demo-website/public/signin/signin.client.module.js",
 		"/Users/mike/Library/Application Support/Sublime Text 3/Packages/Origami/Default (OSX).sublime-keymap",
 		"/Users/mike/Library/Application Support/Sublime Text 3/Packages/Origami/Origami.sublime-settings",
@@ -718,7 +752,6 @@
 		"/Users/mike/Git/ClearNLP-demo-website/karma.conf.js",
 		"/Users/mike/Git/ClearNLP-demo-website/config/express.js",
 		"/Users/mike/Git/ClearNLP-demo-website/app/routes/index.server.routes.js",
-		"/Users/mike/Git/ClearNLP-demo-website/package.json",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-cookies/README.md",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/angular-cookies/index.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/edit-tree.client.view.html",
@@ -734,7 +767,6 @@
 		"/Users/mike/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/tests/unit/trees.client.controller.unit.tests.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/signin/config/signin.client.routes.js",
-		"/Users/mike/Git/ClearNLP-demo-website/bower.json",
 		"/Users/mike/Git/ClearNLP-demo-website/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js",
 		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/index.server.controller.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/signin/controllers/mymodal.client.controller.js",
@@ -743,14 +775,12 @@
 		"/Users/mike/.bash_profile",
 		"/Users/mike/Git/ClearNLP-demo-website/app/views/signup.html",
 		"/Users/mike/Git/ClearNLP-demo-website/public/example/views/example.client.view.html",
-		"/Users/mike/Git/ClearNLP-demo-website/.git/COMMIT_EDITMSG",
 		"/Users/mike/Git/ClearNLP-demo-website/public/users/config/users.client.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/example/config/signin.client.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/example/views/signin.client.view.html",
 		"/Users/mike/Git/ClearNLP-demo-website/public/users/views/signin.client.view.html",
 		"/Users/mike/Git/ClearNLP-demo-website/node_modules/connect-mongo/node_modules/mongodb/Readme.md",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/bootstrap/dist/css/bootstrap.css",
-		"/Users/mike/Git/ClearNLP-demo-website/.git/MERGE_MSG",
 		"/Users/mike/Git/ClearNLP-demo-website/node_modules/bower/node_modules/bower-registry-client/node_modules/request/node_modules/hawk/test/browser.js",
 		"/Users/mike/Git/ClearNLP-demo-website/app/views/signup.ejs",
 		"/Users/mike/Git/ClearNLP-demo-website/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/active-x-obfuscator/node_modules/zeparser/benchmark.html",
@@ -779,10 +809,7 @@
 		"/Users/mike/Desktop/mean/public/application.js",
 		"/Users/mike/Desktop/mean/public/trees/trees.client.module.js",
 		"/Users/mike/Desktop/mean/app/routes/users.server.routes.js",
-		"/Users/mike/Desktop/mean/app/routes/index.server.routes.js",
-		"/Users/mike/Desktop/mean/app/controllers/users.server.controller.js",
-		"/Users/mike/Desktop/mean/app/controllers/tree.server.controller.js",
-		"/Users/mike/Desktop/mean/config/express.js"
+		"/Users/mike/Desktop/mean/app/routes/index.server.routes.js"
 	],
 	"find":
 	{
@@ -832,6 +859,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"removeTag",
+			"bodyParser",
+			"require(\"body-parser\");",
+			"elementTagName",
+			"defaultTagName",
+			"span",
+			"edit",
+			"tsv",
+			"getRange",
+			"unapply",
+			"removeHighlights",
+			"unhighlightSelection",
 			"drawDEPTree",
 			"clickPrevious",
 			"signinModal",
@@ -947,19 +986,7 @@
 			"#loginForm",
 			"authentication",
 			"auth",
-			"authen",
-			"authent",
-			"example",
-			"passport.authenticate",
-			"passport.authenticate#sthash.0s69g2sC.dpuf",
-			"user",
-			"ng-include",
-			"section ng-\ninclude",
-			"oday!",
-			"Create an account",
-			"Already have an account",
-			"Already have",
-			"what would you like"
+			"authen"
 		],
 		"highlight": true,
 		"in_selection": false,
