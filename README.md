@@ -32,6 +32,7 @@ vis.js http://visjs.org to visualize metadata
 * (02/26) https://drive.google.com/open?id=1MypSuPZunaaxAwMscj3LS1YqIIETY3oNhz8wynE3GCs&authuser=0
 * (03/19) https://drive.google.com/open?id=1QJV0gwx8mF2OLMfk7UGWDD9yV086sGk5pImLfKNno54&authuser=0
 * (04/02) https://drive.google.com/open?id=1s683_LtVla_PuuN0stuNRduo1oDPNkqeQ7efewzpO8Q&authuser=0
+* (04/16) https://docs.google.com/presentation/d/1E4g8mYuep0cvgpH-BNF_sw4XbQV82anec14Sovdhkyc/edit?usp=sharing
 
 ### Test instruction:
 1. Deployed at http://52.1.147.106:3000
@@ -40,12 +41,9 @@ vis.js http://visjs.org to visualize metadata
 4. Click on title to view the tree visualization.
 5. Create a new tree by entering title and each sentence separated by new line.
 6. Remove tree in tree view.
-7. Edit tree not yet implemented.
+7. Edit tree function will edit the tree and dependency diagram.
 8. Return to menu using back.
 
-http://requestmaker.com
-52.1.147.106:4567/deptree
-http://mathcs.emory.edu/~choi/clearnlp/demo/demo.html
 
 ### AngularJS Unit Testing
 Unit test files directory path for trees model: `ClearViz/public/trees/tests/unit`
@@ -72,7 +70,7 @@ Directory path: `ClearViz/public/trees/e2e`:
 **Login method was changed from AngularJS to Express Passport. Therefore, `protractor` cannot test login. The test fails as one should not be able to create a tree without logging in. 
 
 ### Express Testing
-Directory path: `ClearViz/app/tests:
+Directory path: `ClearViz/app/tests`:
 
 1. Navigate to the application's root directory: `/ClearViz/`
 2. Input the command: `$ NODE_ENV=test mocha --reporter spec app/tests`
