@@ -34,9 +34,10 @@ public class SparkApi
 	private static AbstractTokenizer tokenizer;
 	private static AbstractComponent parser;
 	private static AbstractComponent tagger;
-	private static AbstractNERecognizer ner;
+//	private static AbstractNERecognizer ner;
 	private static PrefixTree<String,NERInfoList> dictionary;
 	private static TSVReader reader;
+	private static AbstractComponent ner;
 
 	
 	public SparkApi(TLanguage language) throws Exception
@@ -45,9 +46,10 @@ public class SparkApi
 		morph = NLPUtils.getMPAnalyzer(language);
 		tagger = NLPUtils.getPOSTagger(language, "general-en-pos.xz");
 		parser = NLPUtils.getDEPParser(language, "general-en-dep.xz", new DEPConfiguration(rootLabel));
-		ner = new EnglishNERecognizer();
+//		ner = new EnglishNERecognizer();
 		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
-		components = new AbstractComponent[]{tagger, morph, parser};
+		ner = new NLPUtils.getObjectInputStream(dictionary);
+		components = new AbstractComponent[]{tagger, morph, parser, ner};
 		tokenizer  = NLPUtils.getTokenizer(language);
 		reader = new TSVReader(0, 1, 2, 3, 7, 4, 5, 6, -1, -1);
 	}
@@ -62,8 +64,11 @@ public class SparkApi
 			for (AbstractComponent component : components)
 				component.process(tree);
 
-			ner.processDictionary(tree, dictionary);
-			out.println(tree.toString(DEPNode::toStringNER)+"\n");
+//			ner.processDictionary(tree, dictionary);
+//			out.println(tree.toString(DEPNode::toStringNER)+"\n");
+			
+			out.println(tree.toString()+"\n");
+
 		}
 		in.close();
 		out.close();
