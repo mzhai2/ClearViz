@@ -36,8 +36,6 @@ public class SparkApi
 	private static AbstractTokenizer tokenizer;
 	private static AbstractComponent parser;
 	private static AbstractComponent tagger;
-//	private static AbstractNERecognizer ner;
-	private static PrefixTree<String,NERInfoList> dictionary;
 	private static TSVReader reader;
 	private static AbstractComponent ner;
 
@@ -140,7 +138,7 @@ public class SparkApi
 				while ((tree=reader.next())!= null) {
 					trees.add(tree);
 				}
-				ner.onlineTrain(trees);
+				((DefaultNERecognizer) ner).onlineTrain(trees);
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
         			out.print(inputString);
         		} catch (IOException e) {
