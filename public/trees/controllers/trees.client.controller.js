@@ -80,7 +80,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
                     if (words[k]){
-                        treeData[getNext(treeData)][7] = "O";
+                        treeData[getNext(treeData)][9] = "O";
                     }
 
                 }
