@@ -35,7 +35,7 @@ vis.js http://visjs.org to visualize metadata
 * (04/16) https://docs.google.com/presentation/d/1E4g8mYuep0cvgpH-BNF_sw4XbQV82anec14Sovdhkyc/edit?usp=sharing
 
 ### Test instruction:
-1. Deployed at http://52.1.147.106:3000
+1. Deployed at http://52.6.179.224:3000
 2. Signin using an existing account or Signup for a new account.
 3. List all trees to view all existing trees in database.
 4. Click on title to view the tree visualization.
