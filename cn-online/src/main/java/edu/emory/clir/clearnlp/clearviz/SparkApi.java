@@ -136,9 +136,11 @@ public class SparkApi
 				is = new ByteArrayInputStream(inputString.getBytes(StandardCharsets.UTF_8));
 				reader.open(new ByteArrayInputStream(inputString.getBytes()));
 				DEPTree tree;
+				List<DEPTree> trees = new ArrayList<>();
 				while ((tree=reader.next())!= null) {
-					ner.learnDictionary(tree, dictionary);
+					trees.add(tree);
 				}
+				ner.onlineTrain(trees);
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
         			out.print(inputString);
         		} catch (IOException e) {
