@@ -24,7 +24,7 @@ import edu.emory.clir.clearnlp.ner.NERInfoList;
 import edu.emory.clir.clearnlp.reader.TSVReader;
 import edu.emory.clir.clearnlp.tokenization.AbstractTokenizer;
 import edu.emory.clir.clearnlp.util.lang.TLanguage;
-
+import static spark.Spark.post;
 public class SparkApi
 {
 	final static TLanguage language = TLanguage.CHINESE;
