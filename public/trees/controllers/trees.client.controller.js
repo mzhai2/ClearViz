@@ -25,6 +25,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             initDEPTrees(tree.data);
             $scope.tree = tree;
         });
+        console.log($scope)
     };
 
     $scope.update = function() {
@@ -63,6 +64,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         var childNodes = div.childNodes[1].childNodes;
         var treeData = [];
         var data = $scope.tree.data;
+
         d3.tsv.parseRows(data, function(data) {
             if(data[1])
                 treeData[treeData.length] = data;

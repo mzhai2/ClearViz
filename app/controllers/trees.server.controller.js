@@ -17,7 +17,7 @@ exports.create = function(req, res) {
     request(
     {
         method: 'POST',
-        uri: 'http://52.1.147.106:4567/deptree',
+        uri: 'http://52.6.179.224:4567/deptree',
         headers: {
             'content-type': 'application/json'
         },
@@ -75,7 +75,7 @@ exports.update = function(req, res) {
     request(
     {
         method: 'POST',
-        uri: 'http://52.1.147.106:4567/deptree',
+        uri: 'http://52.6.179.224:4567/deptree',
         headers: {
             'content-type': 'application/json'
         },
@@ -87,6 +87,7 @@ exports.update = function(req, res) {
             tree.title = req.body.title;
             tree.content = req.body.content;
             tree.data = body;
+            console.log(body)
             tree.save(function(err) {
                 if (err) {
                     return res.status(400).send({
@@ -132,7 +133,7 @@ exports.annotateNer = function(req, res) {
     request(
     {
         method: 'POST',
-        uri: 'http://52.1.147.106:4567/annotatener',
+        uri: 'http://52.6.179.224:4567/annotatener',
         headers: {
             'content-type': 'application/json'
         },

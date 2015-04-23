@@ -23,8 +23,8 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 		controller: function($scope, $element) {
 			$scope.$watch('isolatedTree', function (newValue, oldValue) {
                 if (newValue && newValue != oldValue) {
-                    console.log("old" + oldValue)
-                    console.log("new" + newValue)
+                    console.log("old" + oldValue);
+                    console.log("new" + newValue);
 					var htmlText = annotationFactory.createAnnotationHtml(newValue);
                     var replacementElement = angular.element(htmlText);
                     $element.replaceWith(replacementElement);
