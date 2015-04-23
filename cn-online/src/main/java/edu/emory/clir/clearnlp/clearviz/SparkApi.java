@@ -9,12 +9,14 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import edu.emory.clir.clearnlp.collection.tree.PrefixTree;
 import edu.emory.clir.clearnlp.component.AbstractComponent;
 import edu.emory.clir.clearnlp.component.mode.dep.DEPConfiguration;
 import edu.emory.clir.clearnlp.component.mode.ner.AbstractNERecognizer;
 import edu.emory.clir.clearnlp.component.mode.ner.EnglishNERecognizer;
+import edu.emory.clir.clearnlp.component.utils.GlobalLexica;
 import edu.emory.clir.clearnlp.component.utils.NLPUtils;
 import edu.emory.clir.clearnlp.dependency.DEPNode;
 import edu.emory.clir.clearnlp.dependency.DEPTree;
@@ -42,14 +44,19 @@ public class SparkApi
 	
 	public SparkApi(TLanguage language) throws Exception
 	{
+		List<String> dsw = new ArrayList<>();
+		dsw.add("brown-rcv1.clean.tokenized-CoNLL03.txt-c1000-freq1.txt.xz");
+		dsw.add("model-2030000000.LEARNING_RATE=1e-09.EMBEDDING_LEARNING_RATE=1e-06.EMBEDDING_SIZE=100.txt.xz");
+		dsw.add("hlbl_reps_clean_2.50d.rcv1.clean.tokenized-CoNLL03.case-intact.txt.xz");
+		GlobalLexica.initDistributionalSemanticsWords(dsw);
+
 		final String rootLabel = "root";	// root label for dependency parsing
 		morph = NLPUtils.getMPAnalyzer(language);
 		tagger = NLPUtils.getPOSTagger(language, "general-en-pos.xz");
-		parser = NLPUtils.getDEPParser(language, "general-en-dep.xz", new DEPConfiguration(rootLabel));
-//		ner = new EnglishNERecognizer();
-		dictionary = NLPUtils.getNEDictionary(language, "general-en-ner-dict.xz");
-		ner = new NLPUtils.getObjectInputStream(dictionary);
+		parser = NLPUtils.getDEPParser(language, "general-en-dep.xz", new DEPConfiguration(rootLabel));	
+		ner = new DefaultNERecognizer(NLPUtils.getObjectInputStream("general-en-ner.xz"));
 		components = new AbstractComponent[]{tagger, morph, parser, ner};
+		
 		tokenizer  = NLPUtils.getTokenizer(language);
 		reader = new TSVReader(0, 1, 2, 3, 7, 4, 5, 6, -1, -1);
 	}
@@ -63,10 +70,6 @@ public class SparkApi
 
 			for (AbstractComponent component : components)
 				component.process(tree);
-
-//			ner.processDictionary(tree, dictionary);
-//			out.println(tree.toString(DEPNode::toStringNER)+"\n");
-			
 			out.println(tree.toString()+"\n");
 
 		}
