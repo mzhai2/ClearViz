@@ -1,5 +1,4 @@
 package edu.emory.clir.clearnlp.clearviz;
-import static spark.Spark.post;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -15,6 +14,7 @@ import edu.emory.clir.clearnlp.collection.tree.PrefixTree;
 import edu.emory.clir.clearnlp.component.AbstractComponent;
 import edu.emory.clir.clearnlp.component.mode.dep.DEPConfiguration;
 import edu.emory.clir.clearnlp.component.mode.ner.AbstractNERecognizer;
+import edu.emory.clir.clearnlp.component.mode.ner.DefaultNERecognizer;
 import edu.emory.clir.clearnlp.component.mode.ner.EnglishNERecognizer;
 import edu.emory.clir.clearnlp.component.utils.GlobalLexica;
 import edu.emory.clir.clearnlp.component.utils.NLPUtils;
@@ -138,7 +138,7 @@ public class SparkApi
 				while ((tree=reader.next())!= null) {
 					trees.add(tree);
 				}
-				((DefaultNERecognizer) ner).onlineTrain(trees);
+				((AbstractNERecognizer)ner).onlineTrain(trees);
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ner.txt", true)))) {
         			out.print(inputString);
         		} catch (IOException e) {
