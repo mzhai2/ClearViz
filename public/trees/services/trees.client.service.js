@@ -50,9 +50,9 @@ angular.module('trees').factory('annotationFactory', function() {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
 		d3.tsv.parseRows(tree.data, function(data) {
-			if (data[7]) {
+			if (data[9]) {
                 console.log(data);
-				var NERtag = data[7];
+				var NERtag = data[9];
 				if (NERtag === "O" || NERtag.charAt(0) === "I") 
 					out+=" " + data[1] + " ";
 				else if (NERtag === "U-PER")

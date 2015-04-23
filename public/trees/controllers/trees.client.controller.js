@@ -89,13 +89,13 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                 var name = node.className.substring(0,3).toUpperCase();
                 words = node.innerHTML.split(" ").clean("");
                 if (words.length == 1)
-                    treeData[getNext(treeData)][7] = "U-" + name;
+                    treeData[getNext(treeData)][9] = "U-" + name;
                 else {
-                    treeData[getNext(treeData)][7] = "B-" + name;
+                    treeData[getNext(treeData)][9] = "B-" + name;
                     for (k=1; k<words.length-1; k++) {
-                        treeData[getNext(treeData)][7] = "I-" + name;
+                        treeData[getNext(treeData)][9] = "I-" + name;
                     }
-                    treeData[getNext(treeData)][7] = "L-" + name;
+                    treeData[getNext(treeData)][9] = "L-" + name;
                 }
             }
         }
@@ -104,7 +104,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             if (treeData[i][0] === "NEWSENTENCE")
                 tsv+="\n";
             else {
-                tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\n";
+                tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\t"+treeData[i][8]+"\t"+treeData[i][9]+"\n";
             }
         }
         var req = new Annotations($scope.tree);

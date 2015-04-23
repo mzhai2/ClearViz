@@ -24,7 +24,7 @@ exports.create = function(req, res) {
         body: req.body.content
     },
     function(error, response, body) {
-        console.log(body);
+        // console.log(body);
         if (!error && response.statusCode == 200) {
             var tree = new Tree(req.body);
             tree.creator = req.user;
@@ -87,7 +87,7 @@ exports.update = function(req, res) {
             tree.title = req.body.title;
             tree.content = req.body.content;
             tree.data = body;
-            console.log(body)
+            console.log(body);
             tree.save(function(err) {
                 if (err) {
                     return res.status(400).send({
