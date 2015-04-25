@@ -131,9 +131,9 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             highlightPerson();
         if (key == 'v')
             removeTag();
-        if (key == 'b') {
-            $scope.annotateNer();
-        }
+        // if (key == '`') {
+        //     $scope.annotateNer();
+        // }
     });
 
     $('#create').modal({show:false});

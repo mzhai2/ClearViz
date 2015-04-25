@@ -33,13 +33,10 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
             });
 		},
 		link: function(scope, element) {
-			// scope.$watch('isolatedTree', function(isolatedTree) {
 				if (scope.isolatedTree) {
-                    // console.log(isolatedTree)
 					var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);
 					element.replaceWith(htmlText);
 				}
-			// }, true);
 		}
 	};
 }]);
@@ -56,19 +53,23 @@ angular.module('trees').factory('annotationFactory', function() {
 				if (NERtag === "O" || NERtag.charAt(0) === "I") 
 					out+=" " + data[1] + " ";
 				else if (NERtag === "U-PER")
-					out+=' <span class="Person">' + data[1] + "</span>";
+					out+=' <span class="Person">' + data[1] + "</span> ";
 				else if (NERtag === "U-ORG") 
-					out+=' <span class="Organization">' + data[1] + "</span>";
+					out+=' <span class="Organization">' + data[1] + "</span> ";
 				else if (NERtag === "U-LOC")
-					out+=' <span class="Location">' + data[1] + "</span>";
+					out+=' <span class="Location">' + data[1] + "</span> ";
+                else if (NERtag === "U-MISC")
+                    out+=' <span class="MISC">' + data[1] + "</span> ";
 				else if (NERtag === "B-PER") 
 					out+=' <span class="Person">' + data[1] + " ";
 				else if (NERtag === "B-ORG")
 					out+=' <span class="Organization">' + data[1] + " ";
 				else if (NERtag === "B-LOC")
 					out+=' <span class="Location">' + data[1] + " ";
+                else if (NERtag === "B-MISC")
+                    out+=' <span class="MISC">' + data[1] + "</span> ";
 				else if (NERtag.charAt(0) === "L")
-					out+=data[1] + "</span>";
+					out+=data[1] + "</span> ";
 			}
 		});
 		out+='</p>';
