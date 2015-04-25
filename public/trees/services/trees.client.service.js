@@ -16,7 +16,7 @@ angular.module('trees').factory('saveAnnotations', ['$resource', function($resou
     return $resource (
         'api/trees/:treeId/saveAnnotation',
         { treeId: '@_id'},
-        { saveAnnotation: {method: 'POST'}});
+        { saveAnnotation: {method: 'PUT'}});
 }]);
 
 // directive to render annotation
