@@ -13,5 +13,8 @@ module.exports = function(app) {
     app.route('/api/trees/:treeId/annotatener')
     .post(users.requiresLogin, trees.annotateNer);
 
+    app.route('/api/trees/:treeId/saveannotation')
+    .post(users.requiresLogin, trees.saveAnnotation);
+
 app.param('treeId', trees.treeByID);
 };

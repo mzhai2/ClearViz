@@ -12,6 +12,13 @@ angular.module('trees').factory('Annotations', ['$resource', function($resource)
 		{ annotate: {method: 'POST'}});
 }]);
 
+angular.module('trees').factory('saveAnnotations', ['$resource', function($resource) {
+    return $resource (
+        'api/trees/:treeId/saveAnnotation',
+        { treeId: '@_id'},
+        { saveAnnotate: {method: 'POST'}});
+}]);
+
 // directive to render annotation
 angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$timeout', function(annotationFactory, $timeout) {
 	return {
@@ -33,16 +40,71 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
             });
 		},
 		link: function(scope, element) {
-				if (scope.isolatedTree) {
-					var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);
-					element.replaceWith(htmlText);
-				}
+			if (scope.isolatedTree) {
+				var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);
+				element.replaceWith(htmlText);
+			}
 		}
 	};
 }]);
 
 angular.module('trees').factory('annotationFactory', function() {
 	var factory = {};
+    factory.parseAnnotations = function(tree) {
+        function getNext(treeData) {
+            getNext.count = ++getNext.count || 0;
+            if (treeData[getNext.count][0] === "NEWSENTENCE")
+                getNext.count++;
+            return getNext.count;
+        }
+        var div = document.getElementById('annotation');
+        var childNodes = div.childNodes[1].childNodes;
+        var treeData = [];
+        var data = $scope.tree.data;
+
+        d3.tsv.parseRows(data, function(data) {
+            if(data[1])
+                treeData[treeData.length] = data;
+            else {
+                treeData[treeData.length] = ["NEWSENTENCE"]; // adds spacer
+            }
+        });
+        var i,k;
+        var words, word;
+        for (i=0; i < childNodes.length; i++) {
+            var node = childNodes[i];
+            if (node.nodeType == 3) {
+                words = node.nodeValue.split(" ").clean("");
+                for (k=0; k<words.length; k++) {
+                    if (words[k]){
+                        treeData[getNext(treeData)][9] = "O";
+                    }
+
+                }
+            }
+            if (node.nodeType == 1) {
+                var name = node.className.substring(0,3).toUpperCase();
+                words = node.innerHTML.split(" ").clean("");
+                if (words.length == 1)
+                    treeData[getNext(treeData)][9] = "U-" + name;
+                else {
+                    treeData[getNext(treeData)][9] = "B-" + name;
+                    for (k=1; k<words.length-1; k++) {
+                        treeData[getNext(treeData)][9] = "I-" + name;
+                    }
+                    treeData[getNext(treeData)][9] = "L-" + name;
+                }
+            }
+        }
+        var tsv = "";
+        for (i=0;i<treeData.length;i++) {
+            if (treeData[i][0] === "NEWSENTENCE")
+                tsv+="\n";
+            else {
+                tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\t"+treeData[i][8]+"\t"+treeData[i][9]+"\n";
+            }
+        }
+    };
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";

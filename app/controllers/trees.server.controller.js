@@ -87,7 +87,6 @@ exports.update = function(req, res) {
             tree.title = req.body.title;
             tree.content = req.body.content;
             tree.data = body;
-            console.log(body);
             tree.save(function(err) {
                 if (err) {
                     return res.status(400).send({
@@ -144,7 +143,7 @@ exports.annotateNer = function(req, res) {
         console.log("res"+res.body);
         console.log(error);
         if (!error && response.statusCode == 200) {
-            var tree = req.tree;
+            // var tree = req.tree;
             tree.save(function(err) {
                 if (err) {
                     console.log(getErrorMessage(err));
@@ -158,6 +157,19 @@ exports.annotateNer = function(req, res) {
         }
         else {
             console.log('Fail to retrieve deptree');
+        }
+    });
+};
+
+exports.saveAnnotation = function(req, res) {
+    var tree = req.tree;
+    tree.save(function(err) {
+    if (err) {
+        return res.status(400).send({
+            message: getErrorMessage(err)
+            });
+    } else {
+            res.json(tree);
         }
     });
 };
