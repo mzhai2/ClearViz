@@ -495,6 +495,33 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "angular.module('trees').factory('Trees', ['$resource', function($resource) {\n	return $resource (\n		'api/trees/:treeId/',\n		{ treeId: '@_id'},\n		{ update: {method: 'PUT'}});\n}]);\n\nangular.module('trees').factory('Annotations', ['$resource', function($resource) {\n	return $resource (\n		'api/trees/:treeId/annotatener',\n		{ treeId: '@_id'},\n		{ annotate: {method: 'POST'}});\n}]);\n\nangular.module('trees').factory('saveAnnotations', ['$resource', function($resource) {\n    return $resource (\n        'api/trees/:treeId/saveAnnotation',\n        { treeId: '@_id'},\n        { saveAnnotation: {method: 'PUT'}});\n}]);\n\n// directive to render annotation\nangular.module('trees').directive('annotationDisplay', ['annotationFactory', '$timeout', function(annotationFactory, $timeout) {\n	return {\n		restrict: 'EA',\n		scope: {\n			isolatedTree: '@tree',\n		},\n		transclude: true,\n		controller: function($scope, $element) {\n			$scope.$watch('isolatedTree', function (newValue, oldValue) {\n                if (newValue && newValue != oldValue) {\n                    // console.log(\"old\" + oldValue);\n                    // console.log(\"new\" + newValue);\n					var htmlText = annotationFactory.createAnnotationHtml(newValue);\n                    var replacementElement = angular.element(htmlText);\n                    $element.replaceWith(replacementElement);\n                    $element = replacementElement;\n                }\n            });\n		},\n		link: function(scope, element) {\n			if (scope.isolatedTree) {\n				var htmlText = annotationFactory.createAnnotationHtml(isolatedTree);\n				element.replaceWith(htmlText);\n			}\n		}\n	};\n}]);\n\nangular.module('trees').factory('annotationFactory', function() {\n	var factory = {};\n    factory.parseAnnotations = function(tree) {\n        function getNext(treeData) {\n            getNext.count = ++getNext.count || 0;\n            if (treeData[getNext.count][0] === \"NEWSENTENCE\")\n                getNext.count++;\n            return getNext.count;\n        }\n        var div = document.getElementById('annotation');\n        var childNodes = div.childNodes[1].childNodes;\n        var data = tree.data;\n        var treeData = [];\n        d3.tsv.parseRows(data, function(data) {\n            if(data[0])\n                treeData[treeData.length] = data;\n            else {\n                treeData[treeData.length] = [\"NEWSENTENCE\"]; // adds spacer\n            }\n        });\n        var i,k;\n        var words, word;\n        for (i=0; i < childNodes.length; i++) {\n            var node = childNodes[i];\n            if (node.nodeType == 3) {\n                words = node.nodeValue.split(\" \").clean(\"\");\n                for (k=0; k<words.length; k++) {\n                    if (words[k]) {\n                        treeData[getNext(treeData)][9] = \"O\";\n                    }\n                }\n            }\n            if (node.nodeType == 1) {\n                var name;\n                if (node.className.substring(0,4).toUpperCase() === \"MISC\")\n                    name = \"MISC\";\n                else {\n                    name = node.className.substring(0,3).toUpperCase();\n                }\n                words = node.innerHTML.split(\" \").clean(\"\");\n                if (words.length == 1)\n                    treeData[getNext(treeData)][9] = \"U-\" + name;\n                else {\n                    treeData[getNext(treeData)][9] = \"B-\" + name;\n                    for (k=1; k<words.length-1; k++) {\n                        treeData[getNext(treeData)][9] = \"I-\" + name;\n                    }\n                    treeData[getNext(treeData)][9] = \"L-\" + name;\n                }\n            }\n        }\n        var tsv = \"\";\n        for (i=0;i<treeData.length;i++) {\n            if (treeData[i][0] === \"NEWSENTENCE\")\n                tsv+=\"\\n\";\n            else {\n                tsv+=treeData[i][0]+\"\\t\"+treeData[i][1]+\"\\t\"+treeData[i][2]+\"\\t\"+treeData[i][3]+\"\\t\"+treeData[i][4]+\"\\t\"+treeData[i][5]+\"\\t\"+treeData[i][6]+\"\\t\"+treeData[i][7]+\"\\t\"+treeData[i][8]+\"\\t\"+treeData[i][9]+\"\\n\";\n            }\n        }\n        getNext.count = 0;\n        return tsv;\n    };\n	factory.createAnnotationHtml = function(tree) {\n		var tree = JSON.parse(tree);\n		var out = \"<p>\";\n		d3.tsv.parseRows(tree.data, function(data) {\n			if (data[9]) {\n				var NERtag = data[9];\n				if (NERtag === \"O\" || NERtag.charAt(0) === \"I\") \n					out+=\" \" + data[1] + \" \";\n				else if (NERtag === \"U-PER\")\n					out+=' <span class=\"Person\">' + data[1] + \"</span> \";\n				else if (NERtag === \"U-ORG\") \n					out+=' <span class=\"Organization\">' + data[1] + \"</span> \";\n				else if (NERtag === \"U-LOC\")\n					out+=' <span class=\"Location\">' + data[1] + \"</span> \";\n                else if (NERtag === \"U-MISC\")\n                    out+=' <span class=\"MISC\">' + data[1] + \"</span> \";\n				else if (NERtag === \"B-PER\") \n					out+=' <span class=\"Person\">' + data[1] + \" \";\n				else if (NERtag === \"B-ORG\")\n					out+=' <span class=\"Organization\">' + data[1] + \" \";\n				else if (NERtag === \"B-LOC\")\n					out+=' <span class=\"Location\">' + data[1] + \" \";\n                else if (NERtag === \"B-MISC\")\n                    out+=' <span class=\"MISC\">' + data[1] + \"</span> \";\n				else if (NERtag.charAt(0) === \"L\")\n					out+=data[1] + \"</span> \";\n			}\n		});\n		out+='</p>';\n		return out;\n	};\n	return factory;\n});\n\nangular.module('trees').directive('keypressEvents', function($document, $rootScope) {\n    return {\n        restrict: 'A',\n        link: function () {\n            $document.bind('keypress', function (e) {\n                $rootScope.$broadcast('keypress', e, String.fromCharCode(e.which));\n            });\n        }\n    };\n});\n\nfunction removeTag() {\n    var range = window.getSelection().getRangeAt(0);\n    var node = $(range.commonAncestorContainer);\n    if (node.parent().is(\"span\")) {\n        node.unwrap();\n    }\n}",
+			"file": "public/trees/services/trees.client.service.js",
+			"file_size": 5816,
+			"file_write_time": 130744245960000000,
+			"settings":
+			{
+				"buffer_size": 5790,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/index.ejs",
+			"settings":
+			{
+				"buffer_size": 2917,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/trees/controllers/trees.client.controller.js",
+			"settings":
+			{
+				"buffer_size": 3414,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -691,24 +718,22 @@
 		"/Users/mike/Git/ClearNLP-demo-website/app/controllers",
 		"/Users/mike/Git/ClearNLP-demo-website/app/models",
 		"/Users/mike/Git/ClearNLP-demo-website/app/routes",
+		"/Users/mike/Git/ClearNLP-demo-website/app/views",
 		"/Users/mike/Git/ClearNLP-demo-website/public",
-		"/Users/mike/Git/ClearNLP-demo-website/public/css",
 		"/Users/mike/Git/ClearNLP-demo-website/public/js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/test",
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views",
-		"/Users/mike/Git/ClearNLP-demo-website/target"
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services"
 	],
 	"file_history":
 	[
-		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.client.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/js/rangyConfig.js",
+		"/Users/mike/Git/ClearNLP-demo-website/node_modules/browserify/node_modules/module-deps/node_modules/detective/node_modules/acorn/test/compare/traceur.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/css/rangy.css",
 		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/trees.server.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.client.controller.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services/trees.client.service.js",
 		"/Users/mike/Git/ClearNLP-demo-website/app/routes/trees.server.routes.js",
-		"/Users/mike/Git/ClearNLP-demo-website/public/css/rangy.css",
 		"/Users/mike/Desktop/articles/technology/20150101_In With the New: Snappy Apps for 2015 - NYTimes.com",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/view-tree.client.view.html",
 		"/Users/mike/Git/ClearNLP-demo-website/README.md",
@@ -717,7 +742,6 @@
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config/trees.client.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/.git/COMMIT_EDITMSG",
 		"/Users/mike/Git/ClearNLP-demo-website/app/tests/trees.server.model.tests.js",
-		"/Users/mike/Git/ClearNLP-demo-website/public/js/rangyConfig.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/components/rangy-1.3/rangy-classapplier.js",
 		"/Users/mike/Git/ClearNLP-demo-website/.git/MERGE_MSG",
 		"/Users/mike/Git/ClearNLP-demo-website/package.json",
@@ -830,8 +854,7 @@
 		"/Users/mike/Desktop/mean/public/trees/services/trees.client.service.js",
 		"/Users/mike/Desktop/mean/app/controllers/index.server.controller.js",
 		"/Users/mike/Desktop/mean/public/application.js",
-		"/Users/mike/Desktop/mean/public/trees/trees.client.module.js",
-		"/Users/mike/Desktop/mean/app/routes/users.server.routes.js"
+		"/Users/mike/Desktop/mean/public/trees/trees.client.module.js"
 	],
 	"find":
 	{
@@ -881,6 +904,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"highlightOrganization",
+			"keypress",
+			"parseAnnotations",
+			"for",
 			"createAnnotationHtml",
 			"new",
 			"createAnnotationHtml",
@@ -1004,11 +1031,7 @@
 			"ind",
 			"/trees",
 			"trees",
-			"conso",
-			"data-ng-repeat",
-			"create a new article",
-			"create new article",
-			"create new artcle"
+			"conso"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1052,8 +1075,111 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public/trees/services/trees.client.service.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5790,
+								5790
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": false,
+							"WordCountSyntax": "javascript",
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2199.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/index.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2917,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1371,
+								1371
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "html",
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 416.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/trees/controllers/trees.client.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3048,
+								3048
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": false,
+							"WordCountSyntax": "javascript",
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1227.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
