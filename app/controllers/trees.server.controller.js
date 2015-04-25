@@ -163,6 +163,7 @@ exports.annotateNer = function(req, res) {
 exports.saveAnnotation = function(req, res) {
     var tree = req.tree;
     tree.data = req.body.data;
+    console.log(tree.data);
     tree.save(function(err) {
     if (err) {
         console.log(err);

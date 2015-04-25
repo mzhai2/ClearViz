@@ -30,8 +30,8 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 		controller: function($scope, $element) {
 			$scope.$watch('isolatedTree', function (newValue, oldValue) {
                 if (newValue && newValue != oldValue) {
-                    console.log("old" + oldValue);
-                    console.log("new" + newValue);
+                    // console.log("old" + oldValue);
+                    // console.log("new" + newValue);
 					var htmlText = annotationFactory.createAnnotationHtml(newValue);
                     var replacementElement = angular.element(htmlText);
                     $element.replaceWith(replacementElement);
@@ -59,11 +59,10 @@ angular.module('trees').factory('annotationFactory', function() {
         }
         var div = document.getElementById('annotation');
         var childNodes = div.childNodes[1].childNodes;
-        var treeData = [];
         var data = tree.data;
-
+        var treeData = [];
         d3.tsv.parseRows(data, function(data) {
-            if(data[1])
+            if(data[0])
                 treeData[treeData.length] = data;
             else {
                 treeData[treeData.length] = ["NEWSENTENCE"]; // adds spacer
@@ -76,14 +75,18 @@ angular.module('trees').factory('annotationFactory', function() {
             if (node.nodeType == 3) {
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
-                    if (words[k]){
+                    if (words[k]) {
                         treeData[getNext(treeData)][9] = "O";
                     }
-
                 }
             }
             if (node.nodeType == 1) {
-                var name = node.className.substring(0,3).toUpperCase();
+                var name;
+                if (node.className.substring(0,4).toUpperCase() === "MISC")
+                    name = "MISC";
+                else {
+                    name = node.className.substring(0,3).toUpperCase();
+                }
                 words = node.innerHTML.split(" ").clean("");
                 if (words.length == 1)
                     treeData[getNext(treeData)][9] = "U-" + name;
@@ -104,9 +107,9 @@ angular.module('trees').factory('annotationFactory', function() {
                 tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\t"+treeData[i][8]+"\t"+treeData[i][9]+"\n";
             }
         }
+        getNext.count = 0;
         return tsv;
     };
-
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
@@ -158,4 +161,8 @@ function removeTag() {
     if (node.parent().is("span")) {
         node.unwrap();
     }
+}
+
+function parseTSV() {
+
 }
