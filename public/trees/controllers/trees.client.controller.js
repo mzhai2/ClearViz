@@ -69,10 +69,10 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
 
     $scope.saveAnnotation = function() {
         var tsv = annotationFactory.parseAnnotations($scope.tree);
-        var req = new saveAnnotations($scope.tree);
-        req.data = tsv;
-        console.log(req.data);
-        req.$saveAnnotation(function(response) {
+        var tree = new saveAnnotations($scope.tree);
+        console.log(tsv);
+        tree.data = tsv;
+        tree.$saveAnnotation(function(response) {
             $window.alert("saved");
         },
         function(errorResponse) {

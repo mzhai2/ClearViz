@@ -24,7 +24,6 @@ exports.create = function(req, res) {
         body: req.body.content
     },
     function(error, response, body) {
-        // console.log(body);
         if (!error && response.statusCode == 200) {
             var tree = new Tree(req.body);
             tree.creator = req.user;
@@ -162,13 +161,8 @@ exports.annotateNer = function(req, res) {
 };
 
 exports.saveAnnotation = function(req, res) {
-    console.log(req.body);
-    var tree = new Tree();
-    tree.creator = req.user;
+    var tree = req.tree;
     tree.data = req.body.data;
-    tree.content = req.body.content;
-    tree.title = req.body.title;
-    tree.created = req.body.created;
     tree.save(function(err) {
     if (err) {
         console.log(err);

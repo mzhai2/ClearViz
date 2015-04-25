@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"sav",
+				"saveAnnotation"
+			],
+			[
 				"annotation",
 				"annotationDisplay"
 			],
@@ -500,15 +504,31 @@
 	"command_palette":
 	{
 		"height": 375.0,
-		"last_filter": "pus",
+		"last_filter": "pul",
 		"selected_items":
 		[
+			[
+				"pul",
+				"Git: Pull"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"qu",
+				"Git: Quick Commit"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
 			[
 				"pus",
 				"Git: Push"
 			],
 			[
-				"commi",
+				"com",
 				"Git: Quick Commit"
 			],
 			[
@@ -520,12 +540,16 @@
 				"Git: Quick Commit"
 			],
 			[
-				"git",
+				"q",
 				"Git: Quick Commit"
 			],
 			[
-				"push",
-				"Git: Push"
+				"commi",
+				"Git: Quick Commit"
+			],
+			[
+				"git",
+				"Git: Quick Commit"
 			],
 			[
 				"git com",
@@ -636,7 +660,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 338.0
+		"width": 579.0
 	},
 	"console":
 	{
@@ -659,10 +683,15 @@
 	"expanded_folders":
 	[
 		"/Users/mike/Git/ClearNLP-demo-website",
+		"/Users/mike/Git/ClearNLP-demo-website/app",
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers",
+		"/Users/mike/Git/ClearNLP-demo-website/app/models",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes",
 		"/Users/mike/Git/ClearNLP-demo-website/public",
 		"/Users/mike/Git/ClearNLP-demo-website/public/css",
 		"/Users/mike/Git/ClearNLP-demo-website/public/js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees",
+		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/test",
@@ -671,15 +700,15 @@
 	],
 	"file_history":
 	[
+		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/trees.server.controller.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/services/trees.client.service.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/controllers/trees.client.controller.js",
+		"/Users/mike/Git/ClearNLP-demo-website/app/routes/trees.server.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/css/rangy.css",
 		"/Users/mike/Desktop/articles/technology/20150101_In With the New: Snappy Apps for 2015 - NYTimes.com",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/views/view-tree.client.view.html",
-		"/Users/mike/Git/ClearNLP-demo-website/app/controllers/trees.server.controller.js",
 		"/Users/mike/Git/ClearNLP-demo-website/README.md",
 		"/Users/mike/Git/ClearNLP-demo-website/cn-online/src/main/java/edu/emory/clir/clearnlp/clearviz/SparkApi.java",
-		"/Users/mike/Git/ClearNLP-demo-website/app/routes/trees.server.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/server.js",
 		"/Users/mike/Git/ClearNLP-demo-website/public/trees/config/trees.client.routes.js",
 		"/Users/mike/Git/ClearNLP-demo-website/.git/COMMIT_EDITMSG",
@@ -848,6 +877,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"createAnnotationHtml",
+			"new",
+			"createAnnotationHtml",
+			"I-",
 			"ryan",
 			"[7",
 			"console.log",
@@ -971,11 +1004,7 @@
 			"data-ng-repeat",
 			"create a new article",
 			"create new article",
-			"create new artcle",
-			"create new",
-			"logout",
-			"var auth",
-			"var auth = function(req, res, next){ if (!req"
+			"create new artcle"
 		],
 		"highlight": true,
 		"in_selection": false,
