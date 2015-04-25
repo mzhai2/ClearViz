@@ -25,7 +25,6 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             initDEPTrees(tree.data);
             $scope.tree = tree;
         });
-        console.log($scope)
     };
 
     $scope.update = function() {
