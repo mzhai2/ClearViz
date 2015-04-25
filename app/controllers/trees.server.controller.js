@@ -162,10 +162,16 @@ exports.annotateNer = function(req, res) {
 };
 
 exports.saveAnnotation = function(req, res) {
-    var tree = req.tree;
-    console.log(req.tree);
+    console.log(req.body);
+    var tree = new Tree();
+    tree.creator = req.user;
+    tree.body = req.body.data;
+    tree.content = req.body.content;
+    tree.title = req.body.title;
+    tree.created = req.body.created;
     tree.save(function(err) {
     if (err) {
+        console.log(err);
         return res.status(400).send({
             message: getErrorMessage(err)
             });
