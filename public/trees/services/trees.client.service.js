@@ -16,7 +16,7 @@ angular.module('trees').factory('saveAnnotations', ['$resource', function($resou
     return $resource (
         'api/trees/:treeId/saveAnnotation',
         { treeId: '@_id'},
-        { saveAnnotate: {method: 'POST'}});
+        { saveAnnotation: {method: 'POST'}});
 }]);
 
 // directive to render annotation
@@ -60,7 +60,7 @@ angular.module('trees').factory('annotationFactory', function() {
         var div = document.getElementById('annotation');
         var childNodes = div.childNodes[1].childNodes;
         var treeData = [];
-        var data = $scope.tree.data;
+        var data = tree.data;
 
         d3.tsv.parseRows(data, function(data) {
             if(data[1])
@@ -112,7 +112,6 @@ angular.module('trees').factory('annotationFactory', function() {
 		var out = "<p>";
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[9]) {
-                console.log(data);
 				var NERtag = data[9];
 				if (NERtag === "O" || NERtag.charAt(0) === "I") 
 					out+=" " + data[1] + " ";

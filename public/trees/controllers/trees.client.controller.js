@@ -1,4 +1,4 @@
-angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', '$window', '$q', '$timeout', 'Trees', 'Annotations', 'annotationFactory', function($scope, $rootScope, $routeParams, $location, $cookieStore, $window, $q, $timeout, Trees, Annotations, annotationFactory) {
+angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '$routeParams', '$location', '$cookieStore', '$window', '$q', '$timeout', 'Trees', 'Annotations', 'annotationFactory', 'saveAnnotations', function($scope, $rootScope, $routeParams, $location, $cookieStore, $window, $q, $timeout, Trees, Annotations, annotationFactory, saveAnnotations) {
     $rootScope.loggedIn = $cookieStore.get('loggedin');
     $scope.create = function() {
         var tree = new Trees({
@@ -53,7 +53,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         }
     };
     $scope.annotateNer = function() {
-        var tsv = annotationFactory.parseTree($scope.tree);
+        var tsv = annotationFactory.parseAnnotations($scope.tree);
         var req = new Annotations($scope.tree);
         req.data=tsv;
 
@@ -68,10 +68,10 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
     };
 
     $scope.saveAnnotation = function() {
-        var tsv = annotationFactory.parseTree($scope.tree);
-        var req = new Tree($scope.tree);
+        var tsv = annotationFactory.parseAnnotations($scope.tree);
+        var req = new saveAnnotations($scope.tree);
         req.data = tsv;
-
+        console.log(req.data);
         req.$saveAnnotation(function(response) {
             $window.alert("saved");
         },
