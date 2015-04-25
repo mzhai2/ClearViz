@@ -23,3 +23,5 @@ angular.module('mean').config(['$locationProvider', '$httpProvider', function($l
     $locationProvider.hashPrefix('!');
     $httpProvider.interceptors.push('interceptor');
 }]);
+
+var tags = ['PERSON','NORP','FAC','ORG','GPE','LOC','PRODUCT','EVENT','WORK_OF_ART','LAW','LANGUAGE','DATE','TIME','PERCENT','MONEY','QUANTITY','ORDINAL','CARDINAL'];

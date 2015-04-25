@@ -84,26 +84,53 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
 
     $rootScope.$on('keypress', function (evt, obj, key) {
         if (key == 'z')
-            highlightOrganization();
+            highlight('ORG');
         if (key == 'x')
-            highlightLocation();
+            highlight('LOC');
         if (key == 'c')
-            highlightPerson();
+            highlight('PERSON');
+        if (key == 'a')
+            highlight('GPE');
+        if (key == 's')
+            highlight('FAC');
+        if (key == 'd')
+            highlight('NORP');
+        if (key == 'f')
+            highlight('PRODUCT');
+        if (key == 'q')
+            highlight('EVENT');
+        if (key == 'w')
+            highlight('WORK_OF_ART');
+        if (key == 'e')
+            highlight('LAW');
+        if (key == 'r')
+            highlight('LANGUAGE');
+
         if (key == 'v')
             removeTag();
+    });
+    $('#sidebar').affix({
+        offset: {
+            top: 245
+        }
+    });
+    var $body   = $(document.body);
+    var navHeight = $('.navbar').outerHeight(true) + 10;
+    $body.scrollspy({
+        target: '#leftCol',
+        offset: navHeight
     });
 
     $('#create').modal({show:false});
     $('body').removeClass('modal-open');
     $('.modal-backdrop').removeClass("modal-backdrop");
+
+
 }]);
 
-Array.prototype.clean = function(deleteValue) {
-    for (var i = 0; i < this.length; i++) {
-        if (this[i] == deleteValue) {         
-            this.splice(i, 1);
-            i--;
-        }
-    }
-    return this;
-};
+function checkOffset() {
+    if($('#leftCol').offset().top + $('#leftCol').height() >= $('#css_deptree_canvas').offset().top - 10)
+        $('#leftCol').css('position', 'absolute');
+    if($(document).scrollTop() + window.innerHeight < $('#css_deptree_canvas').offset().top)
+        $('#leftCol').css('position', 'fixed'); // restore when you scroll up
+}

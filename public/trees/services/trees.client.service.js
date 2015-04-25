@@ -116,26 +116,22 @@ angular.module('trees').factory('annotationFactory', function() {
 		d3.tsv.parseRows(tree.data, function(data) {
 			if (data[9]) {
 				var NERtag = data[9];
-				if (NERtag === "O" || NERtag.charAt(0) === "I") 
-					out+=" " + data[1] + " ";
-				else if (NERtag === "U-PER")
-					out+=' <span class="Person">' + data[1] + "</span> ";
-				else if (NERtag === "U-ORG") 
-					out+=' <span class="Organization">' + data[1] + "</span> ";
-				else if (NERtag === "U-LOC")
-					out+=' <span class="Location">' + data[1] + "</span> ";
-                else if (NERtag === "U-MISC")
-                    out+=' <span class="MISC">' + data[1] + "</span> ";
-				else if (NERtag === "B-PER") 
-					out+=' <span class="Person">' + data[1] + " ";
-				else if (NERtag === "B-ORG")
-					out+=' <span class="Organization">' + data[1] + " ";
-				else if (NERtag === "B-LOC")
-					out+=' <span class="Location">' + data[1] + " ";
-                else if (NERtag === "B-MISC")
-                    out+=' <span class="MISC">' + data[1] + "</span> ";
-				else if (NERtag.charAt(0) === "L")
-					out+=data[1] + "</span> ";
+				if (NERtag === 'O' || NERtag.charAt(0) === 'I')
+                {
+					out+=' ' + data[1] + ' ';
+                }
+				else if (NERtag.charAt(0) === 'U')
+                {
+					out+=' <span class="' + NERtag + '">' + data[1] + '</span> ';
+                }
+                else if (NERtag.charAt(0) === "B")
+                {
+					out+=' <span class="'+ NERtag +'">' + data[1] + ' ';
+                }
+                else if (NERtag.charAt(0) === "L")
+                {
+					out+=data[1] + '</span> ';
+                }
 			}
 		});
 		out+='</p>';
@@ -155,14 +151,20 @@ angular.module('trees').directive('keypressEvents', function($document, $rootSco
     };
 });
 
+Array.prototype.clean = function(deleteValue) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == deleteValue) {         
+            this.splice(i, 1);
+            i--;
+        }
+    }
+    return this;
+};
+
 function removeTag() {
     var range = window.getSelection().getRangeAt(0);
     var node = $(range.commonAncestorContainer);
     if (node.parent().is("span")) {
         node.unwrap();
     }
-}
-
-function parseTSV() {
-
 }
