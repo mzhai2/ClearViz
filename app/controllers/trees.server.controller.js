@@ -165,7 +165,7 @@ exports.saveAnnotation = function(req, res) {
     console.log(req.body);
     var tree = new Tree();
     tree.creator = req.user;
-    tree.body = req.body.data;
+    tree.data = req.body.data;
     tree.content = req.body.content;
     tree.title = req.body.title;
     tree.created = req.body.created;
