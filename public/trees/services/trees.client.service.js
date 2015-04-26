@@ -104,8 +104,10 @@ angular.module('trees').factory('annotationFactory', function() {
     };
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
+        console.log(tree)
 		var out = "<p>";
         tsv = parseTSV(tree.data);
+        console.log(tsv)
         for(var i in tsv) {
             data = tsv[i];
 			if (data[9]) {
