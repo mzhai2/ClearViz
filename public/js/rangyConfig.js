@@ -1,4 +1,3 @@
-var serializedHighlights = decodeURIComponent(window.location.search.slice(window.location.search.indexOf("=") + 1));
 var highlighter;
 var initialDoc;
 
@@ -13,11 +12,6 @@ window.onload = function() {
             ignoreWhiteSpace: true,
             tagNames: ["span", "a"]
         }));
-        console.log(tags[tag]);
-    }
-
-    if (serializedHighlights) {
-        highlighter.deserialize(serializedHighlights);
     }
 };
 

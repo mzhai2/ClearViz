@@ -19,7 +19,6 @@ angular.module('trees').factory('saveAnnotations', ['$resource', function($resou
         { saveAnnotation: {method: 'PUT'}});
 }]);
 
-// directive to render annotation
 angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$timeout', function(annotationFactory, $timeout) {
 	return {
 		restrict: 'EA',
