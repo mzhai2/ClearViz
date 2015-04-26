@@ -79,8 +79,6 @@ angular.module('trees').factory('annotationFactory', function() {
             }
             if (node.nodeType == 1) {
                 var name = node.className;
-                if (name === 'WORK_OF_ART')
-                    console.log(name);
                 words = node.innerHTML.split(" ").clean("");
                 if (words.length == 1)
                     treeData[getNext(treeData)][9] = "U-" + name;
@@ -107,9 +105,12 @@ angular.module('trees').factory('annotationFactory', function() {
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
 		var out = "<p>";
-		d3.tsv.parseRows(tree.data, function(data) {
+        tsv = parseTSV(tree.data);
+        for(var i in tsv) {
+            data = tsv[i];
 			if (data[9]) {
 				var NERtag = data[9];
+                
 				if (NERtag === 'O' || NERtag.charAt(0) === 'I')
                 {
 					out+=' ' + data[1] + ' ';
@@ -119,16 +120,16 @@ angular.module('trees').factory('annotationFactory', function() {
                 {
 					out+=' <span class="' + NERtag.substring(2) + '">' + data[1] + '</span> ';
                 }
-                else if (NERtag.charAt(0) === "B")
+                else if (NERtag.charAt(0) === 'B')
                 {
 					out+=' <span class="'+ NERtag.substring(2) +'">' + data[1] + ' ';
                 }
-                else if (NERtag.charAt(0) === "L")
+                else if (NERtag.charAt(0) === 'L')
                 {
 					out+=data[1] + '</span> ';
                 }
 			}
-		});
+		}
 		out+='</p>';
 		return out;
 	};
@@ -155,6 +156,20 @@ Array.prototype.clean = function(deleteValue) {
     }
     return this;
 };
+function parseTSV(tree) {
+    var line, lines = tree.split('\n').clean("");
+    var element, elements;
+    var data = [];
+    for (line in lines)
+    {
+        if (typeof(lines[line]) === 'string')
+        {
+            elements = lines[line].split('\t').clean("");
+            data.push(elements);
+        }
+    }
+    return data;
+}
 function enableKeypress() {
     keypressOn = true;
 }
