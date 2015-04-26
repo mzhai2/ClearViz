@@ -170,12 +170,7 @@ function parseTSV(tree) {
     }
     return data;
 }
-function enableKeypress() {
-    keypressOn = true;
-}
-function disableKeypress() {
-    keypressOn = false;
-}
+
 function removeTag() {
     var range = window.getSelection().getRangeAt(0);
     var node = $(range.commonAncestorContainer);
