@@ -84,7 +84,7 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
 
     $rootScope.$on('keypress', function (evt, obj, key) {
         if (key == 'c')
-        highlight('PERSON');
+            highlight('PERSON');
         if (key == 'd')
             highlight('NORP');
         if (key == 's')

@@ -80,6 +80,8 @@ angular.module('trees').factory('annotationFactory', function() {
             }
             if (node.nodeType == 1) {
                 var name = node.className;
+                if (name === 'WORK_OF_ART')
+                    console.log(name);
                 words = node.innerHTML.split(" ").clean("");
                 if (words.length == 1)
                     treeData[getNext(treeData)][9] = "U-" + name;
