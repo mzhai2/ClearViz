@@ -80,9 +80,15 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         });
         $scope.tree.data = tsv;
     };
-    keypressOn = false;
+    $scope.enableKeypress = function() {
+        $scope.keypressOn = true;
+    };
+    $scope.disableKeypress = function() {
+        $scope.keypressOn = false;
+    };
+
     $rootScope.$on('keypress', function (evt, obj, key) {
-        if (keypressOn) {
+        if ($scope.keypressOn) {
             if (key == 'c')
                 highlight('PERSON');
             if (key == 'd')
