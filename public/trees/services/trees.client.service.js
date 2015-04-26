@@ -30,8 +30,6 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 		controller: function($scope, $element) {
 			$scope.$watch('isolatedTree', function (newValue, oldValue) {
                 if (newValue && newValue != oldValue) {
-                    // console.log("old" + oldValue);
-                    // console.log("new" + newValue);
 					var htmlText = annotationFactory.createAnnotationHtml(newValue);
                     var replacementElement = angular.element(htmlText);
                     $element.replaceWith(replacementElement);
@@ -65,7 +63,7 @@ angular.module('trees').factory('annotationFactory', function() {
             if(data[0])
                 treeData[treeData.length] = data;
             else {
-                treeData[treeData.length] = ["NEWSENTENCE"]; // adds spacer
+                treeData[treeData.length] = ["NEWSENTENCE"];
             }
         });
         var i,k;
@@ -81,12 +79,7 @@ angular.module('trees').factory('annotationFactory', function() {
                 }
             }
             if (node.nodeType == 1) {
-                var name;
-                if (node.className.substring(0,4).toUpperCase() === "MISC")
-                    name = "MISC";
-                else {
-                    name = node.className.substring(0,3).toUpperCase();
-                }
+                var name = node.className;
                 words = node.innerHTML.split(" ").clean("");
                 if (words.length == 1)
                     treeData[getNext(treeData)][9] = "U-" + name;

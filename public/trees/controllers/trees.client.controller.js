@@ -83,18 +83,18 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
     };
 
     $rootScope.$on('keypress', function (evt, obj, key) {
-        if (key == 'z')
-            highlight('ORG');
-        if (key == 'x')
-            highlight('LOC');
         if (key == 'c')
-            highlight('PERSON');
-        if (key == 'a')
-            highlight('GPE');
-        if (key == 's')
-            highlight('FAC');
+        highlight('PERSON');
         if (key == 'd')
             highlight('NORP');
+        if (key == 's')
+            highlight('FAC');
+        if (key == 'z')
+            highlight('ORG');
+        if (key == 'a')
+            highlight('GPE');
+        if (key == 'x')
+            highlight('LOC');
         if (key == 'f')
             highlight('PRODUCT');
         if (key == 'q')
@@ -114,13 +114,6 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
             top: 245
         }
     });
-    var $body   = $(document.body);
-    var navHeight = $('.navbar').outerHeight(true) + 10;
-    $body.scrollspy({
-        target: '#leftCol',
-        offset: navHeight
-    });
-
     $('#create').modal({show:false});
     $('body').removeClass('modal-open');
     $('.modal-backdrop').removeClass("modal-backdrop");
@@ -128,9 +121,3 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
 
 }]);
 
-function checkOffset() {
-    if($('#leftCol').offset().top + $('#leftCol').height() >= $('#css_deptree_canvas').offset().top - 10)
-        $('#leftCol').css('position', 'absolute');
-    if($(document).scrollTop() + window.innerHeight < $('#css_deptree_canvas').offset().top)
-        $('#leftCol').css('position', 'fixed'); // restore when you scroll up
-}
