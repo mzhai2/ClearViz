@@ -155,7 +155,12 @@ Array.prototype.clean = function(deleteValue) {
     }
     return this;
 };
-
+function enableKeypress() {
+    keypressOn = true;
+}
+function disableKeypress() {
+    keypressOn = false;
+}
 function removeTag() {
     var range = window.getSelection().getRangeAt(0);
     var node = $(range.commonAncestorContainer);

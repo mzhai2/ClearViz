@@ -80,33 +80,34 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
         });
         $scope.tree.data = tsv;
     };
-
+    keypressOn = false;
     $rootScope.$on('keypress', function (evt, obj, key) {
-        if (key == 'c')
-            highlight('PERSON');
-        if (key == 'd')
-            highlight('NORP');
-        if (key == 's')
-            highlight('FAC');
-        if (key == 'z')
-            highlight('ORG');
-        if (key == 'a')
-            highlight('GPE');
-        if (key == 'x')
-            highlight('LOC');
-        if (key == 'f')
-            highlight('PRODUCT');
-        if (key == 'q')
-            highlight('EVENT');
-        if (key == 'w')
-            highlight('WORK_OF_ART');
-        if (key == 'e')
-            highlight('LAW');
-        if (key == 'r')
-            highlight('LANGUAGE');
-
-        if (key == 'v')
-            removeTag();
+        if (keypressOn) {
+            if (key == 'c')
+                highlight('PERSON');
+            if (key == 'd')
+                highlight('NORP');
+            if (key == 's')
+                highlight('FAC');
+            if (key == 'z')
+                highlight('ORG');
+            if (key == 'a')
+                highlight('GPE');
+            if (key == 'x')
+                highlight('LOC');
+            if (key == 'f')
+                highlight('PRODUCT');
+            if (key == 'q')
+                highlight('EVENT');
+            if (key == 'w')
+                highlight('WORK_OF_ART');
+            if (key == 'e')
+                highlight('LAW');
+            if (key == 'r')
+                highlight('LANGUAGE');
+            if (key == 'v')
+                removeTag();
+        }
     });
     $('#sidebar').affix({
         offset: {
@@ -116,7 +117,4 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
     $('#create').modal({show:false});
     $('body').removeClass('modal-open');
     $('.modal-backdrop').removeClass("modal-backdrop");
-
-
 }]);
-
