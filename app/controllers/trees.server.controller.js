@@ -1,6 +1,8 @@
 var mongoose = require('mongoose'),
 Tree = mongoose.model('Tree');
 
+address = '52.4.190.241';
+
 var getErrorMessage = function(err) {
     if (err.errors) {
         for (var errName in err.errors) {
@@ -17,7 +19,7 @@ exports.create = function(req, res) {
     request(
     {
         method: 'POST',
-        uri: 'http://52.6.179.224:4567/deptree',
+        uri: 'http://' + address + ':4567/deptree',
         headers: {
             'content-type': 'application/json'
         },
@@ -74,7 +76,7 @@ exports.update = function(req, res) {
     request(
     {
         method: 'POST',
-        uri: 'http://52.6.179.224:4567/deptree',
+        uri: 'http://' + address + ':4567/deptree',
         headers: {
             'content-type': 'application/json'
         },
@@ -131,7 +133,7 @@ exports.annotateNer = function(req, res) {
     request(
     {
         method: 'POST',
-        uri: 'http://52.6.179.224:4567/annotatener',
+        uri: 'http://' + address + ':4567/annotatener',
         headers: {
             'content-type': 'application/json'
         },

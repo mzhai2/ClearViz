@@ -113,13 +113,14 @@ angular.module('trees').factory('annotationFactory', function() {
                 {
 					out+=' ' + data[1] + ' ';
                 }
+
 				else if (NERtag.charAt(0) === 'U')
                 {
-					out+=' <span class="' + NERtag + '">' + data[1] + '</span> ';
+					out+=' <span class="' + NERtag.substring(2) + '">' + data[1] + '</span> ';
                 }
                 else if (NERtag.charAt(0) === "B")
                 {
-					out+=' <span class="'+ NERtag +'">' + data[1] + ' ';
+					out+=' <span class="'+ NERtag.substring(2) +'">' + data[1] + ' ';
                 }
                 else if (NERtag.charAt(0) === "L")
                 {
