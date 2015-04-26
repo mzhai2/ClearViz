@@ -48,32 +48,25 @@ angular.module('trees').directive('annotationDisplay', ['annotationFactory', '$t
 angular.module('trees').factory('annotationFactory', function() {
 	var factory = {};
     factory.parseAnnotations = function(tree) {
-        function getNext(treeData) {
-            getNext.count = ++getNext.count || 0;
-            if (treeData[getNext.count][0] === "NEWSENTENCE")
-                getNext.count++;
-            return getNext.count;
-        }
         var div = document.getElementById('annotation');
         var childNodes = div.childNodes[1].childNodes;
-        var data = tree.data;
         var treeData = [];
-        d3.tsv.parseRows(data, function(data) {
-            if(data[0])
-                treeData[treeData.length] = data;
-            else {
-                treeData[treeData.length] = ["NEWSENTENCE"];
-            }
-        });
-        var i,k;
+        var tsv = parseTSV(tree.data);
+        var k,i;
+        for(i in tsv) {
+            data = tsv[i];
+            if(data.length == 10)
+                treeData.push(data);
+        }
         var words, word;
+        var count=0;
         for (i=0; i < childNodes.length; i++) {
             var node = childNodes[i];
             if (node.nodeType == 3) {
                 words = node.nodeValue.split(" ").clean("");
                 for (k=0; k<words.length; k++) {
                     if (words[k]) {
-                        treeData[getNext(treeData)][9] = "O";
+                        treeData[count++][9] = "O";
                     }
                 }
             }
@@ -81,33 +74,25 @@ angular.module('trees').factory('annotationFactory', function() {
                 var name = node.className;
                 words = node.innerHTML.split(" ").clean("");
                 if (words.length == 1)
-                    treeData[getNext(treeData)][9] = "U-" + name;
+                    treeData[count++][9] = "U-" + name;
                 else {
-                    treeData[getNext(treeData)][9] = "B-" + name;
+                    treeData[count++][9] = "B-" + name;
                     for (k=1; k<words.length-1; k++) {
-                        treeData[getNext(treeData)][9] = "I-" + name;
+                        treeData[count++][9] = "I-" + name;
                     }
-                    treeData[getNext(treeData)][9] = "L-" + name;
+                    treeData[count++][9] = "L-" + name;
                 }
             }
         }
-        var tsv = "";
-        for (i=0;i<treeData.length;i++) {
-            if (treeData[i][0] === "NEWSENTENCE")
-                tsv+="\n";
-            else {
-                tsv+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\t"+treeData[i][8]+"\t"+treeData[i][9]+"\n";
-            }
-        }
-        getNext.count = 0;
-        return tsv;
+        var treeString = "";
+        for (i=0;i<treeData.length;i++)
+            treeString+=treeData[i][0]+"\t"+treeData[i][1]+"\t"+treeData[i][2]+"\t"+treeData[i][3]+"\t"+treeData[i][4]+"\t"+treeData[i][5]+"\t"+treeData[i][6]+"\t"+treeData[i][7]+"\t"+treeData[i][8]+"\t"+treeData[i][9]+"\n";
+        return treeString;
     };
 	factory.createAnnotationHtml = function(tree) {
 		var tree = JSON.parse(tree);
-        console.log(tree)
 		var out = "<p>";
         tsv = parseTSV(tree.data);
-        console.log(tsv)
         for(var i in tsv) {
             data = tsv[i];
 			if (data[9]) {
