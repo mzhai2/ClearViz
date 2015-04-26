@@ -111,6 +111,22 @@ angular.module('trees').controller('TreesController', ['$scope', '$rootScope', '
                 highlight('LAW');
             if (key == 'r')
                 highlight('LANGUAGE');
+            if (key == '1')
+                highlight('DATE');
+            if (key == '2')
+                highlight('TIME');
+            if (key == '3')
+                highlight('PERCENT');
+            if (key == '4')
+                highlight('MONEY');
+            if (key == '5')
+                highlight('QUANTITY');
+            if (key == '6')
+                highlight('ORDINAL');
+            if (key == '7')
+                highlight('CARDINAL');
+            if (key == '8')
+                highlight('MISC');
             if (key == 'v')
                 removeTag();
         }
