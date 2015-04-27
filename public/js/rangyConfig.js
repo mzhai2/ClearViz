@@ -16,7 +16,6 @@ window.onload = function() {
 };
 
 function highlight(type) {
-    console.log(type);
     highlighter.highlightSelection(type);
 }
 function removeHighlightFromSelectedText() {

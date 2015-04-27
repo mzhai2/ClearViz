@@ -62,25 +62,30 @@ angular.module('trees').factory('annotationFactory', function() {
         var count=0;
         for (i=0; i < childNodes.length; i++) {
             var node = childNodes[i];
-            if (node.nodeType == 3) {
-                words = node.nodeValue.split(" ").clean("");
+            
+            if (node.nodeType == 3 && node.parentNode.nodeType == 1) {
+                words = node.nodeValue.split(" ").clean("").clean(" ");
                 for (k=0; k<words.length; k++) {
                     if (words[k]) {
-                        treeData[count++][9] = "O";
+                        if (treeData[count] !== undefined)
+                            treeData[count++][9] = "O";
                     }
                 }
             }
             if (node.nodeType == 1) {
                 var name = node.className;
                 words = node.innerHTML.split(" ").clean("");
-                if (words.length == 1)
+                if (words.length == 1 && treeData[count] !== undefined)
                     treeData[count++][9] = "U-" + name;
                 else {
-                    treeData[count++][9] = "B-" + name;
+                    if (treeData[count] !== undefined)
+                        treeData[count++][9] = "B-" + name;
                     for (k=1; k<words.length-1; k++) {
-                        treeData[count++][9] = "I-" + name;
-                    }
-                    treeData[count++][9] = "L-" + name;
+                        if (treeData[count] !== undefined)
+                            treeData[count++][9] = "I-" + name;
+                        }
+                    if (treeData[count] !== undefined)
+                        treeData[count++][9] = "L-" + name;
                 }
             }
         }
